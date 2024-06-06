@@ -1,0 +1,25 @@
+clusterName: perpetulab-cluster
+
+talosVersion: v1.7.4
+kubernetesVersion: v1.30.1
+
+endpoint: https://192.168.1.4:6443
+allowSchedulingOnMasters: true
+#cniConfig:
+#  name: none
+
+nodes:
+  - hostname: homeserver
+    ipAddress: 192.168.1.4
+    talosImageURL: ghcr.io/siderolabs/installer
+    installDiskSelector:
+      size: '< 65GB'
+      model: 'SanDisk 3.2Gen1'
+    controlPlane: true
+    nameservers:
+      - 1.1.1.1
+      - 8.8.8.8
+#    machineDisks:
+#      - device: /dev/disk/by-id/ata-CT2000MX500SSD1_2405E895C800
+#        partitions:
+#          - mountpoint: /var/openebs/local
