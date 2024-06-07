@@ -73,3 +73,41 @@ Add to kubeconfig:
 ```shell
 talosctl kubeconfig
 ```
+
+Create observability namespace:
+```shell
+kubectl apply -f kubernetes/observability/observability-namespace.yaml
+```
+
+Install prometheus-operator-crds:
+```shell
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+```
+```shell
+helm install prometheus-operator-crds prometheus-community/prometheus-operator-crds --namespace observability
+```
+Install cilium:
+```shell
+helm repo add cilium https://helm.cilium.io/
+helm repo update
+```
+```shell
+helm install cilium cilium/cilium -f kubernetes/kube-system/cilium/values.yaml --namespace kube-system
+```
+
+Add ip pools:
+```shell
+kubectl apply -f kubernetes/kube-system/cilium/external-ip-pool.yaml
+kubectl apply -f kubernetes/kube-system/cilium/internal-ip-pool.yaml
+```
+
+Create traefik namespace:
+```shell
+kubectl apply -f kubernetes/traefik/namespace.yaml
+```
+
+Install traefik:
+```shell
+helm install -n=traefik traefik traefik/traefik -f kubernetes/traefik/values.yaml
+```

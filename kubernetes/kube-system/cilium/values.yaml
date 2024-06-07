@@ -1,0 +1,47 @@
+ipam:
+  mode: kubernetes
+
+cgroup:
+  automount:
+    enabled: false
+  hostRoot: /sys/fs/cgroup
+
+operator:
+  replicas: 1
+
+devices:
+  - enp3s0
+
+kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
+k8sServiceHost: 127.0.0.1
+k8sServicePort: 7445
+kubeProxyReplacement: true
+l2announcements:
+  enabled: true
+k8sClientRateLimit:
+  qps: 30
+  burst: 60
+
+externalIPs:
+  enable: true
+
+rollOutCiliumPods: true
+
+securityContext:
+  capabilities:
+    ciliumAgent:
+      - CHOWN
+      - KILL
+      - NET_ADMIN
+      - NET_RAW
+      - IPC_LOCK
+      - SYS_ADMIN
+      - SYS_RESOURCE
+      - DAC_OVERRIDE
+      - FOWNER
+      - SETGID
+      - SETUID
+    cleanCiliumState:
+      - NET_ADMIN
+      - SYS_ADMIN
+      - SYS_RESOURCE

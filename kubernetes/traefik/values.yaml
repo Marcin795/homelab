@@ -1,0 +1,31 @@
+service:
+  spec:
+    loadBalancerIP: "192.168.1.200"
+  additionalServices:
+    internal:
+      spec:
+        loadBalancerIP: "192.168.1.3"
+      type: LoadBalancer
+      labels:
+        traefik-service-label: internal
+ports:
+  traefik:
+    expose:
+      # Sensitive data should not be exposed on the internet
+      # => Keep this disabled !
+      default: false
+      internal: true
+
+#    internal:
+#      type: LoadBalancer
+#      spec:
+#        loadBalancerIP: "192.168.1.3"
+#        ports:
+#          - name: web
+#            port: 80
+#            protocol: TCP
+#            targetPort: web
+#          - name: websecure
+#            port: 443
+#            protocol: TCP
+#            targetPort: websecure
