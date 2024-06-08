@@ -47,5 +47,6 @@ spec:
           name: media-vol
   volumes:
     - name: media-vol
-      persistentVolumeClaim:
-        claimName: media-claim
+      hostPath:
+        path: /var/openebs/local/media
+        type: DirectoryOrCreate
