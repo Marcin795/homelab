@@ -23,11 +23,13 @@ spec:
       persistentVolumeClaim:
         claimName: localpv-vol
     - name: media-vol
-      persistentVolumeClaim:
-        claimName: media-claim
+      hostPath:
+        path: /var/openebs/local/media
+        type: DirectoryOrCreate
     - name: root-vol
-      persistentVolumeClaim:
-        claimName: root-claim
+      hostPath:
+        path: /var/openebs/local
+        type: DirectoryOrCreate
 ---
 apiVersion: v1
 kind: Pod
