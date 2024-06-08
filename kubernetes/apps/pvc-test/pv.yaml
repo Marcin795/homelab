@@ -5,6 +5,8 @@ metadata:
   namespace: pvc-test
 spec:
   storageClassName: manual
+  capacity:
+    storage: 1Gi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
@@ -20,6 +22,8 @@ metadata:
   namespace: pvc-test
 spec:
   storageClassName: manual
+  capacity:
+    storage: 1Gi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
@@ -36,6 +40,9 @@ metadata:
 spec:
   storageClassName: manual
   volumeName: media-pv
+  resources:
+    requests:
+      storage: 1Gi
   accessModes:
     - ReadWriteMany
 ---
@@ -47,5 +54,8 @@ metadata:
 spec:
   storageClassName: manual
   volumeName: root-pv
+  resources:
+    requests:
+      storage: 1Gi
   accessModes:
     - ReadWriteMany
