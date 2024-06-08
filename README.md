@@ -56,7 +56,7 @@ git add talsecret.sops.yaml
 
 Generate config:
 ```shell
-talhelper genconfig
+talhelper genconfig --no-gitignore
 ```
 
 Apply config:
