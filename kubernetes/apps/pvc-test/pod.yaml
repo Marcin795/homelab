@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: pvc-test
+spec:
+  containers:
+    - command:
+        - sh
+        - -c
+        - 'date >> /mnt/data/date.txt; hostname >> /mnt/data/hostname.txt; sync; sleep 5; sync; tail -f /dev/null;'
+      image: busybox
+      name: busybox
+      volumeMounts:
+        - mountPath: /mnt/data
+          name: demo-vol
+  volumes:
+    - name: demo-vol
+      persistentVolumeClaim:
+        claimName: localpv-vol
