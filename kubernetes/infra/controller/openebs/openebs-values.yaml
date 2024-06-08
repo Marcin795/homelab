@@ -1,0 +1,18 @@
+engines:
+  local:
+    lvm:
+      enabled: false
+    zfs:
+      enabled: false
+  replicated:
+    mayastor:
+      enabled: false
+openebs-crds:
+  csi:
+    volumeSnapshots:
+      enabled: false
+localpv-provisioner:
+  hostpathClass:
+    isDefaultClass: true
+    basePath: /var/openebs/local
+    reclaimPolicy: Retain
