@@ -14,7 +14,38 @@ spec:
       volumeMounts:
         - mountPath: /mnt/data
           name: demo-vol
+        - mountPath: /mnt/media
+          name: media-vol
+        - mountPath: /mnt/root
+          name: root-vol
   volumes:
     - name: demo-vol
       persistentVolumeClaim:
         claimName: localpv-vol
+    - name: media-vol
+      persistentVolumeClaim:
+        claimName: media-claim
+    - name: root-vol
+      persistentVolumeClaim:
+        claimName: root-claim
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox2
+  namespace: pvc-test
+spec:
+  containers:
+    - command:
+        - sh
+        - -c
+        - 'date >> /mnt/media/date2.txt; hostname >> /mnt/media/hostname2.txt; sync; sleep 5; sync; tail -f /dev/null;'
+      image: busybox
+      name: busybox
+      volumeMounts:
+        - mountPath: /mnt/media
+          name: media-vol
+  volumes:
+    - name: media-vol
+      persistentVolumeClaim:
+        claimName: media-claim
