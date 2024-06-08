@@ -74,6 +74,8 @@ Add to kubeconfig:
 talosctl kubeconfig
 ```
 
+#### Step 2.5 - add networking to finish cluster setup
+
 Create observability namespace:
 ```shell
 kubectl apply -f kubernetes/observability/observability-namespace.yaml
@@ -87,6 +89,7 @@ helm repo update
 ```shell
 helm install prometheus-operator-crds prometheus-community/prometheus-operator-crds --namespace observability
 ```
+
 Install cilium:
 ```shell
 helm repo add cilium https://helm.cilium.io/
@@ -110,4 +113,24 @@ kubectl apply -f kubernetes/traefik/namespace.yaml
 Install traefik:
 ```shell
 helm install -n=traefik traefik traefik/traefik -f kubernetes/traefik/values.yaml
+```
+
+#### Step 3 - setup flux
+
+Create GitHub deploy key:
+
+```shell
+mkdir keys
+ssh-keygen -t ecdsa -b 521 -C "github-deploy-key" -f keys/github-deploy.key -q -P ""
+```
+
+Add `keys/github-deploy.key.pub` to repository deploy keys (read only).
+
+Bootstrap flux:
+```shell
+flux bootstrap git \
+  --url=ssh://git@github.com/Marcin795/perpetulab.git \
+  --branch=master \
+  --private-key-file=keys/github-deploy.key \
+  --path=kubernetes 
 ```
