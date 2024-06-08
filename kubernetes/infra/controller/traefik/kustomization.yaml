@@ -6,6 +6,7 @@ resources:
   - release.yaml
 configMapGenerator:
   - name: traefik-values
+    namespace: traefik
     files:
       - values.yaml=traefik-values.yaml
 configurations:
