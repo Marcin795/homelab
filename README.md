@@ -96,7 +96,7 @@ helm repo add cilium https://helm.cilium.io/
 helm repo update
 ```
 ```shell
-helm install cilium cilium/cilium -f kubernetes/kube-system/cilium/values.yaml --namespace kube-system
+helm install cilium cilium/cilium -f kubernetes/infra/controller/kube-system/cilium/cilium-values.yaml --namespace kube-system
 ```
 
 Add ip pools:
