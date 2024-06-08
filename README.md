@@ -112,7 +112,7 @@ kubectl apply -f kubernetes/traefik/namespace.yaml
 
 Install traefik:
 ```shell
-helm install -n=traefik traefik traefik/traefik -f kubernetes/traefik/values.yaml
+helm install -n=traefik traefik traefik/traefik -f kubernetes/infra/controller/traefik/traefik-values.yaml
 ```
 
 #### Step 3 - setup flux
