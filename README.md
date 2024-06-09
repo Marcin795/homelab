@@ -78,7 +78,7 @@ talosctl kubeconfig
 
 Create observability namespace:
 ```shell
-kubectl apply -f kubernetes/observability/observability-namespace.yaml
+kubectl apply -f kubernetes/infra/controller/observability/namespace.yaml
 ```
 
 Install prometheus-operator-crds:
