@@ -33,6 +33,10 @@ nodes:
       - |-
         machine:
           kubelet:
+            extraConfig:
+               serverTLSBootstrap: true            
+            extraArgs:
+              rotate-server-certificates: true
             extraMounts:
               - destination: /var/openebs/local
                 type: bind
