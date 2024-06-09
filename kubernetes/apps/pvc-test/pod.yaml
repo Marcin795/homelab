@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: pvc-test
+spec:
+  containers:
+    - command:
+        - sh
+        - -c
+        - 'date >> /mnt/data/date.txt; hostname >> /mnt/data/hostname.txt; sync; sleep 5; sync; tail -f /dev/null;'
+      image: busybox
+      name: busybox
+      volumeMounts:
+        - mountPath: /mnt/data
+          name: demo-vol
+        - mountPath: /mnt/media
+          name: media-vol
+        - mountPath: /mnt/root
+          name: root-vol
+  volumes:
+    - name: demo-vol
+      persistentVolumeClaim:
+        claimName: localpv-vol
+    - name: media-vol
+      hostPath:
+        path: /var/openebs/local/media
+        type: DirectoryOrCreate
+    - name: root-vol
+      hostPath:
+        path: /var/openebs/local
+        type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox2
+  namespace: pvc-test
+spec:
+  containers:
+    - command:
+        - sh
+        - -c
+        - 'date >> /mnt/media/date2.txt; hostname >> /mnt/media/hostname2.txt; sync; sleep 5; sync; tail -f /dev/null;'
+      image: busybox
+      name: busybox
+      volumeMounts:
+        - mountPath: /mnt/media
+          name: media-vol
+  volumes:
+    - name: media-vol
+      hostPath:
+        path: /var/openebs/local/media
+        type: DirectoryOrCreate
