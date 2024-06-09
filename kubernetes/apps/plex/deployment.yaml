@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: plex
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: plex
+    spec:
+      containers:
+        - name: plex
+          image: plexinc/pms-docker
+          ports:
+            - containerPort: 32400
+              hostPort: 32400
+              protocol: TCP
+            - containerPort: 32400
+              hostPort: 32400
+              protocol: UDP
+            - containerPort: 32469
+              hostPort: 32469
+              protocol: TCP
+            - containerPort: 32469
+              hostPort: 32469
+              protocol: UDP
+            - containerPort: 5353
+              hostPort: 5353
+              protocol: UDP
+            - containerPort: 1900
+              hostPort: 1900
+              protocol: UDP
+          env:
+            - name: TZ
+              value: Europe/Warsaw
+            - name: PLEX_CLAIM
+              value: claim-M87a-ZyyAq-q1Hznaa3h
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /transcode
+              name: transcode
+            - mountPath: /seriale
+              name: series
+      volumes:
+        - name: config
+          hostPath:
+            path: /var/openebs/local/k3s/plex/config
+            type: DirectoryOrCreate
+        - name: transcode
+          hostPath:
+            path: /var/openebs/local/k3s/plex/transcode
+            type: DirectoryOrCreate
+        - name: series
+          hostPath:
+            path: /var/openebs/local/media/video/series
+            type: DirectoryOrCreate
