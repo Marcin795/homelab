@@ -17,4 +17,8 @@ spec:
     spec:
       containers:
         - name: hello-world
+          command:
+            - tail
+            - -f
+            - /dev/null
           image: hello-world
