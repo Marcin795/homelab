@@ -134,3 +134,5 @@ flux bootstrap git \
   --private-key-file=keys/github-deploy.key \
   --path=kubernetes 
 ```
+
+Now flux will take over and deploy the rest of resources in this repository.
