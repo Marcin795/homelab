@@ -12,3 +12,21 @@ spec:
       name: http
   selector:
     app: plex
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: plex-32400
+  namespace: plex
+  labels:
+    app: plex
+  annotations:
+    io.cilium/lb-ipam-ips: 192.168.1.202
+spec:
+  ports:
+    - port: 32400
+      targetPort: 32400
+      name: http
+  selector:
+    app: plex
+  type: LoadBalancer
