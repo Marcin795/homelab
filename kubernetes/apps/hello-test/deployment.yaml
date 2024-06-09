@@ -4,13 +4,16 @@ metadata:
   name: hello-world
   namespace: default
   labels:
-    app.kubernetes.io/name: hello-world
+    app: hello-world
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: hello-world
+      app: hello-world
   template:
+    metadata:
+      labels:
+        app: hello-world
     spec:
       containers:
         - name: hello-world
