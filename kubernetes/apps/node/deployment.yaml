@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node
+  namespace: node
+spec:
+  selector:
+    matchLabels:
+      app: node
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: node
+    spec:
+      containers:
+        - name: node
+          image: node
+          volumeMounts:
+            - mountPath: /node
+              name: node
+      volumes:
+        - name: node
+          hostPath:
+            path: /var/openebs/local/node
+            type: DirectoryOrCreate
