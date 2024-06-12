@@ -16,6 +16,10 @@ spec:
       containers:
         - name: mitmproxy
           tty: true
+          args:
+            - mitmweb
+            - --web-host
+            - 0.0.0.0
           image: mitmproxy/mitmproxy
           ports:
             - containerPort: 8080
