@@ -13,12 +13,12 @@ grafana:
     enabled: true
     existingClaim: grafana-pvc
 
-#prometheus:
-#  prometheusSpec:
-#    storageSpec:
-#      volumeClaimTemplate:
-#        spec:
-#          accessModes: ["ReadWriteOnce"]
-#          selector:
-#            matchLabels:
-#              app: prometheus
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          selector:
+            matchLabels:
+              app: prometheus
