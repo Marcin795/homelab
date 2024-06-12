@@ -1,12 +1,15 @@
-#alertmanager:
-#  alertmanagerSpec:
-#    storage:
-#      volumeClaimTemplate:
-#        spec:
-#          accessModes: ["ReadWriteOnce"]
-#          selector:
-#            matchLabels:
-#              app: alertmanager
+alertmanager:
+  alertmanagerSpec:
+    storage:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
+          selector:
+            matchLabels:
+              app: alertmanager
 
 grafana:
   persistence:
@@ -19,6 +22,9 @@ prometheus:
       volumeClaimTemplate:
         spec:
           accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
           selector:
             matchLabels:
               app: prometheus
