@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: alertmanager-pv
+  namespace: observability
   labels:
     app: alertmanager
 spec:
@@ -17,6 +18,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: grafana-pv
+  namespace: observability
   labels:
     app: grafana
 spec:
@@ -32,6 +34,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: prometheus-pv
+  namespace: observability
   labels:
     app: prometheus
 spec:
