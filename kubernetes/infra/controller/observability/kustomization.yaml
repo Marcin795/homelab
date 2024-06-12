@@ -4,6 +4,8 @@ resources:
   - namespace.yaml
   - repository.yaml
   - release.yaml
+  - volumes/pv.yaml
+  - volumes/pvc.yaml
 configMapGenerator:
   - name: kube-prometheus-stack-values
     namespace: observability
