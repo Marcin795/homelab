@@ -16,15 +16,15 @@ grafana:
     enabled: true
     existingClaim: grafana-pvc
 
-prometheus:
-  prometheusSpec:
-    storageSpec:
-      volumeClaimTemplate:
-        spec:
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              storage: 50Gi
-          selector:
-            matchLabels:
-              app: prometheus
+#prometheus:
+#  prometheusSpec:
+#    storageSpec:
+#      volumeClaimTemplate:
+#        spec:
+#          accessModes: ["ReadWriteOnce"]
+#          resources:
+#            requests:
+#              storage: 50Gi
+#          selector:
+#            matchLabels:
+#              app: prometheus
