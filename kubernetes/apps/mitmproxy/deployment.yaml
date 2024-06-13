@@ -29,10 +29,14 @@ spec:
               hostPort: 8081
               protocol: TCP
           volumeMounts:
-            - mountPath: /.mitmproxy
-              name: config
+            - name: mitmproxy-volume
+              mountPath: /home/mitmproxy/.mitmproxy
+              subPath: .mitmproxy
+            - name: mitmproxy-volume
+              mountPath: /home/mitmproxy/addons
+              subPath: addons
       volumes:
-        - name: config
+        - name: mitmproxy
           hostPath:
             path: /var/openebs/local/mitmproxy
             type: DirectoryOrCreate
