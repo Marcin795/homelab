@@ -10,8 +10,5 @@ configMapGenerator:
     namespace: shitscreen
     files:
       - config.yaml
-  - name: mitmproxy-addons
-    namespace: shitscreen
-    files: []
 configurations:
   - kustomizeconfig.yaml
