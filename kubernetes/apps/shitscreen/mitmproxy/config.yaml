@@ -1,2 +1,3 @@
 scripts:
   - ../addons/counter.py
+  - ../addons/html_filter.py
