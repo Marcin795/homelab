@@ -33,10 +33,13 @@ spec:
             - name: mitmproxy
               mountPath: /home/mitmproxy/.mitmproxy
               subPath: .mitmproxy
-            - name: mitmproxy
+            - name: mitmproxy-addons
               mountPath: /home/mitmproxy/addons
               subPath: addons
       volumes:
+        - name: mitmproxy-addons
+          configMap:
+            name: mitmproxy-addons
         - name: mitmproxy-config
           configMap:
             name: mitmproxy-config

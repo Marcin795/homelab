@@ -1,0 +1,12 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: shitscreen
+  namespace: shitscreen
+spec:
+  interval: 1m0s
+  ref:
+    branch: master
+  secretRef:
+    name: shitscreen
+  url: ssh://git@github.com/Marcin795/shitscreen.git
