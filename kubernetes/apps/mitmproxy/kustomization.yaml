@@ -9,3 +9,5 @@ configMapGenerator:
     namespace: mitmproxy
     files:
       - config.yaml=config.yaml
+configurations:
+  - kustomizeconfig.yaml
