@@ -28,8 +28,8 @@ spec:
               protocol: TCP
           volumeMounts:
             - name: mitmproxy-config
-              mountPath: /home/mitmproxy/.mitmproxy/
-              subPath: .mitmproxy/config.yaml
+              mountPath: /home/mitmproxy/.mitmproxy/config.yaml
+              subPath: config.yaml
             - name: mitmproxy
               mountPath: /home/mitmproxy/.mitmproxy
               subPath: .mitmproxy
