@@ -29,10 +29,10 @@ spec:
               hostPort: 8081
               protocol: TCP
           volumeMounts:
-            - name: mitmproxy-volume
+            - name: mitmproxy
               mountPath: /home/mitmproxy/.mitmproxy
               subPath: .mitmproxy
-            - name: mitmproxy-volume
+            - name: mitmproxy
               mountPath: /home/mitmproxy/addons
               subPath: addons
       volumes:
