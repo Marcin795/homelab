@@ -35,7 +35,6 @@ spec:
               subPath: .mitmproxy
             - name: mitmproxy-addons
               mountPath: /home/mitmproxy/addons
-              subPath: addons
       volumes:
         - name: mitmproxy-addons
           configMap:
