@@ -39,7 +39,7 @@ spec:
       volumes:
         - name: mitmproxy-config
           configMap:
-            name: mitmprox-config
+            name: mitmproxy-config
         - name: mitmproxy
           hostPath:
             path: /var/openebs/local/mitmproxy
