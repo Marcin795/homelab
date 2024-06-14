@@ -46,7 +46,7 @@ spec:
             - /dev/null
 #            - node
 #            - /node/server.js
-          image: node
+          image: ghcr.io/marcin795/shitscreen:latest
           volumeMounts:
             - mountPath: /node
               name: node
