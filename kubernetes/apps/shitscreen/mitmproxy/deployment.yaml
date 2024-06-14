@@ -46,7 +46,8 @@ spec:
           image: node
           volumeMounts:
             - mountPath: /node
-              subPath: app
+              name: node
+            - mountPath: /node/app
               name: node-scripts
       volumes:
         - name: mitmproxy-addons
@@ -62,7 +63,7 @@ spec:
           hostPath:
             path: /var/openebs/local/mitmproxy
             type: DirectoryOrCreate
-        - name: socket
+        - name: node
           hostPath:
             path: /var/openebs/local/node
             type: DirectoryOrCreate
