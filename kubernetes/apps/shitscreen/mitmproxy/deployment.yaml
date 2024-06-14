@@ -45,7 +45,7 @@ spec:
 #            - /node/server.js
           image: node
           volumeMounts:
-            - mountPath: /node
+            - mountPath: /node/app
               name: node-scripts
       volumes:
         - name: mitmproxy-addons
