@@ -61,3 +61,7 @@ spec:
           hostPath:
             path: /var/openebs/local/mitmproxy
             type: DirectoryOrCreate
+        - name: socket
+          hostPath:
+            path: /var/openebs/local/node
+            type: DirectoryOrCreate
