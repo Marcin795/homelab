@@ -21,7 +21,8 @@ spec:
           tty: true
           args:
             - mitmweb
-            - --set anticache=true
+            - --set
+            - anticache=true
             - --web-host
             - 0.0.0.0
           image: mitmproxy/mitmproxy
