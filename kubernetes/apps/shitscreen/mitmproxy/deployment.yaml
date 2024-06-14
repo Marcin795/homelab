@@ -1,18 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mitmproxy
+  name: shitscreen
   namespace: shitscreen
 spec:
   selector:
     matchLabels:
-      app: mitmproxy
+      app: shitscreen
   replicas: 1
   template:
     metadata:
       labels:
-        app: mitmproxy
+        app: shitscreen
     spec:
+      shareProcessNamespace: true
       containers:
         - name: mitmproxy
           tty: true
@@ -35,10 +36,24 @@ spec:
               subPath: .mitmproxy
             - name: mitmproxy-addons
               mountPath: /home/mitmproxy/addons
+        - name: node
+          command:
+            - tail
+            - -f
+            - /dev/null
+#            - node
+#            - /node/server.js
+          image: node
+          volumeMounts:
+            - mountPath: /node
+              name: node-scripts
       volumes:
         - name: mitmproxy-addons
           configMap:
             name: mitmproxy-addons
+        - name: node-scripts
+          configMap:
+            name: node-scripts
         - name: mitmproxy-config
           configMap:
             name: mitmproxy-config
