@@ -51,7 +51,7 @@ spec:
 #            - node
 #            - /node/server.js
           image: ghcr.io/marcin795/shitscreen:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           volumeMounts:
             - mountPath: /node
               name: node
