@@ -36,6 +36,9 @@ spec:
               subPath: .mitmproxy
             - name: mitmproxy-addons
               mountPath: /home/mitmproxy/addons
+            - name: node
+              mountPath: /socket
+              subPath: socket
         - name: node
           command:
             - tail
