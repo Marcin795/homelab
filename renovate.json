@@ -7,6 +7,9 @@
   "kubernetes_deployment": {
     "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"]
   },
+  "docker": {
+    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"]
+  },
   "flux": {
     "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"]
   },
@@ -21,5 +24,15 @@
   },
   "kustomize": {
     "fileMatch": ["(^|/)kustomization\\.ya?ml(?:\\.j2)?$"]
-  }
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["(^|/)kubernetes/.+deployment\\.ya?ml(?:\\.j2)?$"],
+      "matchStrings": [
+        "image:\\s?\"?(?<depName>\\S+?)(?::(?<currentValue>\\S+?))?\"?\\s?$"
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
+    }
+  ]
 }
