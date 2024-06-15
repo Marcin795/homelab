@@ -11,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/openebs/local/data/alertmanager
+    path: /var/openebs/local/data/observability/alertmanager
     type: DirectoryOrCreate
 ---
 apiVersion: v1
@@ -27,7 +27,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/openebs/local/data/grafana
+    path: /var/openebs/local/data/observability/grafana
     type: DirectoryOrCreate
 ---
 apiVersion: v1
@@ -43,5 +43,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/openebs/local/data/prometheus
+    path: /var/openebs/local/data/observability/prometheus
     type: DirectoryOrCreate
