@@ -1,0 +1,34 @@
+image:
+  tag: 1.40.2.8395-c67dce28e
+
+pms:
+  configExistingClaim: plex-config
+
+extraEnv:
+  TZ: Europe/Warsaw
+
+extraVolumeMounts:
+  - mountPath: /seriale
+    name: series
+
+extraVolumes:
+  - name: series
+    hostPath:
+      path: /var/openebs/local/media/video/series
+      type: DirectoryOrCreate
+
+ingress:
+  enabled: true
+  ingressClassName: traefik
+  url: plex.boomerok.dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-redirect-https@kubernetescrd
+
+service:
+  type: ClusterIP
+  port: 32400
+  annotations: {}
+
+commonLabels:
+  app: plex
