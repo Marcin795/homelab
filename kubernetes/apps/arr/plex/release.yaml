@@ -7,7 +7,7 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: plex/plex-media-server
+      chart: plex-media-server
       version: 0.4.0
       sourceRef:
         kind: HelmRepository
