@@ -22,7 +22,7 @@
   "packageRules": [
     {
       "matchPackageNames": ["plexinc/pms-docker"],
-      "versioning": "semver-coerced"
+      "versioning": "loose"
     }
   ]
 }
