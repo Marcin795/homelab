@@ -29,6 +29,3 @@ service:
   type: ClusterIP
   port: 32400
   annotations: {}
-
-commonLabels:
-  app: plex
