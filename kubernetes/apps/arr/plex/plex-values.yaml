@@ -1,5 +1,5 @@
 image:
-  # renovate: datasource=docker depName=plexinc/pms-docker
+  # renovate: datasource=docker depName=plexinc/pms-docker versioning=loose
   tag: 1.40.2.8395-c67dce28e
 
 pms:
