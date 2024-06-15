@@ -18,15 +18,5 @@
   },
   "kustomize": {
     "fileMatch": ["(^|/)kustomization\\.ya?ml(?:\\.j2)?$"]
-  },
-  "regexManagers": [
-    {
-      "fileMatch": ["(^|/)kubernetes/.+deployment\\.ya?ml(?:\\.j2)?$"],
-      "matchStrings": [
-        "image:\\s?\"?(?<depName>\\S+?)(?::(?<currentValue>\\S+?))?\"?\\s?$"
-      ],
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
-    }
-  ]
+  }
 }
