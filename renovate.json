@@ -18,5 +18,11 @@
   },
   "kustomize": {
     "fileMatch": ["(^|/)kustomization\\.ya?ml(?:\\.j2)?$"]
-  }
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": ["plexinc/pms-docker"],
+      "versioning": "semver-coerced"
+    }
+  ]
 }
