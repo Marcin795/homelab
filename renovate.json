@@ -4,9 +4,6 @@
     "config:recommended"
   ],
   "rangeStrategy": "pin",
-  "kubernetes_deployment": {
-    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"]
-  },
   "docker": {
     "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"]
   },
