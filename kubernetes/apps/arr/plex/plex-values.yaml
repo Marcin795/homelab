@@ -22,7 +22,7 @@ extraVolumes:
 ingress:
   enabled: true
   ingressClassName: traefik
-  url: plex.boomerok.dev
+  url: https://plex.boomerok.dev
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.middlewares: traefik-redirect-https@kubernetescrd
