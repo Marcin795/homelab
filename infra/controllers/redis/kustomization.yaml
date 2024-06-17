@@ -2,13 +2,15 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - namespace.yaml
+  - pv.yaml
+  - pvc.yaml
   - repository.yaml
   - release.yaml
 secretGenerator:
   - name: redis-password
     namespace: redis
-    files:
-      - redis-password.yaml
+    envs:
+      - redis-password.env
     options:
       disableNameSuffixHash: true
 configMapGenerator:
