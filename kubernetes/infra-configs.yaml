@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m0s
-  path: ./infra/config
+  path: ./infra/configs
   prune: true
   sourceRef:
     kind: GitRepository
