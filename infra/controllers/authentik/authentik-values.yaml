@@ -9,9 +9,9 @@ global:
 
 authentik:
   postgresql:
-    host: postgres-service
+    host: postgres-service.postgres.svc.cluster.local
   redis:
-    host: redis-service:6379/5
+    host: redis-service.redis.svc.cluster.local:6379/5
 
 server:
   metrics:
