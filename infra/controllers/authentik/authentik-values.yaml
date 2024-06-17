@@ -12,7 +12,7 @@ authentik:
     host: postgres-service.postgres.svc.cluster.local
   redis:
     host: redis-service.redis.svc.cluster.local
-    db: 5
+    db: '5'
 
 server:
   metrics:
