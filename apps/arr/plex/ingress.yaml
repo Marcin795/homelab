@@ -25,13 +25,13 @@ spec:
                 name: plex-service
                 port:
                   number: 32400
-          - path: /outpost.goauthentik.io/
-            pathType: Prefix
-            backend:
-              service:
-                name: authentik-server
-                port:
-                  number: 9000
+#          - path: /outpost.goauthentik.io/
+#            pathType: Prefix
+#            backend:
+#              service:
+#                name: authentik-server
+#                port:
+#                  number: 9000
   tls:
     - secretName: plex-tls
       hosts:
