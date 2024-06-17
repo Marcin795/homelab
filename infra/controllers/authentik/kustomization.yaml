@@ -4,6 +4,12 @@ resources:
   - namespace.yaml
   - repository.yaml
   - release.yaml
+secretGenerator:
+  - name: authentik-secrets
+    envs:
+      - authentik-secrets.env
+    options:
+      disableNameSuffixHash: true
 configMapGenerator:
   - name: authentik-values
     namespace: authentik
