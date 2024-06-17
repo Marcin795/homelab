@@ -1,0 +1,28 @@
+global:
+  addPrometheusAnnotations: true
+  additionalLabels:
+    app: authentik
+  envFrom:
+    - secretRef:
+        name: authentik-secrets
+
+
+authentik:
+  postgresql:
+    host: postgres-service
+  redis:
+    host: redis-service:6379/5
+
+server:
+  metrics:
+    enabled: true
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    hosts:
+      - authentik.boomerok.dev
+    tls:
+      - secretName: authentik-tls
+        hosts:
+          - authentik.boomerok.dev
+    https: true
