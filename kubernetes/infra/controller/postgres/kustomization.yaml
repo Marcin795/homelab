@@ -4,7 +4,7 @@ resources:
   - namespace.yaml
   - statefulset.yaml
   - service.yaml
-configMapGenerator:
+secretGenerator:
   - name: postgres-config
     namespace: postgres
     envs:

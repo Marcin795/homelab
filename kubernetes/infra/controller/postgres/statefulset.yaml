@@ -21,11 +21,13 @@ spec:
           env:
             - name: TZ
               value: Europe/Warsaw
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_PASSWORD
           ports:
             - containerPort: 5432
-          envFrom:
-            - configMapRef:
-                name: postgres-config
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgres
