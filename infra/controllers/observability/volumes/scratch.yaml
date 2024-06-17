@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scratch
+  namespace: observability
+spec:
+  selector:
+    matchLabels:
+      app: scratch
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: scratch
+    spec:
+      containers:
+        - name: scratch
+          image: alpine
+          command:
+            - tail
+            - -f
+            - /dev/null
+          volumeMounts:
+            - mountPath: /root
+              name: root
+      volumes:
+        - name: root
+          hostPath:
+            path: /var/openebs/local/

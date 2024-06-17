@@ -1,0 +1,71 @@
+version: '3'
+
+tasks:
+  install-tools:
+    desc: "Install all required tools"
+    cmds:
+      - brew bundle --no-lock
+    silent: true
+
+  create-age-secret:
+    desc: "Create age secret for sops"
+    cmds:
+      - mkdir -p "$HOME/Library/Application Support/sops/age"
+      - age-keygen -o "$HOME/Library/Application Support/sops/age/keys.txt"
+    silent: true
+
+  generate-tal-secret:
+    desc: "Generate and encrypt Talos secret"
+    cmds:
+      - talhelper gensecret > talsecret.sops.yaml
+      - sops -e -i talsecret.sops.yaml
+      - git add talsecret.sops.yaml
+    silent: true
+
+  generate-config:
+    desc: "Generate Talos config"
+    cmds:
+      - talhelper genconfig --no-gitignore
+    silent: true
+
+  apply-config:
+    desc: "Apply Talos config"
+    cmds:
+      - talosctl apply -n 192.168.1.4 -f clusterconfig/perpetulab-cluster-homeserver.yaml -i
+      - talosctl bootstrap
+      - talosctl kubeconfig
+    silent: true
+
+  add-helm-repos:
+    desc: "Add Helm repositories"
+    cmds:
+      - helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+      - helm repo add cilium https://helm.cilium.io/
+      - helm repo update
+    silent: true
+
+  setup-networking:
+    desc: "Setup cluster networking"
+    cmds:
+      - kubectl apply -f kubernetes/infra/controllers/observability/namespace.yaml
+      - helm install prometheus-operator-crds prometheus-community/prometheus-operator-crds --namespace observability
+      - helm install cilium cilium/cilium -f infra/controllers/cilium/cilium-values.yaml --namespace kube-system
+    silent: true
+
+  generate-github-key:
+    desc: "Generate GitHub deploy key"
+    cmds:
+      - mkdir -p keys
+      - ssh-keygen -t ecdsa -b 521 -C "github-deploy-key" -f keys/github-deploy.key -q -P ""
+    silent: true
+
+  setup-flux:
+    desc: "Setup flux"
+    cmds:
+      - flux bootstrap git \
+        --url=ssh://git@github.com/Marcin795/perpetulab.git \
+        --branch=master \
+        --private-key-file=keys/github-deploy.key \
+        --path=kubernetes && \
+        cat keys/age.agekey | kubectl create secret generic sops-age --namespace=flux-system --from-file=age.agekey=/dev/stdin
+    silent: true
