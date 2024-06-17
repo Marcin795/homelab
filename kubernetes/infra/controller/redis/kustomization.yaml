@@ -6,6 +6,7 @@ resources:
   - release.yaml
 secretGenerator:
   - name: redis-password
+    namespace: redis
     files:
       - redis-password.yaml
     options:
