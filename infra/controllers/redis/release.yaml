@@ -11,7 +11,7 @@ spec:
       version: 19.5.2
       sourceRef:
         kind: HelmRepository
-        name: redis
+        name: bitnami
         namespace: redis
   install:
     remediation:
