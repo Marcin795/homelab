@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transmission
+  namespace: arr
+spec:
+  selector:
+    matchLabels:
+      app: transmission
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: transmission
+    spec:
+      containers:
+        - name: transmission
+          image: lscr.io/linuxserver/transmission
+          ports:
+            - containerPort: 9091
+              hostPort: 9091
+              protocol: TCP
+            - containerPort: 51413
+              hostPort: 51413
+              protocol: TCP
+            - containerPort: 51413
+              hostPort: 51413
+              protocol: UDP
+          env:
+            - name: TZ
+              value: Europe/Warsaw
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /downloads
+              name: downloads
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: transmission-config-claim
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: transmission-downloads-claim

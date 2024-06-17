@@ -1,0 +1,33 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: transmission-config-claim
+  labels:
+    app: transmission
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  selector:
+    matchLabels:
+      pv-type: config
+  resources:
+    requests:
+      storage: 1Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: transmission-downloads-claim
+  labels:
+    app: transmission
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  selector:
+    matchLabels:
+      pv-type: transmission-downloads
+  resources:
+    requests:
+      storage: 1Gi

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: transmission-service
+  labels:
+    app: transmission
+spec:
+  ports:
+    - port: 9091
+      targetPort: 9091
+      name: http
+  selector:
+    app: transmission
