@@ -6,6 +6,7 @@ resources:
   - release.yaml
 secretGenerator:
   - name: authentik-secrets
+    namespace: authentik
     envs:
       - authentik-secrets.env
     options:
