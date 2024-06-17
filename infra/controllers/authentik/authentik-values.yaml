@@ -28,4 +28,4 @@ server:
       - secretName: authentik-tls
         hosts:
           - authentik.boomerok.dev
-    https: true
+    https: false
