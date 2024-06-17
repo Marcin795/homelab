@@ -4,8 +4,6 @@ metadata:
   name: infra-configs
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: infra-controllers
   interval: 5m0s
   path: ./infra/config
   prune: true

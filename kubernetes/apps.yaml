@@ -7,6 +7,7 @@ spec:
   interval: 5m0s
   dependsOn:
     - name: infra-configs
+    - name: infra-controllers
   path: ./apps
   prune: true
   wait: true
