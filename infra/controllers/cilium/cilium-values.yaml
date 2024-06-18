@@ -10,6 +10,9 @@ operator:
   replicas: 1
 
 hubble:
+  relay:
+    enabled:
+      true
   ui:
     enabled: true
     service:
