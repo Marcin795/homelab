@@ -20,3 +20,10 @@ providers:
   kubernetesCRD:
     enabled: true
     allowCrossNamespace: true
+
+additionalArguments:
+  additionalArguments:
+    - "--entryPoints.web.forwardedHeaders.insecure"
+    - "--entrypoints.websecure.forwardedHeaders.insecure"
+    - "--entryPoints.web.proxyProtocol.insecure"
+    - "--entryPoints.websecure.proxyProtocol.insecure"
