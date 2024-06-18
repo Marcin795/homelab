@@ -7,27 +7,12 @@ spec:
   description: "Allow all traffic in both directions on all ports for both TCP and UDP"
   endpointSelector:
     matchLabels:
-      app: srauthentik
-  ingress:
-    - fromEndpoints:
-      - {}
+      app: authentik
+#  ingress:
+#    - fromEndpoints:
+#      - {}
   egress:
-    - toEndpoints:
-      - {}
----
-apiVersion: cilium.io/v2
-kind: CiliumNetworkPolicy
-metadata:
-  name: allow-all-traffic
-  namespace: postgres
-spec:
-  description: "Allow all traffic in both directions on all ports for both TCP and UDP"
-  endpointSelector:
-    matchLabels:
-      app: postgres-srapp
-  ingress:
-    - fromEndpoints:
-        - {}
-  egress:
-    - toEndpoints:
-        - {}
+    - toServices:
+        - k8sService:
+            serviceName: postgres-service
+            namespace: postgres
