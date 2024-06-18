@@ -24,7 +24,7 @@ spec:
   description: "Allow all traffic in both directions on all ports for both TCP and UDP"
   endpointSelector:
     matchLabels:
-      app: postgres
+      app: postgres-srapp
   ingress:
     - fromEndpoints:
         - {}
