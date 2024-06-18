@@ -23,7 +23,7 @@ spec:
         - name: authentik-server
           namespace: authentik
           port: 80
-    - match: Host(`plex.boomerok.dev`)
+    - match: Host(`plex.boomerok.dev`) && PathPrefix(`/`)
       kind: Rule
       priority: 5
       middlewares:
