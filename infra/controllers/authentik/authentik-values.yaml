@@ -1,5 +1,7 @@
 global:
   addPrometheusAnnotations: true
+  annotations:
+    sidecar.cilium.io/inject: 'true'
   additionalLabels:
     app: authentik
   env:
