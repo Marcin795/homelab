@@ -2,6 +2,9 @@ global:
   addPrometheusAnnotations: true
   additionalLabels:
     app: authentik
+  env:
+    - name: AUTHENTIK_TRUST_PROXY_HEADERS
+      value: true
   envFrom:
     - secretRef:
         name: authentik-secrets
