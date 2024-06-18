@@ -27,6 +27,10 @@ spec:
     matchLabels: {}
 #      app: postgres
   ingress:
+    - toPorts:
+        - ports:
+            - port: '5432'
+              protocol: TCP
     - fromEndpoints:
         - matchLabels: {}
 #            app: authentik
