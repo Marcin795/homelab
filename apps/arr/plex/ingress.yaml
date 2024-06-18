@@ -18,6 +18,7 @@ spec:
       priority: 10
       middlewares:
         - name: traefik/combined-middleware@kubernetescrd
+          namespace: traefik
       services:
         - name: authentik-server
           namespace: authentik
@@ -27,6 +28,7 @@ spec:
       priority: 5
       middlewares:
         - name: traefik/combined-middleware@kubernetescrd
+          namespace: traefik
       services:
         - name: plex-plex-media-server
           port: 32400
