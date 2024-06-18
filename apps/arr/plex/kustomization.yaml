@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - pv.yaml
   - pvc.yaml
-#  - ingress.yaml
+  - ingress.yaml
   - repository.yaml
   - release.yaml
 configMapGenerator:

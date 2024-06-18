@@ -20,7 +20,7 @@ extraVolumes:
       type: DirectoryOrCreate
 
 ingress:
-  enabled: true
+  enabled: false
   ingressClassName: traefik
   url: https://plex.boomerok.dev
   annotations:
