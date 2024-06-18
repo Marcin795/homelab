@@ -5,9 +5,6 @@ metadata:
   namespace: authentik
 spec:
   description: "Allow all traffic in both directions on all ports for both TCP and UDP"
-  endpointSelector:
-    matchLabels:
-      any: []
   ingress:
     - toPorts:
         - ports:
