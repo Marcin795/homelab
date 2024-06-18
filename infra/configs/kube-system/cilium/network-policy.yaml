@@ -13,12 +13,15 @@ spec:
 #      - {}
   egress:
     - toPorts:
-        - ports:
-          - port: '5432'
-            protocol: TCP
-        - ports:
-          - port: '6379'
-            protocol: TCP
+      - ports:
+        - port: '53'
+          protocol: ANY
+      - ports:
+        - port: '5432'
+          protocol: TCP
+      - ports:
+        - port: '6379'
+          protocol: TCP
 #    - toServices:
 #        - k8sService:
 #            serviceName: postgres-service
