@@ -1,4 +1,4 @@
-apiVersion: "cilium.io/v2"
+apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
   name: allow-all-traffic
@@ -14,3 +14,20 @@ spec:
   egress:
     - toEndpoints:
       - {}
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-all-traffic
+  namespace: postgres
+spec:
+  description: "Allow all traffic in both directions on all ports for both TCP and UDP"
+  endpointSelector:
+    matchLabels:
+      app: postgres
+  ingress:
+    - fromEndpoints:
+        - {}
+  egress:
+    - toEndpoints:
+        - {}
