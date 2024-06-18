@@ -24,12 +24,12 @@ metadata:
   namespace: postgres
 spec:
   endpointSelector:
-    matchLabels:
-      app: postgres
+    matchLabels: {}
+#      app: postgres
   ingress:
     - fromEndpoints:
-        - matchLabels:
-            app: authentik
+        - matchLabels: {}
+#            app: authentik
       toPorts:
         - ports:
             - port: "5432"
