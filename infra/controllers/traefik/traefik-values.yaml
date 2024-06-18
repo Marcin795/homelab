@@ -23,8 +23,5 @@ providers:
 
 additionalArguments:
   - "--accesslog=true"
-#  - "--log.level=TRACE"
-  - "--entryPoints.web.forwardedHeaders.insecure"
-  - "--entrypoints.websecure.forwardedHeaders.insecure"
-  - "--entryPoints.web.proxyProtocol.insecure"
-  - "--entryPoints.websecure.proxyProtocol.insecure"
+  - "--entryPoints.name.proxyProtocol.trustedIPs=127.0.0.1,192.168.1.1"
+  - "--entryPoints.name.forwardedHeaders.trustedIPs=127.0.0.1,192.168.1.1"
