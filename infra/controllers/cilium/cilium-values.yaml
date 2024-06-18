@@ -17,6 +17,8 @@ hubble:
       - flow
       - drop
       - icmp
+    dashboards:
+      enabled: true
   relay:
     enabled:
       true
