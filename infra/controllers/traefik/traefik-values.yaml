@@ -23,7 +23,7 @@ providers:
 
 additionalArguments:
   - "--accesslog=true"
-  - "--log.level=TRACE"
+#  - "--log.level=TRACE"
   - "--entryPoints.web.forwardedHeaders.insecure"
   - "--entrypoints.websecure.forwardedHeaders.insecure"
   - "--entryPoints.web.proxyProtocol.insecure"
