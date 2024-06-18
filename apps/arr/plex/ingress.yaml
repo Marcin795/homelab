@@ -24,13 +24,6 @@ spec:
                 name: plex-plex-media-server
                 port:
                   number: 32400
-#          - path: /outpost.goauthentik.io/
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: authentik-server
-#                port:
-#                  number: 80
   tls:
     - secretName: plex-tls
       hosts:
