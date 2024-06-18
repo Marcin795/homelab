@@ -1,18 +1,36 @@
+#apiVersion: cilium.io/v2
+#kind: CiliumNetworkPolicy
+#metadata:
+#  name: allow-all-traffic
+#  namespace: authentik
+#spec:
+#  description: "Allow all traffic in both directions on all ports for both TCP and UDP"
+#  endpointSelector:
+#    matchLabels:
+#      app: authentik
+##  ingress:
+##    - fromEndpoints:
+##      - {}
+#  egress:
+#    - toServices:
+#        - k8sService:
+#            serviceName: postgres-service
+#            namespace: postgres
+---
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: allow-all-traffic
-  namespace: authentik
+  name: postgres-policy
+  namespace: postgres
 spec:
-  description: "Allow all traffic in both directions on all ports for both TCP and UDP"
   endpointSelector:
     matchLabels:
-      app: authentik
-#  ingress:
-#    - fromEndpoints:
-#      - {}
-  egress:
-    - toServices:
-        - k8sService:
-            serviceName: postgres-service
-            namespace: postgres
+      app: postgres
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            app: authentik
+      toPorts:
+        - ports:
+            - port: "5432"
+              protocol: TCP
