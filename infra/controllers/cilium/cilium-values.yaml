@@ -10,6 +10,12 @@ operator:
   replicas: 1
 
 hubble:
+  metrics:
+    enabled:
+      - http
+      - tcp
+      - udp
+      - flow
   relay:
     enabled:
       true
