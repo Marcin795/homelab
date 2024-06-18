@@ -17,7 +17,7 @@ spec:
       kind: Rule
       priority: 10
       middlewares:
-        - name: combined-middleware
+        - name: redirect-https
           namespace: traefik
       services:
         - name: authentik-server
@@ -27,7 +27,7 @@ spec:
       kind: Rule
       priority: 5
       middlewares:
-        - name: combined-middleware
+        - name: redirect-https
           namespace: traefik
       services:
         - name: plex-plex-media-server
