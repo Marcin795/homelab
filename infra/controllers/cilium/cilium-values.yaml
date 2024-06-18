@@ -51,3 +51,8 @@ securityContext:
       - NET_ADMIN
       - SYS_ADMIN
       - SYS_RESOURCE
+
+envoy:
+  enabled: true
+  xffNumTrustedHopsL7PolicyIngress: 4
+  xffNumTrustedHopsL7PolicyEgress: 4
