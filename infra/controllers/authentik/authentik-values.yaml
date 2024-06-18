@@ -5,7 +5,14 @@ global:
   envFrom:
     - secretRef:
         name: authentik-secrets
-
+  volumeMounts:
+    - mountPath: /media
+      name: media
+  volumes:
+    - name: media
+      hostPath:
+        path: /var/openebs/local/data/authentik
+        type: DirectoryOrCreate
 
 authentik:
   postgresql:
