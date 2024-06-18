@@ -6,5 +6,5 @@ metadata:
 spec:
   chain:
     middlewares:
-      - name: traefik-redirect-https
+      - name: redirect-https
       - name: authentik-middleware
