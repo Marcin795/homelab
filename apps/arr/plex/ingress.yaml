@@ -17,7 +17,7 @@ spec:
       kind: Rule
       priority: 10
       middlewares:
-        - name: traefik/combined-middleware@kubernetescrd
+        - name: combined-middleware
           namespace: traefik
       services:
         - name: authentik-server
@@ -27,7 +27,7 @@ spec:
       kind: Rule
       priority: 5
       middlewares:
-        - name: traefik/combined-middleware@kubernetescrd
+        - name: combined-middleware
           namespace: traefik
       services:
         - name: plex-plex-media-server
