@@ -14,8 +14,9 @@ hubble:
     enabled:
       - http
       - tcp
-      - udp
       - flow
+      - drop
+      - icmp
   relay:
     enabled:
       true
