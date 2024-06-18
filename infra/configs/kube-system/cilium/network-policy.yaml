@@ -35,18 +35,18 @@ spec:
 #        - k8sService:
 #            serviceName: postgres-service
 #            namespace: postgres
----
-apiVersion: cilium.io/v2
-kind: CiliumNetworkPolicy
-metadata:
-  name: postgres-policy
-  namespace: postgres
-spec:
-  endpointSelector:
-    matchLabels: {}
-#      app: postgres
-  ingress:
-    - toPorts:
-      - ports:
-        - port: '5432'
-          protocol: TCP
+#---
+#apiVersion: cilium.io/v2
+#kind: CiliumNetworkPolicy
+#metadata:
+#  name: postgres-policy
+#  namespace: postgres
+#spec:
+#  endpointSelector:
+#    matchLabels: {}
+##      app: postgres
+#  ingress:
+#    - toPorts:
+#      - ports:
+#        - port: '5432'
+#          protocol: TCP
