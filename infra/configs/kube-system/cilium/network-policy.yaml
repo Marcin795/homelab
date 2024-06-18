@@ -1,27 +1,30 @@
-apiVersion: cilium.io/v2
+apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
-  name: l7-visibility
+  name: allow-all-traffic
   namespace: authentik
 spec:
+  description: "Allow all traffic in both directions on all ports for both TCP and UDP"
   endpointSelector:
     matchLabels:
-      app: authentik
+      any: []
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            any: []
+      toPorts:
+        - ports:
+            - port: "0"
+              protocol: TCP
+            - port: "0"
+              protocol: UDP
   egress:
     - toEndpoints:
         - matchLabels:
-            app: authentik
+            any: []
       toPorts:
         - ports:
-            - port: "80"
+            - port: "0"
               protocol: TCP
-            - port: "8080"
-              protocol: TCP
-            - port: "9000"
-              protocol: TCP
-            - port: "6379"
-              protocol: TCP
-            - port: "5432"
-              protocol: TCP
-          rules:
-            http: [{}]
+            - port: "0"
+              protocol: UDP
