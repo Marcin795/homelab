@@ -19,8 +19,6 @@ spec:
             http:
               - method: GET
               - method: POST
-              - method: PUT
-              - method: DELETE
   egress:
     - toPorts:
         - ports:
@@ -28,3 +26,7 @@ spec:
               protocol: TCP
             - port: "0"
               protocol: UDP
+          rules:
+            http:
+              - method: GET
+              - method: POST
