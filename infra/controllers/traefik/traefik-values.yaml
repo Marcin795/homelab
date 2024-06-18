@@ -22,6 +22,7 @@ providers:
     allowCrossNamespace: true
 
 additionalArguments:
+  - "--accesslog=true"
   - "--log.level=TRACE"
   - "--entryPoints.web.forwardedHeaders.insecure"
   - "--entrypoints.websecure.forwardedHeaders.insecure"
