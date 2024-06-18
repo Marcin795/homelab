@@ -19,5 +19,9 @@ spec:
               protocol: TCP
             - port: "9000"
               protocol: TCP
+            - port: "6379"
+              protocol: TCP
+            - port: "5432"
+              protocol: TCP
           rules:
             http: [{}]
