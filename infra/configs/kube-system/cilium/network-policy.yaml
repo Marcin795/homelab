@@ -13,10 +13,10 @@ spec:
       - ports:
         - port: '9000'
           protocol: TCP
-#        rules:
-#          http:
-#            - host: boomerok.dev
-#            - host: authentik.boomerok.dev
+        rules:
+          http:
+            - host: boomerok.dev
+            - host: authentik.boomerok.dev
   egress:
     - toPorts:
       - ports:
