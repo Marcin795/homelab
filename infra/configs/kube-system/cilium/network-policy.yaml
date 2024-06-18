@@ -17,7 +17,7 @@ spec:
               protocol: UDP
           rules:
             http:
-              - method: GET
+#              - method: GET
               - method: POST
   egress:
     - toPorts:
@@ -28,5 +28,5 @@ spec:
               protocol: UDP
           rules:
             http:
-              - method: GET
+#              - method: GET
               - method: POST
