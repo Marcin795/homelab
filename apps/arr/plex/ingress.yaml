@@ -1,5 +1,5 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
 metadata:
   name: plex-ingress
   namespace: arr
@@ -9,29 +9,28 @@ metadata:
     app.kubernetes.io/name: plex-media-server
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.middlewares: traefik-combined-middleware@kubernetescrd
 spec:
-  ingressClassName: traefik
-  rules:
-    - host: plex.boomerok.dev
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: plex-plex-media-server
-                port:
-                  number: 32400
-          - path: /outpost.goauthentik.io/
-            pathType: Prefix
-            backend:
-              service:
-                name: authentik-server
-                port:
-                  number: 9000
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`plex.boomerok.dev`) && PathPrefix(`/outpost.goauthentik.io/`)
+      kind: Rule
+      priority: 10
+      middlewares:
+        - name: traefik-combined-middleware
+          namespace: arr
+      services:
+        - name: authentik-server
+          namespace: authentik
+          port: 9000
+    - match: Host(`plex.boomerok.dev`)
+      kind: Rule
+      priority: 5
+      middlewares:
+        - name: traefik-combined-middleware
+          namespace: arr
+      services:
+        - name: plex-plex-media-server
+          port: 32400
   tls:
-    - secretName: plex-tls
-      hosts:
-        - plex.boomerok.dev
+    secretName: plex-tls
