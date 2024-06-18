@@ -14,8 +14,11 @@ spec:
   egress:
     - toPorts:
         - ports:
-            - port: '5432'
-              protocol: TCP
+          - port: '5432'
+            protocol: TCP
+        - ports:
+          - port: '6379'
+            protocol: TCP
 #    - toServices:
 #        - k8sService:
 #            serviceName: postgres-service
@@ -32,6 +35,6 @@ spec:
 #      app: postgres
   ingress:
     - toPorts:
-        - ports:
-            - port: '5432'
-              protocol: TCP
+      - ports:
+        - port: '5432'
+          protocol: TCP
