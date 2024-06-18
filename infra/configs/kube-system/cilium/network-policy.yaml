@@ -8,9 +8,14 @@ spec:
   endpointSelector:
     matchLabels: {}
 #      app: authentik
-#  ingress:
-#    - fromEndpoints:
-#      - {}
+  ingress:
+    - toPorts:
+      - ports:
+        - port: '9000'
+          protocol: TCP
+        rules:
+          http:
+            - host: boomerok.dev
   egress:
     - toPorts:
       - ports:
