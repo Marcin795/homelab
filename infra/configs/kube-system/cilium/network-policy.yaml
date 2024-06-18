@@ -1,0 +1,20 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: l7-visibility
+spec:
+  endpointSelector:
+    matchLabels:
+      app: authentik
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            app: authentik
+      toPorts:
+        - ports:
+            - port: "80"
+              protocol: TCP
+            - port: "8080"
+              protocol: TCP
+          rules:
+            http: [{}]
