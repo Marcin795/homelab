@@ -9,20 +9,14 @@ spec:
     matchLabels:
       any: []
   ingress:
-    - fromEndpoints:
-        - matchLabels:
-            any: []
-      toPorts:
+    - toPorts:
         - ports:
             - port: "0"
               protocol: TCP
             - port: "0"
               protocol: UDP
   egress:
-    - toEndpoints:
-        - matchLabels:
-            any: []
-      toPorts:
+    - toPorts:
         - ports:
             - port: "0"
               protocol: TCP
