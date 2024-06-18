@@ -11,16 +11,16 @@ spec:
   ingress:
     - toPorts:
         - ports:
-            - port: "80"
-              protocol: TCP
+#            - port: "80"
+#              protocol: TCP
 #            - port: "9000"
 #              protocol: TCP
 #            - port: "443"
 #              protocol: TCP
 #            - port: "6379"
 #              protocol: TCP
-#            - port: "5432"
-#              protocol: TCP
+            - port: "5432"
+              protocol: TCP
 #          rules:
 #            http:
 #              - method: GET
@@ -28,16 +28,16 @@ spec:
   egress:
     - toPorts:
         - ports:
-            - port: "80"
-              protocol: TCP
+#            - port: "80"
+#              protocol: TCP
 #            - port: "9000"
 #              protocol: TCP
 #            - port: "443"
 #              protocol: TCP
 #            - port: "6379"
 #              protocol: TCP
-#            - port: "5432"
-#              protocol: TCP
+            - port: "5432"
+              protocol: TCP
 #          rules:
 #            http:
 #              - method: GET
