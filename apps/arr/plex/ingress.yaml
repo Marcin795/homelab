@@ -17,8 +17,7 @@ spec:
       kind: Rule
       priority: 10
       middlewares:
-        - name: traefik-combined-middleware
-          namespace: arr
+        - name: combined-middleware
       services:
         - name: authentik-server
           namespace: authentik
@@ -27,8 +26,7 @@ spec:
       kind: Rule
       priority: 5
       middlewares:
-        - name: traefik-combined-middleware
-          namespace: arr
+        - name: combined-middleware
       services:
         - name: plex-plex-media-server
           port: 32400
