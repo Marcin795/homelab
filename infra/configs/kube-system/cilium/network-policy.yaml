@@ -16,6 +16,7 @@ spec:
         rules:
           http:
             - host: boomerok.dev
+            - host: authentik.boomerok.dev
   egress:
     - toPorts:
       - ports:
