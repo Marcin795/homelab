@@ -15,5 +15,9 @@ configMapGenerator:
     namespace: observability
     files:
       - values.yaml=grafana-loki-values.yaml
+  - name: grafana-promtail-values
+    namespace: observability
+    files:
+      - values.yaml=grafana-promtail-values.yaml
 configurations:
   - kustomizeconfig.yaml
