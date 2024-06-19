@@ -1,0 +1,9 @@
+configmap:
+  enabled: true
+
+serviceMonitor:
+  enabled: true
+
+config:
+  clients:
+    - url: http://grafana-loki-gateway/loki/api/v1/push
