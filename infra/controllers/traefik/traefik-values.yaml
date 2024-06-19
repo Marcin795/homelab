@@ -21,24 +21,12 @@ providers:
     enabled: true
     allowCrossNamespace: true
 
-additionalVolumeMounts:
-  - name: logs
-    mountPath: /var/log
-
-deployment:
-  additionalVolumes:
-    - name: logs
-      hostPath:
-        path: /var/openebs/local/data/traefik
-        type: DirectoryOrCreate
-
 logs:
   general:
     format: json
   access:
     enabled: true
     format: json
-    filePath: "/var/log/access.log"
     fields:
       headers:
         defaultmode: keep
