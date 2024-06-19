@@ -23,7 +23,7 @@ providers:
 
 additionalVolumeMounts:
   - name: logs
-    mountPath: /var/log/traefik
+    mountPath: /var/log
 
 deployment:
   additionalVolumes:
@@ -36,12 +36,7 @@ logs:
   access:
     enabled: true
     format: json
-    filePath: "/var/log/traefik/access.log"
+    filePath: "/var/log/access.log"
     fields:
       headers:
         defaultmode: keep
-
-#additionalArguments:
-#  - "--accesslog=true"
-#  - "--entryPoints.name.proxyProtocol.trustedIPs=127.0.0.1,192.168.1.1"
-#  - "--entryPoints.name.forwardedHeaders.trustedIPs=127.0.0.1,192.168.1.1"
