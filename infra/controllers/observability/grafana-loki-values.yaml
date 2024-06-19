@@ -19,14 +19,7 @@ singleBinary:
   persistence:
     enabled: false
   extraVolumeMounts:
-    - mountPath: /var/loki/chunks
-      subPath: chunks
-      name: data
-    - mountPath: /var/loki/rules
-      subPath: rules
-      name: data
-    - mountPath: /var/loki/admin
-      subPath: admin
+    - mountPath: /var/loki
       name: data
   extraVolumes:
     - name: data
