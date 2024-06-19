@@ -11,5 +11,9 @@ configMapGenerator:
     namespace: observability
     files:
       - values.yaml=kube-prometheus-stack-values.yaml
+  - name: grafana-loki-values
+    namespace: observability
+    files:
+      - values.yaml=grafana-loki-values.yaml
 configurations:
   - kustomizeconfig.yaml
