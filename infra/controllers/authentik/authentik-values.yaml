@@ -33,6 +33,7 @@ server:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       traefik.ingress.kubernetes.io/forwarded-headers: "true"
+      traefik.ingress.kubernetes.io/router.name: Authentik
     hosts:
       - authentik.boomerok.dev
     tls:
