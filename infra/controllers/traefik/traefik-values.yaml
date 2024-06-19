@@ -25,11 +25,12 @@ additionalVolumeMounts:
   - name: logs
     mountPath: /var/log/traefik
 
-volumes:
-  - name: logs
-    hostPath:
-      path: /var/openebs/local/data/traefik
-      type: DirectoryOrCreate
+deployment:
+  additionalVolumes:
+    - name: logs
+      hostPath:
+        path: /var/openebs/local/data/traefik
+        type: DirectoryOrCreate
 
 logs:
   access:
