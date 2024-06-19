@@ -33,6 +33,8 @@ deployment:
         type: DirectoryOrCreate
 
 logs:
+  general:
+    format: json
   access:
     enabled: true
     format: json
