@@ -5,16 +5,16 @@
   ],
   "rangeStrategy": "pin",
   "flux": {
-    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"]
+    "fileMatch": ["(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"]
   },
   "helm-values": {
-    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"]
+    "fileMatch": ["(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"]
   },
   "helmfile": {
     "fileMatch": ["(^|/)helmfile\\.ya?ml(?:\\.j2)?$"]
   },
   "kubernetes": {
-    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"]
+    "fileMatch": ["(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"]
   },
   "kustomize": {
     "fileMatch": ["(^|/)kustomization\\.ya?ml(?:\\.j2)?$"]
