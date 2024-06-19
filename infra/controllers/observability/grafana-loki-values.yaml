@@ -13,6 +13,7 @@ loki:
           period: 24h
         object_store: filesystem
         schema: v13
+
 singleBinary:
   replicas: 1
   persistence:
@@ -32,6 +33,7 @@ singleBinary:
       hostPath:
         path: /var/openebs/local/data/observability/loki
         type: DirectoryOrCreate
+
 read:
   replicas: 0
 backend:
