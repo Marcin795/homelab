@@ -16,7 +16,14 @@ loki:
 singleBinary:
   replicas: 1
   extraVolumeMounts:
-    - mountPath: /var/loki
+    - mountPath: /var/loki/chunks
+      subPath: chunks
+      name: data
+    - mountPath: /var/loki/rules
+      subPath: rules
+      name: data
+    - mountPath: /var/loki/admin
+      subPath: admin
       name: data
   extraVolumes:
     - name: data
