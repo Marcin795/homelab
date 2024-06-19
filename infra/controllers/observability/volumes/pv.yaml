@@ -45,3 +45,19 @@ spec:
   hostPath:
     path: /var/openebs/local/data/observability/prometheus
     type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: loki-pv
+  namespace: observability
+  labels:
+    app: loki
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /var/openebs/local/data/observability/loki/storage
+    type: DirectoryOrCreate
