@@ -21,7 +21,25 @@ providers:
     enabled: true
     allowCrossNamespace: true
 
-additionalArguments:
-  - "--accesslog=true"
-  - "--entryPoints.name.proxyProtocol.trustedIPs=127.0.0.1,192.168.1.1"
-  - "--entryPoints.name.forwardedHeaders.trustedIPs=127.0.0.1,192.168.1.1"
+additionalVolumeMounts:
+  - name: logs
+    mountPath: /var/log/traefik
+
+volumes:
+  - name: logs
+    hostPath:
+      path: /var/openebs/local/data/traefik
+      type: DirectoryOrCreate
+
+logs:
+  access:
+    enabled: true
+    format: json
+    fields:
+      headers:
+        defaultmode: keep
+
+#additionalArguments:
+#  - "--accesslog=true"
+#  - "--entryPoints.name.proxyProtocol.trustedIPs=127.0.0.1,192.168.1.1"
+#  - "--entryPoints.name.forwardedHeaders.trustedIPs=127.0.0.1,192.168.1.1"
