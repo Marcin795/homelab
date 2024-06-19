@@ -12,6 +12,10 @@ alertmanager:
               app: alertmanager
 
 grafana:
+  service:
+    type: LoadBalancer
+    annotations:
+      io.cilium/lb-ipam-ips: 192.168.1.230
   persistence:
     enabled: true
     existingClaim: grafana-pvc
