@@ -30,3 +30,9 @@ logs:
     fields:
       headers:
         defaultmode: keep
+
+additionalArguments:
+  '--entryPoints.web.address=:80'
+  '--entryPoints.web.http.redirections.entryPoint.to=websecure'
+  '--entryPoints.web.http.redirections.entryPoint.scheme=https'
+  '--entryPoints.websecure.address=:443'
