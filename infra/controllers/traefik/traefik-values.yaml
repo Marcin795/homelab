@@ -32,7 +32,7 @@ logs:
         defaultmode: keep
 
 additionalArguments:
-  - '--entryPoints.web.address=:80'
+  - '--entryPoints.web.address=:8000'
   - '--entryPoints.web.http.redirections.entryPoint.to=websecure'
   - '--entryPoints.web.http.redirections.entryPoint.scheme=https'
-  - '--entryPoints.websecure.address=:443'
+  - '--entryPoints.websecure.address=:8443'
