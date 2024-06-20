@@ -9,6 +9,10 @@ service:
       labels:
         traefik-service-label: internal
 ports:
+  web:
+    redirectTo:
+#      port: websecure
+      scheme: https
   traefik:
     expose:
       # Sensitive data should not be exposed on the internet
@@ -33,6 +37,6 @@ logs:
 
 additionalArguments:
 #  - '--entryPoints.web.address=:8000'
-  - '--entryPoints.web.http.redirections.entryPoint.to=:443'
-  - '--entryPoints.web.http.redirections.entryPoint.scheme=https'
+#  - '--entryPoints.web.http.redirections.entryPoint.to=:443'
+#  - '--entryPoints.web.http.redirections.entryPoint.scheme=https'
 #  - '--entryPoints.websecure.address=:8443'
