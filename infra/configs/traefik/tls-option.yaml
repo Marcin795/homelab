@@ -6,3 +6,4 @@ metadata:
 
 spec:
   sniStrict: true
+  minVersion: VersionTLS13
