@@ -21,6 +21,7 @@ ports:
   websecure:
     redirectTo:
       scheme: https
+      port: websecure
   traefik:
     expose:
       # Sensitive data should not be exposed on the internet
