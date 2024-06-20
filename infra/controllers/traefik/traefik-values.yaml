@@ -11,7 +11,7 @@ service:
 ports:
   web:
     redirectTo:
-#      port: websecure
+      port: websecure
       scheme: https
   traefik:
     expose:
