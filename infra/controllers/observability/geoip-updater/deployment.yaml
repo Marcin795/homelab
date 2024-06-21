@@ -19,8 +19,8 @@ spec:
           env:
             - name: GEOIPUPDATE_EDITION_IDS
               value: 'GeoLite2-City GeoLite2-Country'
-            - name: GEOIPUPDATE_HOST
-              value: mm-prod-geoip-databases.a2649acb697e2c09b632799562c076f2.r2.cloudflarestorage.com
+#            - name: GEOIPUPDATE_HOST
+#              value: mm-prod-geoip-databases.a2649acb697e2c09b632799562c076f2.r2.cloudflarestorage.com
             - name: GEOIPUPDATE_FREQUENCY
               value: '84'
             - name: GEOIPUPDATE_PRESERVE_FILE_TIMES
