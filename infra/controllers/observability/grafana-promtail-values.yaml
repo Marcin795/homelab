@@ -10,9 +10,12 @@ config:
       - match:
           selector: '{namespace="traefik"}'
           stages:
+            - json:
+                expressions:
+                  client_host: ClientHost
             - geoip:
+                source: client_host
                 db: /geoip/GeoLite2-City.mmdb
-                source: '{ClientHost}'
                 db_type: city
 
 extraVolumeMounts:
