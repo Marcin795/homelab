@@ -7,10 +7,13 @@ config:
   snippets:
     pipelineStages:
       - cri: {}
-      - geoip:
-          db: /geoip/GeoLite2-City.mmdb
-          source: ClientHost
-          db_type: city
+      - match:
+          selector: '{namespace="traefik"}'
+          stages:
+            - geoip:
+                db: /geoip/GeoLite2-City.mmdb
+                source: ClientHost
+                db_type: city
 
 extraVolumeMounts:
   - mountPath: /geoip
