@@ -17,6 +17,13 @@ config:
                 source: client_host
                 db: /geoip/GeoLite2-City.mmdb
                 db_type: city
+            - labeldrop:
+                - geoip_timezone
+                - geoip_postal_code
+                - geoip_subdivision_code
+                - geoip_subdivision_name
+                - geoip_continent_code
+                - geoip_continent_name
 
 extraVolumeMounts:
   - mountPath: /geoip
