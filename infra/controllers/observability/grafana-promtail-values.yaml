@@ -6,6 +6,7 @@ config:
     - url: http://grafana-loki-gateway/loki/api/v1/push
   snippets:
     pipelineStages:
+      - cri: {}
       - geoip:
           db: /geoip/GeoLite2-City.mmdb
           source: ClientHost
