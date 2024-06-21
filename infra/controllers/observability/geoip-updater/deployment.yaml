@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: geoip-updated
+  name: geoip-updater
   namespace: observability
 spec:
   selector:
     matchLabels:
-      app: geoip-updated
+      app: geoip-updater
   replicas: 1
   template:
     metadata:
       labels:
-        app: geoip-updated
+        app: geoip-updater
     spec:
       containers:
-        - name: geoip-updated
+        - name: geoip-updater
           image: ghcr.io/maxmind/geoipupdate:v6.0.0
           env:
             - name: GEOIPUPDATE_EDITION_IDS
