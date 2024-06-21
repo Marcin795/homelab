@@ -4,6 +4,12 @@ configmap:
 config:
   clients:
     - url: http://grafana-loki-gateway/loki/api/v1/push
+  snippets:
+    pipelineStages:
+      - geoip:
+          - db: /geoip/GeoLite2-City.mmdb
+            source: ClientHost
+            db_type: city
 
 extraVolumeMounts:
   - mountPath: /geoip
@@ -14,10 +20,3 @@ extraVolumes:
     hostPath:
       path: /var/openebs/local/data/observability/geoip
       type: DirectoryOrCreate
-
-snippets:
-  pipelineStages:
-    - geoip:
-        - db: /geoip/GeoLite2-City.mmdb
-          source: ClientHost
-          db_type: city
