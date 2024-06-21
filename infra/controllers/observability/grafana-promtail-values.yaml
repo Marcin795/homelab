@@ -12,7 +12,7 @@ config:
           stages:
             - geoip:
                 db: /geoip/GeoLite2-City.mmdb
-                source: ClientHost
+                source: '{ClientHost}'
                 db_type: city
 
 extraVolumeMounts:
