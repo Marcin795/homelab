@@ -7,9 +7,9 @@ config:
   snippets:
     pipelineStages:
       - geoip:
-          - db: /geoip/GeoLite2-City.mmdb
-            source: ClientHost
-            db_type: city
+          db: /geoip/GeoLite2-City.mmdb
+          source: ClientHost
+          db_type: city
 
 extraVolumeMounts:
   - mountPath: /geoip
