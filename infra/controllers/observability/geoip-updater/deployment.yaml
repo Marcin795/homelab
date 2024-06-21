@@ -39,10 +39,18 @@ spec:
                 secretKeyRef:
                   name: geoip-secrets
                   key: GEOIPUPDATE_LICENSE_KEY
+            - name: GEOIPUPDATE_CONF_FILE
+              value: /var/GeoIP.conf
           volumeMounts:
             - mountPath: /usr/share/GeoIP
               name: downloads
+            - name: geoip-conf
+              mountPath: /var/GeoIP.conf
+              subPath: GeoIP.conf
       volumes:
+        - name: geoip-conf
+          secret:
+            secretName: geoip-conf
         - name: downloads
           hostPath:
             path: /var/openebs/local/data/observability/geoip
