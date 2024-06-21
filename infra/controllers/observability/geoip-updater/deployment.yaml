@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: geoip-updated
+  namespace: observability
+spec:
+  selector:
+    matchLabels:
+      app: geoip-updated
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: geoip-updated
+    spec:
+      containers:
+        - name: geoip-updated
+          image: ghcr.io/maxmind/geoipupdate:v6.0.0
+          env:
+            - name: GEOIPUPDATE_EDITION_IDS
+              value: 'GeoLite2-City GeoLite2-Country'
+            - name: GEOIPUPDATE_HOST
+              value: https://mm-prod-geoip-databases.a2649acb697e2c09b632799562c076f2.r2.cloudflarestorage.com
+            - name: GEOIPUPDATE_FREQUENCY
+              value: '84'
+            - name: GEOIPUPDATE_PRESERVE_FILE_TIMES
+              value: '1'
+            - name: GEOIPUPDATE_VERBOSE
+              value: '1'
+            - name: GEOIPUPDATE_DB_DIR
+              value: /usr/share/GeoIP
+            - name: GEOIPUPDATE_ACCOUNT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: geoip-secrets
+                  key: GEOIPUPDATE_ACCOUNT_ID
+            - name: GEOIPUPDATE_LICENSE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: geoip-secrets
+                  key: GEOIPUPDATE_LICENSE_KEY
+          volumeMounts:
+            - mountPath: /usr/share/GeoIP
+              name: downloads
+      volumes:
+        - name: downloads
+          hostPath:
+            path: /var/openebs/local/data/observability/geoip
+            type: DirectoryOrCreate

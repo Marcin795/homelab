@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deployment.yaml
+secretGenerator:
+  - name: geoip-secrets
+    namespace: observability
+    envs:
+      - geoip-secrets.env
+    options:
+      disableNameSuffixHash: true
