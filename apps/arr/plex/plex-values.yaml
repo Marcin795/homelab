@@ -20,13 +20,11 @@ extraVolumes:
       type: DirectoryOrCreate
 
 ingress:
-  enabled: false
+  enabled: true
   ingressClassName: traefik
   url: https://plex.boomerok.dev
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    traefik.ingress.kubernetes.io/router.middlewares: traefik-redirect-https@kubernetescrd
-#    traefik.ingress.kubernetes.io/router.middlewares: combined-middleware@kubernetescrd
 
 service:
   type: ClusterIP
