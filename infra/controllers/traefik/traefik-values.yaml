@@ -51,7 +51,6 @@ providers:
 logs:
   access:
     enabled: true
-    format: json
     fields:
       headers:
         defaultmode: keep
