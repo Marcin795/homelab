@@ -6,6 +6,7 @@ resources:
   - release.yaml
   - volumes/pv.yaml
   - volumes/pvc.yaml
+  - grafana
   - geoip-updater
 configMapGenerator:
   - name: kube-prometheus-stack-values
