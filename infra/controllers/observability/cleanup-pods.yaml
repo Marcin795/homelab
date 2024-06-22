@@ -4,9 +4,10 @@ metadata:
   name: cleanup-pods
   namespace: kube-system
 spec:
-  schedule: "0 * * * *"  # Runs every hour
+  schedule: "0/15 * * * *"  # Runs every hour
   jobTemplate:
     spec:
+      ttlSecondsAfterFinished: 60
       template:
         spec:
           containers:
