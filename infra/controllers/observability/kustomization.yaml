@@ -8,6 +8,7 @@ resources:
   - volumes/pvc.yaml
   - grafana
   - geoip-updater
+  - cleanup-pods.yaml
 configMapGenerator:
   - name: kube-prometheus-stack-values
     namespace: observability
