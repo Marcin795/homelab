@@ -23,7 +23,12 @@ spec:
           volumeMounts:
             - mountPath: /root
               name: root
+            - mountPath: /memvol
+              name: memvol
       volumes:
         - name: root
           hostPath:
             path: /var/openebs/local/
+        - name: memvol
+          emptyDir:
+            medium: Memory
