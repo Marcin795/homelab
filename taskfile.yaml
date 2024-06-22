@@ -47,7 +47,7 @@ tasks:
   setup-networking:
     desc: "Setup cluster networking"
     cmds:
-      - kubectl apply -f kubernetes/infra/controllers/observability/namespace.yaml
+      - kubectl apply -f infra/controllers/observability/namespace.yaml
       - helm install prometheus-operator-crds prometheus-community/prometheus-operator-crds --namespace observability
       - helm install cilium cilium/cilium -f infra/controllers/cilium/cilium-values.yaml --namespace kube-system
     silent: true
@@ -62,10 +62,13 @@ tasks:
   setup-flux:
     desc: "Setup flux"
     cmds:
-      - flux bootstrap git \
-        --url=ssh://git@github.com/Marcin795/perpetulab.git \
-        --branch=master \
-        --private-key-file=keys/github-deploy.key \
-        --path=kubernetes && \
-        cat keys/age.agekey | kubectl create secret generic sops-age --namespace=flux-system --from-file=age.agekey=/dev/stdin
-    silent: true
+      - flux bootstrap git
+        --url=ssh://git@github.com/Marcin795/perpetulab.git
+        --branch=master
+        --private-key-file=keys/github-deploy.key
+        --path=kubernetes
+
+  create-sops-secret:
+    desc: "Create sops secret in cluster"
+    cmds:
+      - cat keys/age.agekey | kubectl create secret generic sops-age --namespace=flux-system --from-file=age.agekey=/dev/stdin
