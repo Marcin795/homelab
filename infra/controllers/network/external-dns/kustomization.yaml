@@ -4,6 +4,7 @@ resources:
   - namespace.yaml
   - repository.yaml
   - release-cloudflare.yaml
+  - release-unify.yaml
 secretGenerator:
   - name: cloudflare-token
     namespace: external-dns
@@ -11,8 +12,16 @@ secretGenerator:
       - cloudflare-token.env
     options:
       disableNameSuffixHash: true
+  - name: unifi-credentials
+    namespace: external-dns
+    envs:
+      - unifi-credentials.env
 configMapGenerator:
   - name: external-dns-cloudflare-values
     namespace: external-dns
     files:
       - values.yaml=cloudflare-values.yaml
+  - name: external-dns-unifi-values
+    namespace: external-dns
+    files:
+      - values.yaml=unifi-values.yaml

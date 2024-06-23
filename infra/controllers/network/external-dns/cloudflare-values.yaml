@@ -24,8 +24,9 @@ sources:
 
 policy: sync
 triggerLoopOnEvent: true
-txtOwnerId: edcf
+txtOwnerId: public
 txtPrefix: k8s.
+
 domainFilters:
   - boomerok.dev
 

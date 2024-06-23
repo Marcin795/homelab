@@ -13,3 +13,14 @@ spec:
       - http01:
           ingress:
             class: traefik
+        selector:
+          dnsZones:
+            - boomerok.dev
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              name: cloudflare-token
+              key: apiToken
+        selector:
+          dnsZones:
+            - local.boomerok.dev
