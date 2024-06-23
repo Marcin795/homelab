@@ -1,0 +1,31 @@
+provider:
+  name: cloudflare
+
+env:
+  - name: CF_API_TOKEN
+    valueFrom:
+      secretKeyRef:
+        name: cloudflare-token
+        key: CLOUDFLARE_TOKEN
+  - name: EXTERNAL_DNS_DRY_RUN
+    value: 1
+
+extraArgs:
+  - --dry-run
+  - --cloudflare-dns-records-per-page=1000
+  - --cloudflare-proxied
+  - --events
+  - --ignore-ingress-tls-spec
+  - --ingress-class=external
+
+sources:
+  - ingress
+
+policy: sync
+txtOwnerId: edcf
+txtPrefix: k8s.
+domainFilters:
+  - boomerok.dev
+
+serviceMonitor:
+  enabled: true
