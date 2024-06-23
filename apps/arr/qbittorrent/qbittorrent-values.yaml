@@ -35,3 +35,8 @@ persistence:
     type: hostPath
     hostPath: /var/openebs/local/data/arr/qbittorrent/downloads
     mountPath: /downloads
+  vuetorrent:
+    enabled: true
+    type: hostPath
+    hostPath: /var/openebs/local/data/arr/qbittorrent/vuetorrent
+    mountPath: /vuetorrent
