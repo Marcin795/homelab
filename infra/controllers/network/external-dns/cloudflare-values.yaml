@@ -8,7 +8,7 @@ env:
         name: cloudflare-token
         key: CLOUDFLARE_TOKEN
   - name: EXTERNAL_DNS_DRY_RUN
-    value: 1
+    value: '1'
 
 extraArgs:
   - --dry-run
