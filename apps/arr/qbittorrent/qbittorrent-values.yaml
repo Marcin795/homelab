@@ -24,6 +24,19 @@ service:
         port: 18863
         protocol: TCP
 
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: torrent.local.boomerok.dev
+        paths:
+          path:
+            - path: /
+    tls:
+      - name: local-tls
+        hosts:
+          - torrent.local.boomerok.dev
+
 persistence:
   config:
     enabled: true
