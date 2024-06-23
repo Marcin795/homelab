@@ -16,6 +16,8 @@ secretGenerator:
     namespace: external-dns
     envs:
       - unifi-credentials.env
+    options:
+      disableNameSuffixHash: true
 configMapGenerator:
   - name: external-dns-cloudflare-values
     namespace: external-dns
