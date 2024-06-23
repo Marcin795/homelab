@@ -33,7 +33,7 @@ ingress:
           - path: /
             pathType: Prefix
     tls:
-      - name: local-tls
+      - secretName: local-tls
         hosts:
           - torrent.local.boomerok.dev
 
