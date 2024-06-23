@@ -3,8 +3,10 @@ env:
   DOCKER_MODS: ghcr.io/gabe565/linuxserver-mod-vuetorrent
   PUID: 1000
   PGID: 1000
+  TORRENTING_PORT: 18863
 
 image:
+  # renovate: datasource=docker depName=ghcr.io/linuxserver/qbittorrent versioning=loose
   repository: ghcr.io/linuxserver/qbittorrent
   tag: version-4.6.4-r1
 
@@ -16,18 +18,20 @@ service:
     ports:
       http:
         port: 8080
+  bittorrent:
+    ports:
+      bittorrent:
+        port: 18863
+        protocol: TCP
 
 persistence:
-  test:
+  config:
     enabled: true
     type: hostPath
-    hostPath: /var/openebs/local/data/arr/qbittorrent/test
-    mountPath: /test
-
-#persistence:
-#  config:
-#    enabled: true
-#    existingClaim: qbittorrent-config
-#  downloads:
-#    enabled: true
-#    existingClaim: qbittorrent-downloads
+    hostPath: /var/openebs/local/data/arr/qbittorrent/config
+    mountPath: config
+  downloads:
+    enabled: true
+    type: hostPath
+    hostPath: /var/openebs/local/data/arr/qbittorrent/downloads
+    mountPath: /downloads
