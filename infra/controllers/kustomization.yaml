@@ -5,7 +5,6 @@ resources:
   - cert-manager
   - cilium
   - csr-approver
-  - metrics-server
   - observability
   - postgres
   - redis

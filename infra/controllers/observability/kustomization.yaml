@@ -4,6 +4,7 @@ resources:
   - namespace.yaml
   - repository.yaml
   - kube-prometheus-stack
+  - metrics-server
   - loki
   - promtail
   - geoip-updater
