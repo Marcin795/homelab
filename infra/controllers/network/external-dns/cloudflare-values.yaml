@@ -10,18 +10,20 @@ env:
   - name: EXTERNAL_DNS_DRY_RUN
     value: '1'
 
+logLevel: debug
+
 extraArgs:
   - --dry-run
   - --cloudflare-dns-records-per-page=1000
   - --cloudflare-proxied
-  - --events
   - --ignore-ingress-tls-spec
-  - --ingress-class=external
+  - --label-filter=access-scope==public
 
 sources:
   - ingress
 
 policy: sync
+triggerLoopOnEvent: true
 txtOwnerId: edcf
 txtPrefix: k8s.
 domainFilters:
