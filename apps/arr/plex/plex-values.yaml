@@ -8,8 +8,6 @@ pms:
 
 extraEnv:
   TZ: Europe/Warsaw
-  PLEX_UID: '1043'
-  PLEX_GUID: '1043'
 
 extraVolumeMounts:
   - mountPath: /seriale
