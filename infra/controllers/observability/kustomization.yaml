@@ -3,24 +3,9 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - repository.yaml
-  - release.yaml
-  - volumes/pv.yaml
-  - volumes/pvc.yaml
-  - grafana
+  - kube-prometheus-stack
+  - loki
+  - promtail
   - geoip-updater
+  - dashboards
   - cleanup-pods.yaml
-configMapGenerator:
-  - name: kube-prometheus-stack-values
-    namespace: observability
-    files:
-      - values.yaml=kube-prometheus-stack-values.yaml
-  - name: grafana-loki-values
-    namespace: observability
-    files:
-      - values.yaml=grafana-loki-values.yaml
-  - name: grafana-promtail-values
-    namespace: observability
-    files:
-      - values.yaml=grafana-promtail-values.yaml
-configurations:
-  - kustomizeconfig.yaml
