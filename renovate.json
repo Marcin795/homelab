@@ -23,6 +23,10 @@
     {
       "matchPackageNames": ["plexinc/pms-docker"],
       "versioning": "loose"
+    },
+    {
+      "matchPackageNames": ["ghcr.io/linuxserver/qbittorrent"],
+      "versioning": "loose"
     }
   ]
 }
