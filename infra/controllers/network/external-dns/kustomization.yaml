@@ -12,5 +12,5 @@ secretGenerator:
 configMapGenerator:
   - name: external-dns-cloudflare-values
     namespace: external-dns
-    envs:
-      - cloudflare-values.yaml
+    files:
+      - values.yaml=cloudflare-values.yaml
