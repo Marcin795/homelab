@@ -5,3 +5,4 @@ resources:
   - csr-approver
   - cert-manager
   - traefik
+  - external-dns
