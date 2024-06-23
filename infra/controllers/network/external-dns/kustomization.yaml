@@ -5,7 +5,7 @@ resources:
 secretGenerator:
   - name: cloudflare-token
     namespace: external-dns
-    files:
-      - cloudflare-token.yaml
+    envs:
+      - cloudflare-token.env
     options:
       disableNameSuffixHash: true
