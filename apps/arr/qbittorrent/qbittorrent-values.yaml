@@ -30,8 +30,8 @@ ingress:
     hosts:
       - host: torrent.local.boomerok.dev
         paths:
-          path:
-            - path: /
+          - path: /
+            pathType: Prefix
     tls:
       - name: local-tls
         hosts:
