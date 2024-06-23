@@ -1,0 +1,77 @@
+defaultPodOptions:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+    fsGroupChangePolicy: OnRootMismatch
+
+controllers:
+  qbittorrent:
+    annotations:
+      reloader.stakater.com/auto: 'true'
+    containers:
+      app:
+        image:
+          repository: ghcr.io/onedr0p/qbittorrent
+          tag: 4.6.0
+        env:
+          TZ: Europe/Warsaw
+          QBITTORRENT__PORT: &port '80'
+          QBITTORRENT__BT_PORT: &bittorrentPort '50413'
+#          QBT_Application__MemoryWorkingSetLimit: 10000
+#          QBT_Preferences__WebUI__AlternativeUIEnabled: false
+#          QBT_Preferences__WebUI__AuthSubnetWhitelistEnabled: true
+#          QBT_Preferences__WebUI__AuthSubnetWhitelist: |-
+#            10.42.0.0/16, 192.168.42.0/24
+#          QBT_Preferences__WebUI__LocalHostAuth: false
+#          QBT_BitTorrent__Session__Interface: eth0
+#          QBT_BitTorrent__Session__InterfaceAddress:
+#            valueFrom:
+#              fieldRef:
+#                fieldPath: status.podIP
+#          QBT_BitTorrent__Session__InterfaceName: eth0
+
+        probes:
+          liveness: &probes
+            enabled: true
+            custom: true
+            spec:
+              httpGet:
+                path: /api/v2/app/version
+                port: *port
+              initialDelaySeconds: 0
+              periodSeconds: 10
+              timeoutSeconds: 1
+              failureThreshold: 3
+          readiness: *probes
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities: { drop: [ "ALL" ] }
+
+service:
+  app:
+    controller: qbittorrent
+    type: LoadBalancer
+    annotations:
+      io.cilium/lb-ipam-ips: 192.168.1.243
+    ports:
+      http:
+        port: *port
+      bittorrent:
+        enabled: true
+        port: *bittorrentPort
+        protocol: TCP
+
+persistence:
+  config:
+    type: hostPath
+    hostPath: /var/openebs/local/data/arr/qbittorrent/config
+    hostPathType: DirectoryOrCreate
+  media:
+    type: hostPath
+    hostPath: /var/openebs/local/data/arr/qbittorrent/downloads
+    hostPathType: DirectoryOrCreate
+    globalMounts:
+      - path: /media/Downloads/qbittorrent
