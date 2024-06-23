@@ -4,7 +4,7 @@ resources:
   - namespace.yaml
   - repository.yaml
   - release-cloudflare.yaml
-  - release-unify.yaml
+  - release-unifi.yaml
 secretGenerator:
   - name: cloudflare-token
     namespace: external-dns
