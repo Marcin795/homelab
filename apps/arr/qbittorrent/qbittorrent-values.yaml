@@ -17,6 +17,13 @@ service:
       http:
         port: 8080
 
+persistence:
+  test:
+    enabled: true
+    type: hostPath
+    hostPath: /var/openebs/local/data/arr/qbittorrent/test
+    mountPath: /test
+
 #persistence:
 #  config:
 #    enabled: true
