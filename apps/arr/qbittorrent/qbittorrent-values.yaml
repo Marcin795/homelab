@@ -1,6 +1,8 @@
 env:
   TZ: Europe/Warsaw
   DOCKER_MODS: ghcr.io/gabe565/linuxserver-mod-vuetorrent
+  PUID: 1000
+  PGID: 1000
 
 image:
   repository: ghcr.io/linuxserver/qbittorrent
