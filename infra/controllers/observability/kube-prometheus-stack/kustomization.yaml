@@ -3,7 +3,10 @@ kind: Kustomization
 resources:
   - repository.yaml
   - release.yaml
-  - volumes
+  - volumes/alertmanager-pv.yaml
+  - volumes/grafana-pv.yaml
+  - volumes/grafana-pvc.yaml
+  - volumes/prometheus-pv.yaml
 configMapGenerator:
   - name: kube-prometheus-stack-values
     namespace: observability
