@@ -1,0 +1,22 @@
+env:
+  TZ: Europe/Warsaw
+  DOCKER_MODS: ghcr.io/gabe565/linuxserver-mod-vuetorrent
+
+image:
+  repository: ghcr.io/linuxserver/qbittorrent
+  tag: version-4.6.4-r1
+
+service:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+
+#persistence:
+#  config:
+#    enabled: true
+#    existingClaim: qbittorrent-config
+#  downloads:
+#    enabled: true
+#    existingClaim: qbittorrent-downloads
