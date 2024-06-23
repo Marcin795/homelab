@@ -6,7 +6,7 @@ env:
   TORRENTING_PORT: 18863
 
 image:
-  # renovate: datasource=docker depName=ghcr.io/linuxserver/qbittorrent versioning=loose
+  # renovate: datasource=docker depName=ghcr.io/linuxserver/qbittorrent versioning=semver
   repository: ghcr.io/linuxserver/qbittorrent
   tag: 4.6.5
 

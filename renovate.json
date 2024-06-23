@@ -26,7 +26,7 @@
     },
     {
       "matchPackageNames": ["ghcr.io/linuxserver/qbittorrent"],
-      "versioning": "loose"
+      "versioning": "semver"
     }
   ]
 }
