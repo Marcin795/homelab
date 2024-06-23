@@ -8,6 +8,15 @@ image:
   repository: ghcr.io/linuxserver/qbittorrent
   tag: version-4.6.4-r1
 
+service:
+  main:
+    type: LoadBalancer
+    annotations:
+      io.cilium/lb-ipam-ips: 192.168.1.243
+    ports:
+      http:
+        port: 8080
+
 #persistence:
 #  config:
 #    enabled: true
