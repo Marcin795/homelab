@@ -29,18 +29,20 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
-#            - mountPath: /data/media
-#              name: video
+            - mountPath: /data/series
+              name: series
+            - mountPath: /data/downloads
+              name: downloads
       volumes:
         - name: config
           hostPath:
             path: /var/openebs/local/data/arr/sonarr
             type: DirectoryOrCreate
-#        - name: series
-#          hostPath:
-#            path: /var/openebs/local/media/video/series
-#            type: DirectoryOrCreate
-#        - name: video
-#          hostPath:
-#            path: /var/openebs/local/media/video
-#            type: DirectoryOrCreate
+        - name: series
+          hostPath:
+            path: /var/openebs/local/media/video/series
+            type: DirectoryOrCreate
+        - name: downloads
+          hostPath:
+            path: /var/openebs/local/data/arr/qbittorrent/downloads
+            type: DirectoryOrCreate
