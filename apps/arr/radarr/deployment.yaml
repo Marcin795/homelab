@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radarr
+  namespace: arr
+spec:
+  selector:
+    matchLabels:
+      app: radarr
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: radarr
+    spec:
+      containers:
+        - name: radarr
+          image: lscr.io/linuxserver/radarr:5.7.0
+          ports:
+            - name: radarr
+              containerPort: 7878
+          env:
+            - name: TZ
+              value: Europe/Warsaw
+            - name: PUID
+              value: '1000'
+            - name: GUID
+              value: '1000'
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /data/movies
+              name: movies
+            - mountPath: /data/downloads
+              name: downloads
+      volumes:
+        - name: config
+          hostPath:
+            path: /var/openebs/local/data/arr/radarr
+            type: DirectoryOrCreate
+        - name: series
+          hostPath:
+            path: /var/openebs/local/media/video/movies
+            type: DirectoryOrCreate
+        - name: downloads
+          hostPath:
+            path: /var/openebs/local/data/arr/qbittorrent/downloads
+            type: DirectoryOrCreate
