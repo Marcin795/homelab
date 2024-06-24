@@ -25,9 +25,10 @@ service:
 ports:
   local:
     port: 6969
-    exposedPort: 6443
     expose:
       default: true
+    exposedPort: 6443
+    appProtocol: https
     protocol: TCP
     tls:
       enabled: true
