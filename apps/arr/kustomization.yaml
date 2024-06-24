@@ -4,3 +4,4 @@ resources:
   - namespace.yaml
   - plex
   - qbittorrent
+  - sonarr
