@@ -7,15 +7,15 @@ service:
   spec:
     loadBalancerIP: "192.168.1.200"
   additionalServices:
-#    local:
-#      type: LoadBalancer
-#      spec:
-#        loadBalancerIP: 192.168.1.222
-#        ports:
-#          - name: local
-#            protocol: TCP
-#            port: 443
-#            targetPort: local
+    local:
+      type: LoadBalancer
+      spec:
+        loadBalancerIP: 192.168.1.222
+        ports:
+          - name: local
+            protocol: TCP
+            port: 443
+            targetPort: local
     internal:
       spec:
         loadBalancerIP: "192.168.1.201"
@@ -26,7 +26,8 @@ ports:
   local:
     port: 6969
     expose:
-      default: true
+      default: false
+      local: true
     exposedPort: 6443
     appProtocol: https
     protocol: TCP
