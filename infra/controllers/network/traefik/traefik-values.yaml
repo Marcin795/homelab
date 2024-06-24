@@ -28,6 +28,8 @@ ports:
     protocol: TCP
     tls:
       enabled: true
+    middlewares:
+      - traefik-authentik-middleware@kubernetescrd
   web:
     redirectTo:
       port: websecure

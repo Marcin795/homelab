@@ -30,7 +30,6 @@ ingress:
     annotations:
       external-dns.alpha.kubernetes.io/target: 192.168.1.222
       traefik.ingress.kubernetes.io/router.entrypoints: local
-      traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik-middleware@kubernetescrd
     hosts:
       - host: torrent.local.boomerok.dev
         paths:
