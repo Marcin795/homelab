@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bazarr
+  namespace: arr
+spec:
+  selector:
+    matchLabels:
+      app: bazarr
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bazarr
+    spec:
+      containers:
+        - name: bazarr
+          image: linuxserver/bazarr:1.4.3
+          ports:
+            - name: bazarr
+              containerPort: 6767
+          env:
+            - name: TZ
+              value: Europe/Warsaw
+            - name: PUID
+              value: '1000'
+            - name: GUID
+              value: '1000'
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /data/movies
+              name: movies
+            - mountPath: /data/series
+              name: series
+      volumes:
+        - name: config
+          hostPath:
+            path: /var/openebs/local/data/arr/bazarr
+            type: DirectoryOrCreate
+        - name: movies
+          hostPath:
+            path: /var/openebs/local/media/video/movies
+            type: DirectoryOrCreate
+        - name: series
+          hostPath:
+            path: /var/openebs/local/media/video/series
+            type: DirectoryOrCreate
