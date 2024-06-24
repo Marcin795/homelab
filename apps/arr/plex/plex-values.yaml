@@ -25,6 +25,7 @@ ingress:
   url: https://plex.boomerok.dev
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
 
 service:
   type: ClusterIP
