@@ -25,7 +25,7 @@ service:
 ports:
   local:
     port: 6969
-    exposedPort: 443
+    exposedPort: 6443
     expose:
       default: true
     protocol: TCP
