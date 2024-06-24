@@ -23,7 +23,7 @@ ports:
     expose:
       default: false
       local: true
-    exposedPort: 443
+    exposedPort: 444
     appProtocol: https
     protocol: TCP
     tls:
