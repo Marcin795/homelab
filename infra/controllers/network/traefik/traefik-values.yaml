@@ -7,6 +7,15 @@ service:
   spec:
     loadBalancerIP: "192.168.1.200"
   additionalServices:
+    local:
+      type: LoadBalancer
+      spec:
+        loadBalancerIP: 192.168.1.222
+        ports:
+          - name: local
+            protocol: TCP
+            port: 443
+            targetPort: local
     internal:
       spec:
         loadBalancerIP: "192.168.1.201"
@@ -14,11 +23,20 @@ service:
       labels:
         traefik-service-label: internal
 ports:
+  local:
+    port: 6969
+    exposedPort: 443
+    expose:
+      default: true
+    protocol: TCP
+    tls:
+      enabled: true
   web:
     redirectTo:
       port: websecure
       scheme: https
   websecure:
+    asDefault: true
     forwardedHeaders:
       trustedIPs:
         - 173.245.48.0/20
