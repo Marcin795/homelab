@@ -20,7 +20,6 @@
     "fileMatch": ["(^|/)kustomization\\.ya?ml(?:\\.j2)?$"]
   },
   "packageRules": [
-    // automerge
     {
       "description": ["Auto merge Github Actions"],
       "matchManagers": ["github-actions"],
@@ -29,7 +28,6 @@
       "ignoreTests": true,
       "matchUpdateTypes": ["minor", "patch"]
     },
-    // groups
     {
       "description": ["Flux Group"],
       "groupName": "Flux",
