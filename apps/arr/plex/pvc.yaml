@@ -4,6 +4,7 @@ metadata:
   name: plex-config
   namespace: arr
   labels:
+    app.kubernetes.io/name: plex
     app: plex
 spec:
   accessModes:
@@ -13,4 +14,5 @@ spec:
       storage: 10Gi
   selector:
     matchLabels:
+      app.kubernetes.io/name: plex
       app: plex

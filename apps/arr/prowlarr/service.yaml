@@ -4,6 +4,7 @@ metadata:
   name: prowlarr-service
   namespace: arr
   labels:
+    app.kubernetes.io/name: prowlarr
     app: prowlarr
 spec:
   ports:
@@ -11,4 +12,5 @@ spec:
       targetPort: prowlarr
       name: prowlarr
   selector:
+    app.kubernetes.io/name: prowlarr
     app: prowlarr

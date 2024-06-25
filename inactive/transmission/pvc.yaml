@@ -3,6 +3,7 @@ apiVersion: v1
 metadata:
   name: transmission-config-claim
   labels:
+    app.kubernetes.io/name: transmission
     app: transmission
 spec:
   storageClassName: manual
@@ -20,6 +21,7 @@ apiVersion: v1
 metadata:
   name: transmission-downloads-claim
   labels:
+    app.kubernetes.io/name: transmission
     app: transmission
 spec:
   storageClassName: manual

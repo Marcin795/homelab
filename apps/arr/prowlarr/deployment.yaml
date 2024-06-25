@@ -6,11 +6,13 @@ metadata:
 spec:
   selector:
     matchLabels:
+      app.kubernetes.io/name: prowlarr
       app: prowlarr
   replicas: 1
   template:
     metadata:
       labels:
+        app.kubernetes.io/name: prowlarr
         app: prowlarr
     spec:
       containers:

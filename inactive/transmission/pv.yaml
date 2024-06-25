@@ -4,6 +4,7 @@ metadata:
   name: transmission-config-pv
   labels:
     type: local
+    app.kubernetes.io/name: transmission
     app: transmission
     pv-type: config
 spec:
@@ -21,6 +22,7 @@ metadata:
   name: transmission-downloads-pv
   labels:
     type: local
+    app.kubernetes.io/name: transmission
     app: transmission
     pv-type: transmission-downloads
 spec:

@@ -4,6 +4,7 @@ metadata:
   name: shitscreen
   namespace: shitscreen
   labels:
+    app.kubernetes.io/name: shitscreen
     app: shitscreen
   annotations:
     io.cilium/lb-ipam-ips: 192.168.1.203
@@ -16,5 +17,6 @@ spec:
       targetPort: 8081
       name: web
   selector:
+    app.kubernetes.io/name: shitscreen
     app: shitscreen
   type: LoadBalancer

@@ -4,6 +4,7 @@ metadata:
   name: bazarr-service
   namespace: arr
   labels:
+    app.kubernetes.io/name: bazarr
     app: bazarr
 spec:
   ports:
@@ -11,4 +12,5 @@ spec:
       targetPort: bazarr
       name: bazarr
   selector:
+    app.kubernetes.io/name: bazarr
     app: bazarr

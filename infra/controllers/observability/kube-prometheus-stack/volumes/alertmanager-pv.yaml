@@ -4,6 +4,7 @@ metadata:
   name: alertmanager-pv
   namespace: observability
   labels:
+    app.kubernetes.io/name: alertmanager
     app: alertmanager
 spec:
   capacity:

@@ -4,6 +4,7 @@ metadata:
   name: prometheus-pv
   namespace: observability
   labels:
+    app.kubernetes.io/name: prometheus
     app: prometheus
 spec:
   capacity:

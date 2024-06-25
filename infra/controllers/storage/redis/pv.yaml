@@ -4,6 +4,7 @@ metadata:
   name: redis-data
   namespace: redis
   labels:
+    app.kubernetes.io/name: redis
     app: redis
 spec:
   capacity:

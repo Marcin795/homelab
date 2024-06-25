@@ -4,6 +4,7 @@ metadata:
   name: grafana-pv
   namespace: observability
   labels:
+    app.kubernetes.io/name: grafana
     app: grafana
 spec:
   capacity:

@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: transmission-service
   labels:
+    app.kubernetes.io/name: transmission
     app: transmission
 spec:
   ports:
@@ -10,4 +11,5 @@ spec:
       targetPort: 9091
       name: http
   selector:
+    app.kubernetes.io/name: transmission
     app: transmission

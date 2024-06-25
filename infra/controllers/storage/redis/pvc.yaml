@@ -4,6 +4,7 @@ metadata:
   name: redis-data
   namespace: redis
   labels:
+    app.kubernetes.io/name: redis
     app: redis
 spec:
   accessModes:
@@ -13,4 +14,5 @@ spec:
       storage: 2Gi
   selector:
     matchLabels:
+      app.kubernetes.io/name: redis
       app: redis

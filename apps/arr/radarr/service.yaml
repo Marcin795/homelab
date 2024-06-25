@@ -4,6 +4,7 @@ metadata:
   name: radarr-service
   namespace: arr
   labels:
+    app.kubernetes.io/name: radarr
     app: radarr
 spec:
   ports:
@@ -11,4 +12,5 @@ spec:
       targetPort: radarr
       name: radarr
   selector:
+    app.kubernetes.io/name: radarr
     app: radarr

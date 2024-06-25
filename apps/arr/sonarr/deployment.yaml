@@ -6,11 +6,13 @@ metadata:
 spec:
   selector:
     matchLabels:
+      app.kubernetes.io/name: sonarr
       app: sonarr
   replicas: 1
   template:
     metadata:
       labels:
+        app.kubernetes.io/name: sonarr
         app: sonarr
     spec:
       containers:

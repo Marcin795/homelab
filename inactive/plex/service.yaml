@@ -4,6 +4,7 @@ metadata:
   name: plex-service
   namespace: arr
   labels:
+    app.kubernetes.io/name: plex
     app: plex
 spec:
   ports:
@@ -11,6 +12,7 @@ spec:
       targetPort: 32400
       name: http
   selector:
+    app.kubernetes.io/name: plex
     app: plex
 ---
 apiVersion: v1
@@ -19,6 +21,7 @@ metadata:
   name: plex-32400
   namespace: arr
   labels:
+    app.kubernetes.io/name: plex
     app: plex
   annotations:
     io.cilium/lb-ipam-ips: 192.168.1.202
@@ -28,5 +31,6 @@ spec:
       targetPort: 32400
       name: http
   selector:
+    app.kubernetes.io/name: plex
     app: plex
   type: LoadBalancer
