@@ -11,7 +11,7 @@ spec:
       version: homepage-1.2.2
       sourceRef:
         kind: HelmRepository
-        name: homepage
+        name: jameswynn
         namespace: homepage
   install:
     remediation:
