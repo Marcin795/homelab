@@ -9,6 +9,17 @@ config:
             - abbr: GH
               href: https://github.com/
   services:
+    - The High Seas:
+        - Sonarr:
+            icon: sonarr
+            href: https://sonarr.local.boomerok.dev
+            description: Fleet
+            widget:
+              type: sonarr
+              url: https://sonarr.local.boomerok.dev
+              key: f3c6511b9dac43a7b02c54574a3ee03f
+              enableQueue: true
+
     - My First Group:
         - My First Service:
             href: http://localhost/
