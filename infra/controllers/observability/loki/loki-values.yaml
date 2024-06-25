@@ -27,6 +27,8 @@ singleBinary:
       hostPath:
         path: /var/openebs/local/data/observability/loki
         type: DirectoryOrCreate
+
+gateway:
   affinity:
     podAntiAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
