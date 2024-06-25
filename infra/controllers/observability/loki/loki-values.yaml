@@ -32,7 +32,8 @@ gateway:
   affinity:
     podAntiAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
+        - weight: 100
+          labelSelector:
             matchLabels:
               app.kubernetes.io/component: gateway
           topologyKey: kubernetes.io/hostname
