@@ -29,8 +29,7 @@ singleBinary:
         type: DirectoryOrCreate
 
 gateway:
-  deploymentStrategy:
-    type: Recreate
+  affinity: {}
 
 read:
   replicas: 0
