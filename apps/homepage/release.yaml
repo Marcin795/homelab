@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: homepage
-      version: homepage-1.2.2
+      version: 1.2.2
       sourceRef:
         kind: HelmRepository
         name: jameswynn
