@@ -1,24 +1,40 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "docker:enableMajor",
+    ":disableRateLimiting",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":automergeBranch"
   ],
-  "rangeStrategy": "pin",
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
+  "rebaseWhen": "conflicted",
+  "schedule": ["every weekend"],
+  "ignorePaths": ["**/*.sops.*"],
   "flux": {
-    "fileMatch": ["(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"]
+    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"]
   },
   "helm-values": {
-    "fileMatch": ["(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"]
+    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"]
   },
   "helmfile": {
     "fileMatch": ["(^|/)helmfile\\.ya?ml(?:\\.j2)?$"]
   },
   "kubernetes": {
-    "fileMatch": ["(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"]
+    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"]
   },
   "kustomize": {
     "fileMatch": ["(^|/)kustomization\\.ya?ml(?:\\.j2)?$"]
   },
+  "pip_requirements": {
+    "fileMatch": ["(^|/)[\\w-]*requirements(-\\w+)?\\.(txt|pip)(?:\\.j2)?$"]
+  },
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to {{newVersion}}",
+  "commitMessageSuffix": "",
   "packageRules": [
     {
       "description": ["Auto merge Github Actions"],
