@@ -29,14 +29,8 @@ singleBinary:
         type: DirectoryOrCreate
 
 gateway:
-  affinity:
-    podAntiAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          labelSelector:
-            matchLabels:
-              app.kubernetes.io/component: gateway
-          topologyKey: kubernetes.io/hostname
+  deploymentStrategy:
+    type: Recreate
 
 read:
   replicas: 0
