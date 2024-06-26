@@ -23,6 +23,12 @@ patches:
 nodes:
   - hostname: homeserver
     ipAddress: 192.168.1.4
+    schematic:
+      customization:
+        systemExtensions:
+          officialExtensions:
+            - siderolabs/intel-ucode
+            - siderolabs/realtek-firmware
     talosImageURL: ghcr.io/siderolabs/installer
     installDiskSelector:
       size: '< 65GB'
