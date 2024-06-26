@@ -12,11 +12,17 @@ extraEnv:
 extraVolumeMounts:
   - mountPath: /seriale
     name: series
+  - mountPath: /filmy
+    name: movies
 
 extraVolumes:
   - name: series
     hostPath:
       path: /var/disk/a/media/video/series
+      type: DirectoryOrCreate
+  - name: movies
+    hostPath:
+      path: /var/disk/a/media/video/movies
       type: DirectoryOrCreate
 
 ingress:
