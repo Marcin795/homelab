@@ -13,7 +13,6 @@ metadata:
     gethomepage.dev/group: Cluster Management
     gethomepage.dev/icon: homepage.png
     gethomepage.dev/name: Homepage
-    gethomepage.dev/widget.url: https://homepage.local.boomerok.dev/
 spec:
   rules:
     - host: homepage.local.boomerok.dev
