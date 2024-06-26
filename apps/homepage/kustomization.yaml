@@ -20,6 +20,7 @@ configMapGenerator:
         app.kubernetes.io/name: homepage
 secretGenerator:
   - name: homepage-secrets
+    namespace: homepage
     envs:
       - config/secrets.env
     options:
