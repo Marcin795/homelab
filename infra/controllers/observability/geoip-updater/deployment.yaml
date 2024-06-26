@@ -48,7 +48,7 @@ spec:
               mountPath: /var/GeoIP.conf
               subPath: GeoIP.conf
       volumes:
-        - name: geoip-conf
+        - name: geoip-secrets
           secret:
             secretName: geoip-secrets
         - name: downloads
