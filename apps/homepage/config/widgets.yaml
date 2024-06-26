@@ -15,6 +15,11 @@
     expanded: true
     cpu: true
     memory: true
+- unifi_console:
+    url: https://192.168.1.1
+    username: {{HOMEPAGE_VAR_UNIFI_USER}}
+    password: {{HOMEPAGE_VAR_UNIFI_PASSWORD}}
+    site: WhyFi
 - search:
     provider: duckduckgo
     target: _blank
