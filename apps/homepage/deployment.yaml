@@ -33,6 +33,9 @@ spec:
             - name: http
               containerPort: 3000
               protocol: TCP
+          env:
+            - name: LOG_LEVEL
+              value: 'debug'
           envFrom:
             - prefix: HOMEPAGE_VAR_
               secretRef:
