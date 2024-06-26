@@ -33,6 +33,10 @@ spec:
             - name: http
               containerPort: 3000
               protocol: TCP
+          envFrom:
+            - prefix: HOMEPAGE_VAR_
+              secretRef:
+                name: homepage-secrets
           volumeMounts:
             - mountPath: /app/config/kubernetes.yaml
               name: homepage-config

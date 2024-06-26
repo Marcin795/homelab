@@ -11,10 +11,17 @@ configMapGenerator:
   - name: homepage-config
     namespace: homepage
     files:
-      - settings.yaml
-      - services.yaml
-      - widgets.yaml
-      - kubernetes.yaml
+      - config/settings.yaml
+      - config/services.yaml
+      - config/widgets.yaml
+      - config/kubernetes.yaml
+    options:
+      labels:
+        app.kubernetes.io/name: homepage
+secretGenerator:
+  - name: homepage-secrets
+    envs:
+      - config/secrets.env
     options:
       labels:
         app.kubernetes.io/name: homepage

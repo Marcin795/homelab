@@ -1,4 +1,12 @@
 - My First Group:
+    - Plex:
+        href: https://plex.boomerok.dev
+        icon: plex
+        widget:
+            type: plex
+            url: https://plex.boomerok.dev:443
+            key: {{HOMEPAGE_VAR_PLEX_TOKEN}}
+
     - My First Service:
         href: http://localhost/
         description: Homepage is awesome
