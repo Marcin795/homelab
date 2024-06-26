@@ -10,9 +10,11 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
-      - http01:
-          ingress:
-            class: traefik
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              name: cloudflare-token
+              key: apiToken
         selector:
           dnsZones:
             - boomerok.dev
