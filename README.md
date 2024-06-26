@@ -31,11 +31,21 @@ Save private key somewhere safe:
 cat "$HOME/Library/Application Support/sops/age/keys.txt"
 ```
 
----
+Add helm repositories required for bootstrap:
+```shell
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add cilium https://helm.cilium.io/
+helm repo update
+```
 
-### Talos setup
+Create GitHub deploy key:
 
-#### Step 1 - write config
+```shell
+mkdir keys
+ssh-keygen -t ecdsa -b 521 -C "github-deploy-key" -f keys/github-deploy.key -q -P ""
+```
+
+Add `keys/github-deploy.key.pub` to repository deploy keys (read only).
 
 Create talsecret:
 ```shell
@@ -52,12 +62,18 @@ Add talsecret to git:
 git add talsecret.sops.yaml
 ```
 
-#### Step 2 - apply config
+---
+
+### Talos setup
+
+#### Step 1 - generate config
 
 Generate config:
 ```shell
 talhelper genconfig --no-gitignore
 ```
+
+#### Step 2 - apply config
 
 Apply config:
 ```shell
@@ -74,57 +90,29 @@ Add to kubeconfig:
 talosctl kubeconfig
 ```
 
-#### Step 2.5 - add networking to finish cluster setup
+#### Step 3 - add services required before flux
 
 Create observability namespace:
 ```shell
-kubectl apply -f kubernetes/infra/controller/observability/namespace.yaml
+kubectl apply -f infra/controllers/observability/namespace.yaml
 ```
 
 Install prometheus-operator-crds:
-```shell
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
-```
 ```shell
 helm install prometheus-operator-crds prometheus-community/prometheus-operator-crds --namespace observability
 ```
 
 Install cilium:
 ```shell
-helm repo add cilium https://helm.cilium.io/
-helm repo update
+helm install cilium cilium/cilium -f infra/controllers/network/cilium/cilium-values.yaml --namespace kube-system
 ```
+
+Install csr approver:
 ```shell
-helm install cilium cilium/cilium -f kubernetes/infra/controller/kube-system/cilium/cilium-values.yaml --namespace kube-system
+helm install kubelet-csr-approver postfinance/kubelet-csr-approver -f infra/controllers/network/csr-approver/approver-values.yaml --namespace kube-system
 ```
 
-Add ip pools:
-```shell
-kubectl apply -f kubernetes/kube-system/cilium/external-ip-pool.yaml
-kubectl apply -f kubernetes/kube-system/cilium/internal-ip-pool.yaml
-```
-
-Create traefik namespace:
-```shell
-kubectl apply -f kubernetes/traefik/namespace.yaml
-```
-
-Install traefik:
-```shell
-helm install -n=traefik traefik traefik/traefik -f kubernetes/infra/controller/traefik/traefik-values.yaml
-```
-
-#### Step 3 - setup flux
-
-Create GitHub deploy key:
-
-```shell
-mkdir keys
-ssh-keygen -t ecdsa -b 521 -C "github-deploy-key" -f keys/github-deploy.key -q -P ""
-```
-
-Add `keys/github-deploy.key.pub` to repository deploy keys (read only).
+#### Step 4 - setup flux
 
 Bootstrap flux:
 ```shell
@@ -133,6 +121,11 @@ flux bootstrap git \
   --branch=master \
   --private-key-file=keys/github-deploy.key \
   --path=kubernetes 
+```
+
+Create sops secret for flux:
+```shell
+kubectl create secret generic sops-age -n flux-system --from-file keys/age.agekey
 ```
 
 Now flux will take over and deploy the rest of resources in this repository.
