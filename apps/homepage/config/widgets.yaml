@@ -4,9 +4,9 @@
       cpu: true
       memory: true
       showLabel: true
-      label: cluster
+      label: homelab
     nodes:
-      show: true
+      show: false
       cpu: true
       memory: true
       showLabel: true
@@ -18,3 +18,8 @@
 - search:
     provider: duckduckgo
     target: _blank
+- datetime:
+    format:
+      dateStyle: short
+      timeStyle: short
+      hourCycle: h23
