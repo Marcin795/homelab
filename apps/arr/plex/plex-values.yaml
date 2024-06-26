@@ -12,8 +12,16 @@ extraEnv:
 extraVolumeMounts:
   - mountPath: /seriale
     name: series
+  - mountPath: /series
+    name: series
   - mountPath: /filmy
     name: movies
+  - mountPath: /movies
+    name: movies
+  - mountPath: /anime
+    name: anime
+  - mountPath: /bleach
+    name: bleach
 
 extraVolumes:
   - name: series
@@ -23,6 +31,14 @@ extraVolumes:
   - name: movies
     hostPath:
       path: /var/disk/a/media/video/movies
+      type: DirectoryOrCreate
+  - name: anime
+    hostPath:
+      path: /var/disk/a/media/video/anime
+      type: DirectoryOrCreate
+  - name: bleach
+    hostPath:
+      path: /var/disk/a/media/video/bleach
       type: DirectoryOrCreate
 
 ingress:
