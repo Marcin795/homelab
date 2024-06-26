@@ -5,3 +5,4 @@ nameReference:
       - path: spec/template/spec/volumes/configMap/name
         kind: Deployment
       - path: spec/template/spec/containers/envFrom/secretRef/name
+        kind: Deployment
