@@ -5,7 +5,7 @@ resources:
   - repository.yaml
 configMapGenerator:
   - name: kubelet-csr-approver-helm-values
-    namespace: flux-system
+    namespace: kube-system
     files:
       - values.yaml=approver-values.yaml
 configurations:
