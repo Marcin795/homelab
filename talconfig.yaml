@@ -30,9 +30,7 @@ nodes:
             - siderolabs/intel-ucode
             - siderolabs/realtek-firmware
     talosImageURL: ghcr.io/siderolabs/installer
-    installDiskSelector:
-      size: '< 65GB'
-      model: 'SanDisk 3.2Gen1'
+    installDisk: /dev/disk/by-id/ata-KINGSTON_SHSS37A480G_50026B72590CF842
     controlPlane: true
     nameservers:
       - 1.1.1.1
