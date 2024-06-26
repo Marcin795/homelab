@@ -22,7 +22,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: homepage-service
+                name: homepage
                 port:
                   name: http
   tls:
