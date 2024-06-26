@@ -1,7 +1,7 @@
 global:
   addPrometheusAnnotations: true
   additionalLabels:
-    app.kubernetes.io/name: authentik
+#    app.kubernetes.io/name: authentik # already present I guess
     app: authentik
   env:
     - name: AUTHENTIK_TRUST_PROXY_HEADERS
