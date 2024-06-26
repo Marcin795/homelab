@@ -38,19 +38,29 @@ nodes:
     machineDisks:
       - device: /dev/disk/by-id/ata-CT2000MX500SSD1_2405E895C800
         partitions:
-          - mountpoint: /var/openebs/local
+          - mountpoint: /var/disk/a
+      - device: /dev/disk/by-id/ata-CT2000MX500SSD1_2324E6E39F2C
+        partitions:
+          - mountpoint: /var/disk/b
     patches:
       - |-
         machine:
           kubelet:
             extraConfig:
-               serverTLSBootstrap: true            
+              serverTLSBootstrap: true            
             extraArgs:
               rotate-server-certificates: true
             extraMounts:
-              - destination: /var/openebs/local
+              - destination: /var/disk/a
                 type: bind
-                source: /var/openebs/local
+                source: /var/disk/a
+                options:
+                  - bind
+                  - rshared
+                  - rw
+              - destination: /var/disk/b
+                type: bind
+                source: /var/disk/b
                 options:
                   - bind
                   - rshared
