@@ -15,7 +15,7 @@ global:
   volumes:
     - name: media
       hostPath:
-        path: /var/openebs/local/data/authentik
+        path: /var/disk/a/data/authentik
         type: DirectoryOrCreate
 
 authentik:

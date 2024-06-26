@@ -52,13 +52,13 @@ spec:
       volumes:
         - name: config
           hostPath:
-            path: /var/openebs/local/k3s/plex/config
+            path: /var/disk/a/k3s/plex/config
             type: DirectoryOrCreate
         - name: transcode
           hostPath:
-            path: /var/openebs/local/k3s/plex/transcode
+            path: /var/disk/a/k3s/plex/transcode
             type: DirectoryOrCreate
         - name: series
           hostPath:
-            path: /var/openebs/local/media/video/series
+            path: /var/disk/a/media/video/series
             type: DirectoryOrCreate

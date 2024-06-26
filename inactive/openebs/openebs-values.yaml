@@ -14,5 +14,5 @@ openebs-crds:
 localpv-provisioner:
   hostpathClass:
     isDefaultClass: true
-    basePath: /var/openebs/local
+    basePath: /var/disk/a
     reclaimPolicy: Retain

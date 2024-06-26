@@ -12,5 +12,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/openebs/local/data/redis
+    path: /var/disk/a/data/redis
     type: DirectoryOrCreate

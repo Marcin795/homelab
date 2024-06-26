@@ -12,5 +12,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/openebs/local/data/observability/prometheus
+    path: /var/disk/a/data/observability/prometheus
     type: DirectoryOrCreate

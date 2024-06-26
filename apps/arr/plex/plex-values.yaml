@@ -16,7 +16,7 @@ extraVolumeMounts:
 extraVolumes:
   - name: series
     hostPath:
-      path: /var/openebs/local/media/video/series
+      path: /var/disk/a/media/video/series
       type: DirectoryOrCreate
 
 ingress:

@@ -12,5 +12,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/openebs/local/data/observability/grafana
+    path: /var/disk/a/data/observability/grafana
     type: DirectoryOrCreate

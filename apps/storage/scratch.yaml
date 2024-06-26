@@ -30,7 +30,7 @@ spec:
       volumes:
         - name: root
           hostPath:
-            path: /var/openebs/local/
+            path: /var/disk/a/
 #        - name: memvol
 #          emptyDir:
 #            medium: Memory

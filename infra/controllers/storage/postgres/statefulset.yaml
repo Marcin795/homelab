@@ -36,5 +36,5 @@ spec:
       volumes:
         - name: postgres
           hostPath:
-            path: /var/openebs/local/data/postgres
+            path: /var/disk/a/data/postgres
             type: DirectoryOrCreate

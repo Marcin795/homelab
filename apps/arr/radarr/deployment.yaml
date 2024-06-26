@@ -38,13 +38,13 @@ spec:
       volumes:
         - name: config
           hostPath:
-            path: /var/openebs/local/data/arr/radarr
+            path: /var/disk/a/data/arr/radarr
             type: DirectoryOrCreate
         - name: movies
           hostPath:
-            path: /var/openebs/local/media/video/movies
+            path: /var/disk/a/media/video/movies
             type: DirectoryOrCreate
         - name: downloads
           hostPath:
-            path: /var/openebs/local/data/arr/qbittorrent/downloads
+            path: /var/disk/a/data/arr/qbittorrent/downloads
             type: DirectoryOrCreate

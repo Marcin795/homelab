@@ -71,9 +71,9 @@ spec:
             name: mitmproxy-config
         - name: mitmproxy
           hostPath:
-            path: /var/openebs/local/mitmproxy
+            path: /var/disk/a/mitmproxy
             type: DirectoryOrCreate
         - name: node
           hostPath:
-            path: /var/openebs/local/node
+            path: /var/disk/a/node
             type: DirectoryOrCreate

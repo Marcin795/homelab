@@ -12,5 +12,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/openebs/local/data/arr/plex
+    path: /var/disk/a/data/arr/plex
     type: DirectoryOrCreate

@@ -53,5 +53,5 @@ spec:
             secretName: geoip-conf
         - name: downloads
           hostPath:
-            path: /var/openebs/local/data/observability/geoip
+            path: /var/disk/a/data/observability/geoip
             type: DirectoryOrCreate
