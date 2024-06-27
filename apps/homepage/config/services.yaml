@@ -4,14 +4,14 @@
         icon: plex
         widget:
             type: plex
-            url: https://plex.boomerok.dev:443
+            url: plex-plex-media-server.arr:32400
             key: {{HOMEPAGE_VAR_PLEX_TOKEN}}
     - Bazarr:
         href: https://bazarr.local.boomerok.dev
         icon: bazarr
         widget:
             type: bazarr
-            url: https://bazarr.local.boomerok.dev
+            url: bazarr-service.arr:6767
             key: {{HOMEPAGE_VAR_BAZARR_APIKEY}}
 
 - Infrastructure:
