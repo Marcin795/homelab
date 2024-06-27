@@ -63,9 +63,9 @@ securityContext:
       - SYS_ADMIN
       - SYS_RESOURCE
 
-loadBalancer:
-  l7:
-    backend: envoy
+#loadBalancer:
+#  l7:
+#    backend: envoy
 
 envoy:
   enabled: true
