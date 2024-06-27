@@ -6,7 +6,7 @@
             type: plex
             url: https://plex.boomerok.dev:443
             key: {{HOMEPAGE_VAR_PLEX_TOKEN}}
-    - Plex:
+    - Bazarr:
         href: https://bazarr.local.boomerok.dev
         icon: bazarr
         widget:
