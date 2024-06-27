@@ -4,6 +4,7 @@
         icon: plex
         namespace: arr
         app: plex-media-server
+        siteMonitor: http://plex-plex-media-server.arr:32400
         widget:
             type: plex
             url: http://plex-plex-media-server.arr:32400

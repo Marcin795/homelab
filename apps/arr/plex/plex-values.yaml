@@ -47,11 +47,6 @@ ingress:
   url: https://plex.boomerok.dev
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    gethomepage.dev/enabled: 'true'
-    gethomepage.dev/group: The High Seas
-    gethomepage.dev/icon: plex
-    gethomepage.dev/name: Plex
-    gethomepage.dev/app: plex-media-server
 
 service:
   type: ClusterIP
