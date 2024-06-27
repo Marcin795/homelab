@@ -1,6 +1,6 @@
 - kubernetes:
     cluster:
-      show: true
+      show: false
       cpu: true
       memory: true
       showLabel: true
@@ -24,6 +24,7 @@
     target: _blank
 - datetime:
     format:
+      locale: pl
       dateStyle: short
       timeStyle: medium
       hourCycle: h23
