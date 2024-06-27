@@ -4,6 +4,7 @@
     "config:recommended",
     "docker:enableMajor",
     ":disableRateLimiting",
+    ":dependencyDashboard",
     ":semanticCommits",
     ":automergeBranch"
   ],
