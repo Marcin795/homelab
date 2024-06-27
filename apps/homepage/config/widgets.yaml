@@ -33,7 +33,7 @@
     longitude: 19.026997039793688
     timezone: Europe/Warsaw
     units: metric
-    cache: 5 # Time in minutes to cache API responses, to stay within limits
+    cache: 5 # minutes
     format: # optional, Intl.NumberFormat options
       maximumFractionDigits: 1
 - datetime:
