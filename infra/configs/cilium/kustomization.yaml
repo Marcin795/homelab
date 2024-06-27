@@ -4,3 +4,4 @@ resources:
   - announcement-policy.yaml
   - external-ip-pool.yaml
   - internal-ip-pool.yaml
+  - network-policy.yaml
