@@ -4,12 +4,9 @@
     "config:recommended",
     "docker:enableMajor",
     ":disableRateLimiting",
-    ":dependencyDashboard",
     ":semanticCommits",
     ":automergeBranch"
   ],
-  "dependencyDashboard": true,
-  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
   "rebaseWhen": "conflicted",
   "schedule": ["every weekend"],
