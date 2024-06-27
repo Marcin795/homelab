@@ -23,7 +23,7 @@
     provider: duckduckgo
     target: _blank
 - datetime:
-    locale: pl
+    locale: iso
     format:
       dateStyle: short
       timeStyle: medium
