@@ -4,7 +4,7 @@ resources:
   - namespace.yaml
   - service-account.yaml
   - cluster-role.yaml
-#  - deployment.yaml
+  - deployment.yaml
   - service.yaml
   - ingress.yaml
 configMapGenerator:
