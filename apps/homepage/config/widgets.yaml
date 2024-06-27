@@ -15,6 +15,11 @@
     expanded: true
     cpu: true
     memory: true
+- resources:
+    label: Storage
+    disk:
+      - /mnt/a
+      - /mnt/b
 - unifi_console:
     url: https://192.168.1.1
     username: {{HOMEPAGE_VAR_UNIFI_USER}}

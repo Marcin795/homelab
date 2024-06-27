@@ -55,9 +55,21 @@ spec:
               subPath: widgets.yaml
             - mountPath: /app/config/logs
               name: logs
+            - mountPath: /mnt/a
+              name: disk-a
+              readOnly: true
+            - mountPath: /mnt/b
+              name: disk-b
+              readOnly: true
       volumes:
         - name: homepage-config
           configMap:
             name: homepage-config
         - name: logs
           emptyDir: {}
+        - name: disk-a
+          hostPath:
+            path: /var/disk/a/
+        - name: disk-b
+          hostPath:
+            path: /var/disk/b/
