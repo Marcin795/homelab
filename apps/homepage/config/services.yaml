@@ -1,4 +1,4 @@
-- My First Group:
+- The High Seas:
     - Plex:
         href: https://plex.boomerok.dev
         icon: plex
@@ -6,6 +6,15 @@
             type: plex
             url: https://plex.boomerok.dev:443
             key: {{HOMEPAGE_VAR_PLEX_TOKEN}}
+    - Plex:
+        href: https://bazarr.local.boomerok.dev
+        icon: bazarr
+        widget:
+            type: bazarr
+            url: https://bazarr.local.boomerok.dev
+            key: {{HOMEPAGE_VAR_BAZARR_APIKEY}}
+
+- Infrastructure:
     - Unifi:
         href: 192.168.1.1
         icon: unifi
