@@ -39,7 +39,3 @@
       dateStyle: short
       timeStyle: medium
       hourCycle: h23
-
-- search:
-    provider: duckduckgo
-    target: _blank
