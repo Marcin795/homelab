@@ -8,6 +8,24 @@
             type: plex
             url: http://plex-plex-media-server.arr:32400
             key: {{HOMEPAGE_VAR_PLEX_TOKEN}}
+    - Sonarr:
+        href: https://sonarr.local.boomerok.dev
+        icon: sonarr
+        namespace: arr
+        app: sonarr
+        widget:
+            type: sonarr
+            url: http://sonarr-service.arr:8989
+            key: {{HOMEPAGE_VAR_SONARR_APIKEY}}
+    - Radarr:
+        href: https://radarr.local.boomerok.dev
+        icon: radarr
+        namespace: arr
+        app: radarr
+        widget:
+            type: radarr
+            url: http://radarr-service.arr:7878
+            key: {{HOMEPAGE_VAR_RADARR_APIKEY}}
     - Bazarr:
         href: https://bazarr.local.boomerok.dev
         icon: bazarr
