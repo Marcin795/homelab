@@ -25,7 +25,8 @@
       "versioning": "loose"
     },
     {
-      "matchPackageNames": ["qbittorrent"],
+      "matchPackageNames": ["ghcr.io/linuxserver/qbittorrent"],
+      "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-r(?<build>\\d+)-ls(?<revision>\\d+)"
     },
     {
