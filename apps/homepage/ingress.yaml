@@ -8,12 +8,6 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/target: 192.168.1.222
     traefik.ingress.kubernetes.io/router.entrypoints: local
-    gethomepage.dev/description: Dynamically Detected Homepage
-    gethomepage.dev/enabled: 'true'
-    gethomepage.dev/group: Cluster Management
-    gethomepage.dev/icon: homepage.png
-    gethomepage.dev/name: Homepage
-    gethomepage.dev/app: homepage
 spec:
   rules:
     - host: homepage.local.boomerok.dev
