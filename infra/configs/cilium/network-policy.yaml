@@ -8,6 +8,8 @@ spec:
     matchLabels:
       app.kubernetes.io/name: homepage
   egress:
+    - toCIDR:
+      - 192.168.1.1/24
     - toPorts:
         - ports:
             - port: "80"
