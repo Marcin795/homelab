@@ -35,6 +35,15 @@
             type: bazarr
             url: http://bazarr-service.arr:6767
             key: {{HOMEPAGE_VAR_BAZARR_APIKEY}}
+    - Prowlarr:
+        href: https://prowlarr.local.boomerok.dev
+        icon: prowlarr
+        namespace: arr
+        app: prowlarr
+        widget:
+            type: prowlarr
+            url: http://prowlarr-service.arr:9696
+            key: {{HOMEPAGE_VAR_PROWLARR_APIKEY}}
 
 - Infrastructure:
     - Unifi:
