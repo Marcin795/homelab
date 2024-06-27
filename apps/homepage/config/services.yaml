@@ -20,7 +20,7 @@
 
 - Infrastructure:
     - Unifi:
-        href: 192.168.1.1
+        href: http://192.168.1.1
         icon: unifi
         widget:
             type: unifi
