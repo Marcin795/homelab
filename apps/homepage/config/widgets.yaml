@@ -23,8 +23,8 @@
     provider: duckduckgo
     target: _blank
 - datetime:
+    locale: pl
     format:
-      locale: pl
       dateStyle: short
       month: 2-digit
       timeStyle: medium
