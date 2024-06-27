@@ -6,7 +6,14 @@
             type: plex
             url: https://plex.boomerok.dev:443
             key: {{HOMEPAGE_VAR_PLEX_TOKEN}}
-
+    - Unifi:
+        href: 192.168.1.1
+        icon: unifi
+        widget:
+            type: unifi
+            url: https://192.168.1.1
+            username: {{HOMEPAGE_VAR_UNIFI_USER}}
+            password: {{HOMEPAGE_VAR_UNIFI_PASSWORD}}
     - My First Service:
         href: http://localhost/
         description: Homepage is awesome
