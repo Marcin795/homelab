@@ -8,6 +8,14 @@
             type: plex
             url: http://plex-plex-media-server.arr:32400
             key: {{HOMEPAGE_VAR_PLEX_TOKEN}}
+    - Torrent:
+        href: https://torrent.local.boomerok.dev
+        icon: https://torrent.local.boomerok.dev/icon.svg
+        namespace: arr
+        app: qbittorrent
+        widget:
+            type: qbittorrent
+            url: http://qbittorrent.arr:8080
     - Sonarr:
         href: https://sonarr.local.boomerok.dev
         icon: sonarr
