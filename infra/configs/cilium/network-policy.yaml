@@ -6,12 +6,9 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      "k8s:io.kubernetes.pod.namespace": homepage
+      app.kubernetes.io/name: homepage
   egress:
-    - toEndpoints:
-        - matchLabels:
-            "k8s:io.kubernetes.pod.namespace": homepage
-      toPorts:
+    - toPorts:
         - ports:
             - port: "80"
               protocol: TCP
