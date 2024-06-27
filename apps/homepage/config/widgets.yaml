@@ -24,9 +24,6 @@
     url: https://192.168.1.1
     username: {{HOMEPAGE_VAR_UNIFI_USER}}
     password: {{HOMEPAGE_VAR_UNIFI_PASSWORD}}
-- search:
-    provider: duckduckgo
-    target: _blank
 - openmeteo:
     label: Bielsko-Biała
     latitude: 49.822081055681224
@@ -42,3 +39,6 @@
       dateStyle: short
       timeStyle: medium
       hourCycle: h23
+- search:
+    provider: duckduckgo
+    target: _blank
