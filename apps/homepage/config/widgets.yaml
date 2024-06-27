@@ -26,6 +26,5 @@
     locale: pl
     format:
       dateStyle: short
-      month: 2-digit
       timeStyle: medium
       hourCycle: h23
