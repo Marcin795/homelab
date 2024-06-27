@@ -35,6 +35,8 @@ spec:
               name: movies
             - mountPath: /data/series
               name: series
+            - mountPath: /data/anime
+              name: anime
       volumes:
         - name: config
           hostPath:
@@ -47,4 +49,8 @@ spec:
         - name: series
           hostPath:
             path: /var/disk/a/media/video/series
+            type: DirectoryOrCreate
+        - name: anime
+          hostPath:
+            path: /var/disk/a/media/video/anime
             type: DirectoryOrCreate
