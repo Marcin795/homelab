@@ -20,13 +20,13 @@ spec:
         - name: device-dir
           mountPath: /dev
         - name: var-disks
-          mountPath: /var/disk
+          mountPath: /var/mnt
   volumes:
     - name: device-dir
       hostPath:
         path: /dev
     - name: var-disks
       hostPath:
-        path: /var/disk
+        path: /var/mnt
   hostIPC: true
   hostPID: true
