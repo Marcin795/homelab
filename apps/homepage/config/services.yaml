@@ -68,3 +68,9 @@
         widget:
             type: traefik
             url: http://traefik-internal.traefik:9000
+    - Authentik:
+        href: https://authentik.boomerok.dev
+        icon: authentik
+        widget:
+            type: authentik
+            url: http://authentik-server.authentik:9000
