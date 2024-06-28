@@ -1,1 +1,6 @@
 tittle: Boomer Ok
+
+layout:
+  The High Seas:
+    style: row
+    columns: 3
