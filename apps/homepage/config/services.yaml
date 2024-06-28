@@ -1,3 +1,13 @@
+- Control:
+    - Overseerr:
+        href: https://overseerr.local.boomerok.dev
+        icon: overseerr
+        namespace: arr
+        app: overseerr
+        widget:
+            type: overseerr
+            url: http://overseerr-service.arr:5055
+            key: {{HOMEPAGE_VAR_OVERSEERR_APIKEY}}
 - The High Seas:
     - Plex:
         href: https://plex.boomerok.dev
