@@ -73,5 +73,5 @@
         icon: authentik
         widget:
             type: authentik
-            url: http://authentik-server.authentik:9000
+            url: http://authentik-server.authentik
             key: {{HOMEPAGE_VAR_AUTHENTIK_TOKEN}}
