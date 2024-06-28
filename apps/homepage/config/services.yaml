@@ -75,7 +75,7 @@
             type: grafana
             url: http://kube-prometheus-stack-grafana.observability
             username: sa_homepage
-            password: {{HOMEPAGE_VAR_GRAFANA_TOKEN}}
+            password: {{HOMEPAGE_VAR_GRAFANA_PASSWORD}}
     - Authentik:
         href: https://authentik.boomerok.dev
         icon: authentik
