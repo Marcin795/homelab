@@ -70,6 +70,14 @@
             url: http://traefik-internal.traefik:9000
     - Authentik:
         href: https://authentik.boomerok.dev
+        icon: grafana
+        widget:
+            type: grafana
+            url: http://kube-prometheus-stack-grafana.observability
+            username: sa_homepage
+            password: {{HOMEPAGE_VAR_GRAFANA_TOKEN}}
+    - Authentik:
+        href: https://authentik.boomerok.dev
         icon: authentik
         widget:
             type: authentik
