@@ -53,6 +53,9 @@ spec:
             - mountPath: /app/config/widgets.yaml
               name: homepage-config
               subPath: widgets.yaml
+            - mountPath: /app/config/bookmarks.yaml
+              name: homepage-config
+              subPath: bookmarks.yaml
             - mountPath: /app/config/logs
               name: logs
             - mountPath: /mnt/a

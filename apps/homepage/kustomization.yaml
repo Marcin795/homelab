@@ -15,6 +15,7 @@ configMapGenerator:
       - config/services.yaml
       - config/widgets.yaml
       - config/kubernetes.yaml
+      - config/bookmarks.yaml
     options:
       labels:
         app.kubernetes.io/name: homepage
