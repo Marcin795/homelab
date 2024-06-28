@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: overseerr
+  namespace: arr
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: overseerr
+      app: overseerr
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: overseerr
+        app: overseerr
+    spec:
+      containers:
+        - name: overseerr
+          image: linuxserver/overseerr:1.33.2
+          ports:
+            - name: overseerr
+              containerPort: 5055
+          env:
+            - name: TZ
+              value: Europe/Warsaw
+            - name: PUID
+              value: '1000'
+            - name: GUID
+              value: '1000'
+          volumeMounts:
+            - mountPath: /config
+              name: config
+      volumes:
+        - name: config
+          hostPath:
+            path: /var/disk/a/data/arr/overseerr
+            type: DirectoryOrCreate
