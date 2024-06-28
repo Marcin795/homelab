@@ -68,7 +68,7 @@
         widget:
             type: traefik
             url: http://traefik-internal.traefik:9000
-    - Authentik:
+    - Grafana:
         href: https://authentik.boomerok.dev
         icon: grafana
         widget:
