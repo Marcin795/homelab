@@ -1,6 +1,7 @@
 tittle: Boomer Ok
 
 layout:
+  Controls:
   The High Seas:
     icon: the-pirate-bay
     style: row
