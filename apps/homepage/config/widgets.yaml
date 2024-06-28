@@ -24,6 +24,12 @@
     url: https://192.168.1.1
     username: {{HOMEPAGE_VAR_UNIFI_USER}}
     password: {{HOMEPAGE_VAR_UNIFI_PASSWORD}}
+- datetime:
+    locale: iso
+    format:
+      dateStyle: short
+      timeStyle: medium
+      hourCycle: h23
 - openmeteo:
     label: Bielsko-Biała
     latitude: 49.822081055681224
@@ -33,9 +39,3 @@
     cache: 5 # minutes
     format: # optional, Intl.NumberFormat options
       maximumFractionDigits: 1
-- datetime:
-    locale: iso
-    format:
-      dateStyle: short
-      timeStyle: medium
-      hourCycle: h23
