@@ -4,4 +4,5 @@ resources:
   - authentik
   - arr
   - homepage
+  - isponsorblocktv
   - storage/scratch.yaml

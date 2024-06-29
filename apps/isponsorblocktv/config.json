@@ -1,0 +1,39 @@
+{
+	"devices": [
+		{
+			"screen_id": "ENC[AES256_GCM,data:4kD2KgPN73sUpaQiPUc6iMxhq4ZRlpyp+MI=,iv:0m2PqKwA9Pwa93aZ9Nc1yLt+oywJ2LqF7oKRhqBHZ0M=,tag:H1q4DI6/uY4qti/LuYyX1A==,type:str]",
+			"name": "YouTube on TV"
+		}
+	],
+	"apikey": "",
+	"skip_categories": [
+		"sponsor",
+		"exclusive_access",
+		"interaction",
+		"intro",
+		"outro",
+		"preview",
+		"music_offtopic"
+	],
+	"channel_whitelist": [],
+	"skip_count_tracking": true,
+	"mute_ads": false,
+	"skip_ads": false,
+	"sops": {
+		"kms": null,
+		"gcp_kms": null,
+		"azure_kv": null,
+		"hc_vault": null,
+		"age": [
+			{
+				"recipient": "age10x7hgktrgv969cs8pzdfwdtrdz5lap0zyq78ts2yex68afrkvd3qsnk62k",
+				"enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBHd0piZlhtSk9zK3ZNTE1m\na0hpaWJCYmxIVUZHRVdBZDVkYWI4NkpUa1RjClkwak1kWXo5NElIc3VMdDlrYUx3\nUGI5QWtzNncvNGpVTFpMQTFTZ0l3bFEKLS0tIHI1b0ZkSWdZZ3lYc1lyWW03c2kz\nRzBhNyt5ZXF5RnlqdlR2SzNBa2tVc1kKMYB0e4a3AqUFHQMClzlK57IHgcL8z+NQ\nUrj1++z+4bJODj903a1twZUmy+m42hin20Xwm+tirEp+oItqSUtdLQ==\n-----END AGE ENCRYPTED FILE-----\n"
+			}
+		],
+		"lastmodified": "2024-06-29T16:49:01Z",
+		"mac": "ENC[AES256_GCM,data:uXicb2roL1414IJWgZwV5/fFJeVUd2Hy8aQ+eyxVO0y+9dwRxgrO9UaIZ/iaksIbgBoLO5EL5Mx0Wa+fnZPbKt8f310Z/qKMo/VFpmqRfuOK+Z6zinyFrlyJqT+9ecNtUkqW6kW0ActSshov5LJVhvxYedt0mvOtqbTqBoWyKDw=,iv:b6Qi5kicTDYP8DYmhfTiFTnNS5kNhfGhScpV+JmjsgY=,tag:GEfd9jY3pd55+1dWYDRN+w==,type:str]",
+		"pgp": null,
+		"encrypted_regex": "(^(token|id|crt|key|screen_id)$|secret|password)",
+		"version": "3.8.1"
+	}
+}
