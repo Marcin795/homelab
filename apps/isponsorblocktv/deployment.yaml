@@ -23,5 +23,5 @@ spec:
               name: config
       volumes:
         - name: config
-          configMap:
-            name: isponsorblocktv-config
+          secret:
+            secretName: isponsorblocktv-config
