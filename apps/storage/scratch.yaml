@@ -19,7 +19,9 @@ spec:
         - name: scratch
           image: alpine
           command:
-            - tail -f /dev/null
+            - tail
+            - -f
+            - /dev/null
           volumeMounts:
             - mountPath: /data
               name: zfs
