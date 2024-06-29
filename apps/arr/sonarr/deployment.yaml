@@ -33,16 +33,8 @@ spec:
               name: config
             - mountPath: /media
               name: media
-            - mountPath: /triage
-              name: triage
-            - mountPath: /data/series
-              name: series
-            - mountPath: /data/anime
-              name: anime
             - mountPath: /data/downloads
               name: downloads
-            - mountPath: /data/zfs/anime
-              name: zfs-anime
       volumes:
         - name: config
           hostPath:
@@ -52,23 +44,7 @@ spec:
           hostPath:
             path: /var/mnt/data/media
             type: DirectoryOrCreate
-        - name: series
-          hostPath:
-            path: /var/disk/a/media/video/series
-            type: DirectoryOrCreate
-        - name: anime
-          hostPath:
-            path: /var/disk/a/media/video/anime
-            type: DirectoryOrCreate
         - name: downloads
           hostPath:
             path: /var/disk/a/data/arr/qbittorrent/downloads
-            type: DirectoryOrCreate
-        - name: zfs-anime
-          hostPath:
-            path: /var/mnt/data/media/video/anime
-            type: DirectoryOrCreate
-        - name: triage
-          hostPath:
-            path: /var/disk/a/triage
             type: DirectoryOrCreate
