@@ -58,11 +58,8 @@ spec:
               subPath: bookmarks.yaml
             - mountPath: /app/config/logs
               name: logs
-            - mountPath: /mnt/a
-              name: disk-a
-              readOnly: true
-            - mountPath: /mnt/b
-              name: disk-b
+            - mountPath: /data
+              name: zfs-pool
               readOnly: true
       volumes:
         - name: homepage-config
@@ -70,9 +67,6 @@ spec:
             name: homepage-config
         - name: logs
           emptyDir: {}
-        - name: disk-a
+        - name: zfs-pool
           hostPath:
-            path: /var/disk/a/
-        - name: disk-b
-          hostPath:
-            path: /var/disk/b/
+            path: /var/mnt/data
