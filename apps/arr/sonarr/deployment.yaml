@@ -37,6 +37,8 @@ spec:
               name: anime
             - mountPath: /data/downloads
               name: downloads
+            - mountPath: /data/zfs/anime
+              name: zfs-anime
       volumes:
         - name: config
           hostPath:
@@ -53,4 +55,8 @@ spec:
         - name: downloads
           hostPath:
             path: /var/disk/a/data/arr/qbittorrent/downloads
+            type: DirectoryOrCreate
+        - name: zfs-anime
+          hostPath:
+            path: /var/mnt/data/media/video/anime
             type: DirectoryOrCreate
