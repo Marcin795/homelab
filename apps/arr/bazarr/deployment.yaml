@@ -33,12 +33,6 @@ spec:
               name: config
             - mountPath: /media
               name: media
-            - mountPath: /data/movies
-              name: movies
-            - mountPath: /data/series
-              name: series
-            - mountPath: /data/anime
-              name: anime
       volumes:
         - name: config
           hostPath:
