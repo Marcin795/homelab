@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tautulli
+  namespace: arr
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: tautulli
+      app: tautulli
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: tautulli
+        app: tautulli
+    spec:
+      containers:
+        - name: tautulli
+          image: lscr.io/linuxserver/tautulli:2.14.3
+          ports:
+            - name: tautulli
+              containerPort: 8181
+          env:
+            - name: TZ
+              value: Europe/Warsaw
+            - name: PUID
+              value: '1000'
+            - name: GUID
+              value: '1000'
+          volumeMounts:
+            - mountPath: /config
+              name: config
+      volumes:
+        - name: config
+          hostPath:
+            path: /var/disk/a/data/arr/tautulli
+            type: DirectoryOrCreate

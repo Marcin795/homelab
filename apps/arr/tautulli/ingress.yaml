@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tautulli-ingress
+  namespace: arr
+  annotations:
+    external-dns.alpha.kubernetes.io/target: 192.168.1.222
+    traefik.ingress.kubernetes.io/router.entrypoints: local
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: tautulli.local.boomerok.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tautulli-service
+                port:
+                  name: tautulli
+  tls:
+    - secretName: local-tls
+      hosts:
+        - tautulli.local.boomerok.dev
