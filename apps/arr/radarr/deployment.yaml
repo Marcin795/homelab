@@ -46,11 +46,3 @@ spec:
           hostPath:
             path: /var/mnt/data/media
             type: DirectoryOrCreate
-        - name: movies
-          hostPath:
-            path: /var/disk/a/media/video/movies
-            type: DirectoryOrCreate
-        - name: downloads
-          hostPath:
-            path: /var/disk/a/data/arr/qbittorrent/downloads
-            type: DirectoryOrCreate
