@@ -10,6 +10,9 @@ extraEnv:
   TZ: Europe/Warsaw
 
 extraVolumeMounts:
+  - mountPath: /media/video
+    name: video
+    readOnly: true
   - mountPath: /series
     name: series
   - mountPath: /movies
@@ -22,6 +25,10 @@ extraVolumeMounts:
     name: zfs-anime
 
 extraVolumes:
+  - name: video
+    hostPath:
+      path: /var/mnt/data/media/video
+      type: Directory
   - name: series
     hostPath:
       path: /var/disk/a/media/video/series
