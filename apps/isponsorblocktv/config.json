@@ -1,11 +1,11 @@
 {
 	"devices": [
 		{
-			"screen_id": "ENC[AES256_GCM,data:HJPICdg1ovDXhhaaOLOwLdLeLL3+DZEvaZ8=,iv:LZcw6lABGe6xZYXm0A9fmx5XZVCqfbpDUIaZn9O25Qg=,tag:mW0El34foVsad8k7mlbGYQ==,type:str]",
+			"screen_id": "ENC[AES256_GCM,data:FkMX2QhWc+GeHiCliRlvuJ2JGaE46586hx4=,iv:9PpE+WtQvL6MhmkYG7zJkqZHUnWGQ1ZyileqWH1X5P4=,tag:NhcrIU7zQsi0rzEdv8yqEQ==,type:str]",
 			"name": "YouTube on TV"
 		}
 	],
-	"apikey": "",
+	"apikey": "ENC[AES256_GCM,data:4KKdU4cPwSHaOv/IbT50RPfOTNvNX3UL/wmeN8b1zLVpCO1G/RCv,iv:djGEwVw37Y70cg2+GOYYHa8jcVkYHGFlie8pjA1bpf8=,tag:RyGbcyDmYEG3T7JDfeJSVQ==,type:str]",
 	"skip_categories": [
 		"sponsor",
 		"exclusive_access",
@@ -17,7 +17,7 @@
 	],
 	"channel_whitelist": [
 		{
-			"id": "ENC[AES256_GCM,data:2qu3lD8zij+3k2XXTmgGCLNCOlSjlT/o,iv:11eaCii3k5YC7nSfTkWtVBhoDjn7/NtvQOXYxUlg7uM=,tag:XLlJbQe12+UtZAtdTB3VuA==,type:str]",
+			"id": "ENC[AES256_GCM,data:LsQ8VzPjP6PT0C1dy83TRIDZXdaxxuqY,iv:5HjpJqgymXXcVAWY7dJZHq141DcNLDl0eDCvkvovPzo=,tag:CqU6JdWhFZSZ9pnMuHh86A==,type:str]",
 			"name": "Linus Tech Tips"
 		}
 	],
@@ -32,13 +32,13 @@
 		"age": [
 			{
 				"recipient": "age10x7hgktrgv969cs8pzdfwdtrdz5lap0zyq78ts2yex68afrkvd3qsnk62k",
-				"enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBJYnZxeFpZL3dLZE9rblJr\nQitDRmticGhYS0JCdHp0TFI1TGhZYUlrRENjClp2ei9hSFVUQ0RnVytJQjV4MVk4\ndjRsVDQ3VFl4aFBMVFJmMzk3ZWZDNmMKLS0tIHZSWERoOVhWREJPa055RHd4bHdM\nN2NpemJldWVNZm9jb2hzWFFra1d5b3cKNpapuqp0P1U2Mn0cjTX7WLAe5Bc5v9zO\nFB7D/JmapGnOpV03WAY9/fVBJMVj4pY2JxZ2qgMW+2K4PuAIhVHRjA==\n-----END AGE ENCRYPTED FILE-----\n"
+				"enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVN2IxT3dYTFBzTHo3RTNU\nSzlBblNUZkRpVVZOUUJwQWNpMEJPL01sWVJRClduaWwxbS8vWUVod202UjN4Y0dQ\nK3Z5ZlBXUkxGYzBVSkNTVTd0NWdvWDQKLS0tIEZJbjhjWlVJK2dqNjdLdjVvMVc0\nRkk5Zy9CMU4rZzljM1hMdHFrQzk3L2sKaqIzYCCI35YM3R7sItaokjKvL+YKXWF6\nRQLWWqt3m8emnsDObIxcB1LcHwDfPTrSaxLzn48FtbK+1Z2ilF6KfQ==\n-----END AGE ENCRYPTED FILE-----\n"
 			}
 		],
-		"lastmodified": "2024-06-29T17:29:57Z",
-		"mac": "ENC[AES256_GCM,data:GCWvxbI1xRqGAhLr297A/iMsnVp017sHHfKs5gpr44RlghedzKyNdRvITBiXxkXWnRbC+5HDn42ksGAmtGaVF8FAjhmx/XK3ni8Ik+ypJC3zm4vGfU4inUN2IXe1PCPeSTXYXx1+Spy3QJZbuYzToP5gtWmiGb6Ud05JY25/qrw=,iv:9EeCcv4nMrmu0ffZ4I6hhztYfCs8jW6ROPNijFuAGa4=,tag:Y75t7WD/s/FjaFZ93SVD9Q==,type:str]",
+		"lastmodified": "2024-06-29T17:37:51Z",
+		"mac": "ENC[AES256_GCM,data:yskN2zWIAQiHmwtwJLG+Pq6QQFuQSJIhC/f2b95pIayJupbZdFjFiHR25ElSP60JGO6Ofhxw7sDHx39oATcDP9Amhb2QhK2mOjRf4Q0ZtbbUXoMYqCc1dxgnFZuldvwgVFIg5fXJrPkmrRx13qvzTg94eOgA4HVGipZuXbI8ezI=,iv:FQdaK+GB3f7hXcr0hSXi0rnbxNEbPbt0XqlKMBEBYbs=,tag:A4pFw9qKY6lgj51jQjod7w==,type:str]",
 		"pgp": null,
-		"encrypted_regex": "(^(token|id|crt|key|screen_id)$|secret|password)",
+		"encrypted_regex": "(^(token|id|crt|key|screen_id|apikey)$|secret|password)",
 		"version": "3.8.1"
 	}
 }
