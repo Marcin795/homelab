@@ -8,6 +8,18 @@
             type: overseerr
             url: http://overseerr-service.arr:5055
             key: {{HOMEPAGE_VAR_OVERSEERR_APIKEY}}
+    - Tautulli:
+        href: https://tautulli.local.boomerok.dev
+        icon: tautulli
+        namespace: arr
+        app: tautulli
+        widget:
+            type: tautulli
+            url: http://tautulli-service.arr:8181
+            key: {{HOMEPAGE_VAR_TAUTULLI_APIKEY}}
+            enableUser: true # optional, defaults to false
+            showEpisodeNumber: true # optional, defaults to false
+            expandOneStreamToTwoRows: false # optional, defaults to true
 - The High Seas:
     - Plex:
         href: https://plex.boomerok.dev
