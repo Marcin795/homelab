@@ -31,6 +31,10 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
+            - mountPath: /media
+              name: media
+            - mountPath: /triage
+              name: triage
             - mountPath: /data/series
               name: series
             - mountPath: /data/anime
@@ -43,6 +47,10 @@ spec:
         - name: config
           hostPath:
             path: /var/disk/a/data/arr/sonarr
+            type: DirectoryOrCreate
+        - name: config
+          hostPath:
+            path: /var/mnt/data/media
             type: DirectoryOrCreate
         - name: series
           hostPath:
@@ -59,4 +67,8 @@ spec:
         - name: zfs-anime
           hostPath:
             path: /var/mnt/data/media/video/anime
+            type: DirectoryOrCreate
+        - name: triage
+          hostPath:
+            path: /var/disk/a/triage
             type: DirectoryOrCreate
