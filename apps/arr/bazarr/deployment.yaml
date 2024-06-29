@@ -48,15 +48,3 @@ spec:
           hostPath:
             path: /var/mnt/data/media
             type: DirectoryOrCreate
-        - name: movies
-          hostPath:
-            path: /var/disk/a/media/video/movies
-            type: DirectoryOrCreate
-        - name: series
-          hostPath:
-            path: /var/disk/a/media/video/series
-            type: DirectoryOrCreate
-        - name: anime
-          hostPath:
-            path: /var/disk/a/media/video/anime
-            type: DirectoryOrCreate
