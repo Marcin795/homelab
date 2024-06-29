@@ -31,6 +31,8 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
+            - mountPath: /media
+              name: media
             - mountPath: /data/movies
               name: movies
             - mountPath: /data/downloads
@@ -38,7 +40,11 @@ spec:
       volumes:
         - name: config
           hostPath:
-            path: /var/disk/a/data/arr/radarr
+            path: /var/mnt/data/persistence/arr/radarr
+            type: DirectoryOrCreate
+        - name: media
+          hostPath:
+            path: /var/mnt/data/media
             type: DirectoryOrCreate
         - name: movies
           hostPath:
