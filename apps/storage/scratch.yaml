@@ -19,7 +19,9 @@ spec:
         - name: scratch
           image: alpine
           command:
-            - apk add zfs curl git && \
+            - apk add zfs && \
+            - apk add curl && \
+            - apk add git && \
             - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
             - tail -f /dev/null
           volumeMounts:
