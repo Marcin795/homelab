@@ -10,18 +10,16 @@ extraEnv:
   TZ: Europe/Warsaw
 
 extraVolumeMounts:
-  - mountPath: /seriale
-    name: series
   - mountPath: /series
     name: series
-  - mountPath: /filmy
-    name: movies
   - mountPath: /movies
     name: movies
   - mountPath: /anime
     name: anime
   - mountPath: /bleach
     name: bleach
+  - mountPath: /zfs/anime
+    name: zfs-anime
 
 extraVolumes:
   - name: series
@@ -39,6 +37,10 @@ extraVolumes:
   - name: bleach
     hostPath:
       path: /var/disk/a/media/video/bleach
+      type: DirectoryOrCreate
+  - name: zfs-anime
+    hostPath:
+      path: /var/mnt/data/media/video/anime
       type: DirectoryOrCreate
 
 ingress:
