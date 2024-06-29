@@ -48,7 +48,7 @@ spec:
           hostPath:
             path: /var/disk/a/data/arr/sonarr
             type: DirectoryOrCreate
-        - name: config
+        - name: media
           hostPath:
             path: /var/mnt/data/media
             type: DirectoryOrCreate
