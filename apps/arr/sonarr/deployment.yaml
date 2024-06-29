@@ -33,18 +33,12 @@ spec:
               name: config
             - mountPath: /media
               name: media
-            - mountPath: /data/downloads
-              name: downloads
       volumes:
         - name: config
           hostPath:
-            path: /var/disk/a/data/arr/sonarr
+            path: /var/mnt/data/persistence/arr/sonarr
             type: DirectoryOrCreate
         - name: media
           hostPath:
             path: /var/mnt/data/media
-            type: DirectoryOrCreate
-        - name: downloads
-          hostPath:
-            path: /var/disk/a/data/arr/qbittorrent/downloads
             type: DirectoryOrCreate
