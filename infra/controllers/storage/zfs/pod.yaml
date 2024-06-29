@@ -19,19 +19,14 @@ spec:
       volumeMounts:
         - name: device-dir
           mountPath: /dev
-        - name: var-mnt
-          mountPath: /var/mnt
         - name: var-disks
-          mountPath: /var/disk
+          mountPath: /var/mnt
   volumes:
     - name: device-dir
       hostPath:
         path: /dev
-    - name: var-mnt
-      hostPath:
-        path: /var/mnt
     - name: var-disks
       hostPath:
-        path: /var/disk
+        path: /var/mnt
   hostIPC: true
   hostPID: true
