@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: scratch
-  namespace: observability
+  namespace: zfs
 spec:
   selector:
     matchLabels:
@@ -19,18 +19,13 @@ spec:
         - name: scratch
           image: alpine
           command:
-            - tail
-            - -f
-            - /dev/null
+            - apk add zfs curl git && \
+            - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+            - tail -f /dev/null
           volumeMounts:
-            - mountPath: /root
-              name: root
-#            - mountPath: /memvol
-#              name: memvol
+            - mountPath: /data
+              name: zfs
       volumes:
-        - name: root
+        - name: zfs
           hostPath:
-            path: /var/disk/a/
-#        - name: memvol
-#          emptyDir:
-#            medium: Memory
+            path: /var/mnt/data
