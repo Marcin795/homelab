@@ -33,10 +33,6 @@ spec:
               name: config
             - mountPath: /media
               name: media
-            - mountPath: /data/movies
-              name: movies
-            - mountPath: /data/downloads
-              name: downloads
       volumes:
         - name: config
           hostPath:
