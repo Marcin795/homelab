@@ -13,42 +13,12 @@ extraVolumeMounts:
   - mountPath: /media/video
     name: video
     readOnly: true
-  - mountPath: /series
-    name: series
-  - mountPath: /movies
-    name: movies
-  - mountPath: /anime
-    name: anime
-  - mountPath: /bleach
-    name: bleach
-  - mountPath: /zfs/anime
-    name: zfs-anime
 
 extraVolumes:
   - name: video
     hostPath:
       path: /var/mnt/data/media/video
       type: Directory
-  - name: series
-    hostPath:
-      path: /var/disk/a/media/video/series
-      type: DirectoryOrCreate
-  - name: movies
-    hostPath:
-      path: /var/disk/a/media/video/movies
-      type: DirectoryOrCreate
-  - name: anime
-    hostPath:
-      path: /var/disk/a/media/video/anime
-      type: DirectoryOrCreate
-  - name: bleach
-    hostPath:
-      path: /var/disk/a/media/video/bleach
-      type: DirectoryOrCreate
-  - name: zfs-anime
-    hostPath:
-      path: /var/mnt/data/media/video/anime
-      type: DirectoryOrCreate
 
 ingress:
   enabled: true
