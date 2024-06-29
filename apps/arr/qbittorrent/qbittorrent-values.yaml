@@ -44,15 +44,15 @@ persistence:
   config:
     enabled: true
     type: hostPath
-    hostPath: /var/disk/a/data/arr/qbittorrent/config
+    hostPath: /var/mnt/data/persistence/arr/qbittorrent/config
     mountPath: config
   downloads:
     enabled: true
     type: hostPath
-    hostPath: /var/disk/a/data/arr/qbittorrent/downloads
+    hostPath: /var/mnt/data/media/downloads
     mountPath: /downloads
   vuetorrent:
     enabled: true
     type: hostPath
-    hostPath: /var/disk/a/data/arr/qbittorrent/vuetorrent
+    hostPath: /var/mnt/data/persistence/arr/qbittorrent/vuetorrent
     mountPath: /vuetorrent
