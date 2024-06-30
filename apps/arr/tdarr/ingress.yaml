@@ -18,7 +18,7 @@ spec:
               service:
                 name: tdarr-service
                 port:
-                  name: tdarr
+                  name: tdarr-web
   tls:
     - secretName: local-tls
       hosts:
