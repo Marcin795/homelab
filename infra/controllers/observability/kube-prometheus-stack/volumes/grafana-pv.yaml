@@ -12,5 +12,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/disk/a/data/observability/grafana
+    path: /var/mnt/data/persistence/observability/grafana
     type: DirectoryOrCreate
