@@ -36,15 +36,15 @@ grafana:
       access: proxy
       url: http://grafana-loki.observability:3100/
 
-prometheus:
-  prometheusSpec:
-    storageSpec:
-      volumeClaimTemplate:
-        spec:
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              storage: 50Gi
-          selector:
-            matchLabels:
-              app: prometheus
+#prometheus:
+#  prometheusSpec:
+#    storageSpec:
+#      volumeClaimTemplate:
+#        spec:
+#          accessModes: ["ReadWriteOnce"]
+#          resources:
+#            requests:
+#              storage: 50Gi
+#          selector:
+#            matchLabels:
+#              app: prometheus
