@@ -18,7 +18,7 @@ extraVolumes:
   - name: video
     hostPath:
       path: /var/mnt/data/media/video
-      type: Directory
+      type: DirectoryOrCreate
 
 ingress:
   enabled: true
