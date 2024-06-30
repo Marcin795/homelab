@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tdarr-service
+  namespace: arr
+  labels:
+    app.kubernetes.io/name: tdarr
+    app: tdarr
+spec:
+  ports:
+    - port: 8265
+      targetPort: tdarr-web
+      name: tdarr-web
+    - port: 8266
+      targetPort: tdarr-server
+      name: tdarr-server
+  selector:
+    app.kubernetes.io/name: tdarr
+    app: tdarr

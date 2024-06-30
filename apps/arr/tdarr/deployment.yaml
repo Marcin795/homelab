@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tdarr
+  namespace: arr
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: tdarr
+      app: tdarr
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: tdarr
+        app: tdarr
+    spec:
+      containers:
+        - name: tdarr
+          image: ghcr.io/haveagitgat/tdarr:2.22.01
+          ports:
+            - name: tdarr-web
+              containerPort: 8265
+            - name: tdarr-server
+              containerPort: 8266
+          env:
+            - name: TZ
+              value: Europe/Warsaw
+            - name: PUID
+              value: '1000'
+            - name: PGID
+              value: '1000'
+            - name: serverPort
+              value: '8266'
+            - name: webUIPort
+              value: '8265'
+            - name: internalNode
+              value: 'true'
+            - name: inContainer
+              value: 'true'
+            - name: ffmpegVersion
+              value: '6'
+            - name: nodeName
+              value: InternalNode
+          volumeMounts:
+            - mountPath: /app/configs
+              name: config
+            - mountPath: /app/server
+              name: server
+            - mountPath: /media
+              name: media
+      volumes:
+        - name: config
+          hostPath:
+            path: /var/mnt/data/persistence/arr/tdarr/config
+            type: DirectoryOrCreate
+        - name: server
+          hostPath:
+            path: /var/mnt/data/persistence/arr/tdarr/server
+            type: DirectoryOrCreate
+        - name: media
+          hostPath:
+            path: /var/mnt/data/media
+            type: DirectoryOrCreate
