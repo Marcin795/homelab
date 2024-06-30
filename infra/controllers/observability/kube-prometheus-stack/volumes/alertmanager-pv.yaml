@@ -12,5 +12,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/mnt/data/persistence/observability/alertmanager
+    path: /var/disk/a/data/observability/alertmanager
     type: DirectoryOrCreate
