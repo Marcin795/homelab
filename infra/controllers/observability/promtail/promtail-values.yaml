@@ -32,5 +32,5 @@ extraVolumeMounts:
 extraVolumes:
   - name: geoip
     hostPath:
-      path: /var/disk/a/data/observability/geoip
+      path: /var/mnt/data/persistence/observability/geoip
       type: DirectoryOrCreate
