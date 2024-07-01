@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: recyclarr
+  namespace: arr
+spec:
+  containers:
+    - name: recyclarr
+      image: ghcr.io/recyclarr/recyclarr:7.0.0
+      env:
+        - name: TZ
+          value: Europe/Warsaw
+      volumeMounts:
+        - mountPath: /config
+          name: config
+  volumes:
+    - name: config
+      hostPath:
+        path: /var/mnt/data/persistence/arr/recyclarr
+        type: DirectoryOrCreate
+  restartPolicy: OnFailure
