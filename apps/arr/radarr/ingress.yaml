@@ -33,3 +33,4 @@ spec:
     - secretName: local-tls
       hosts:
         - radarr.local.boomerok.dev
+        - radarr-4k.local.boomerok.dev
