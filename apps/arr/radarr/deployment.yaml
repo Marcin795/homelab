@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: radarr
-          image: lscr.io/linuxserver/radarr:5.7.0
+          image: &image lscr.io/linuxserver/radarr:5.7.0
           ports:
             - name: radarr
               containerPort: 7878
@@ -33,10 +33,31 @@ spec:
               name: config
             - mountPath: /media
               name: media
+        - name: radarr-4k
+          image: *image
+          ports:
+            - name: radarr-4k
+              containerPort: 8787
+          env:
+            - name: TZ
+              value: Europe/Warsaw
+            - name: PUID
+              value: '1000'
+            - name: GUID
+              value: '1000'
+          volumeMounts:
+            - mountPath: /config
+              name: config-4k
+            - mountPath: /media
+              name: media
       volumes:
         - name: config
           hostPath:
             path: /var/mnt/data/persistence/arr/radarr
+            type: DirectoryOrCreate
+        - name: config-4k
+          hostPath:
+            path: /var/mnt/data/persistence/arr/radarr-4k
             type: DirectoryOrCreate
         - name: media
           hostPath:

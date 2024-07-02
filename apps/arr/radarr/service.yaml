@@ -11,6 +11,9 @@ spec:
     - port: 7878
       targetPort: radarr
       name: radarr
+    - port: 8787
+      targetPort: radarr-4k
+      name: radarr-4k
   selector:
     app.kubernetes.io/name: radarr
     app: radarr
