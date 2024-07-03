@@ -2,4 +2,4 @@ creation_rules:
   - age: age10x7hgktrgv969cs8pzdfwdtrdz5lap0zyq78ts2yex68afrkvd3qsnk62k
     path_regex: \.env$
   - age: age10x7hgktrgv969cs8pzdfwdtrdz5lap0zyq78ts2yex68afrkvd3qsnk62k
-    encrypted_regex: (^(token|id|crt|key|screen_id|apikey)$|secret|password)
+    encrypted_regex: (^(id|crt|key|screen_id)$|token|secret|password|api[-_.]?key)
