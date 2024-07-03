@@ -13,9 +13,21 @@ spec:
       volumeMounts:
         - mountPath: /config
           name: config
+        - mountPath: /config/configs/radarr.yaml
+          name: radarr-config
+          subPath: radarr.yaml
+        - mountPath: /config/secrets.yaml
+          name: recyclarr-secrets
+          subPath: secrets.yaml
   volumes:
     - name: config
       hostPath:
         path: /var/mnt/data/persistence/arr/recyclarr
         type: DirectoryOrCreate
+    - name: radarr-config
+      configMap:
+        name: radarr-config
+    - name: recyclarr-secrets
+      secret:
+        secretName: recyclarr-secrets
   restartPolicy: OnFailure

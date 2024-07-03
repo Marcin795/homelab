@@ -2,3 +2,17 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - pod.yaml
+secretGenerator:
+  - name: recyclarr-secrets
+    namespace: arr
+    files:
+      - secrets.yaml
+    options:
+      disableNameSuffixHash: true
+configMapGenerator:
+  - name: radarr-config
+    namespace: arr
+    files:
+      - radarr.yaml
+configurations:
+  - kustomizeconfig.yaml

@@ -1,0 +1,50 @@
+radarr:
+  radarr-4k:
+    base_url: http://radarr-service:8787
+
+    quality_profiles:
+      - name: SQP-1 (2160p)
+        min_format_score: 10
+      - name: SQP-1 (1080p)
+        min_format_score: 10
+
+    include:
+      - template: radarr-quality-definition-sqp-streaming
+      # - template: radarr-quality-profile-sqp-1-2160p-imax-e
+      - template: radarr-quality-profile-sqp-1-2160p-4k-only-imax-e
+      - template: radarr-custom-formats-sqp-1-2160p
+      - template: radarr-quality-profile-sqp-1-1080p
+      - template: radarr-custom-formats-sqp-1-1080p
+
+    custom_formats:
+      # Movie Versions
+      - trash_ids:
+        # Uncomment the next line if you prefer 1080p/2160p WEBDL with IMAX Enhanced
+          - 9f6cbff8cfe4ebbc1bde14c7b7bec0de # IMAX Enhanced
+        quality_profiles:
+          - name: SQP-1 (2160p)
+          - name: SQP-1 (1080p)
+
+      # Unwanted
+      - trash_ids:
+          - 839bea857ed2c0a8e084f3cbdbd65ecb # x265 (no HDR/DV)
+        quality_profiles:
+          - name: SQP-1 (2160p)
+
+      # Optional
+      - trash_ids:
+          - b6832f586342ef70d9c128d40c07b872 # Bad Dual Groups
+          - 90cedc1fea7ea5d11298bebd3d1d3223 # EVO (no WEBDL)
+          - ae9b7c9ebde1f3bd336a8cbd1ec4c5e5 # No-RlsGroup
+        # - 5c44f52a8714fdd79bb4d98e2673be1f # Retags
+        # - f537cf427b64c38c8e36298f657e4828 # Scene
+        quality_profiles:
+          - name: SQP-1 (2160p)
+          - name: SQP-1 (1080p)
+
+      # Optional SDR
+      - trash_ids:
+#          - 9c38ebb7384dada637be8899efa68e6f # SDR
+          - 25c12f78430a3a23413652cbd1d48d77 # SDR (no WEBDL)
+        quality_profiles:
+          - name: SQP-1 (2160p)
