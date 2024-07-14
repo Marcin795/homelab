@@ -66,4 +66,4 @@ prometheus:
               storage: 50Gi
           selector:
             matchLabels:
-              app: prometheus
+              app: prometheus-os-pv

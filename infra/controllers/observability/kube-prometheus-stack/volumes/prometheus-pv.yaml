@@ -30,19 +30,19 @@ spec:
     path: /var/persistence/prometheus
     type: DirectoryOrCreate
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: prometheus-os-pv
-  namespace: observability
-  labels:
-    app: prometheus-os-pv
-spec:
-  accessModes:
-    - ReadWriteOnce
-  selector:
-    matchLabels:
-      app: prometheus-os-pv
-  resources:
-    requests:
-      storage: 50Gi
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: prometheus-os-pv
+#  namespace: observability
+#  labels:
+#    app: prometheus-os-pv
+#spec:
+#  accessModes:
+#    - ReadWriteOnce
+#  selector:
+#    matchLabels:
+#      app: prometheus-os-pv
+#  resources:
+#    requests:
+#      storage: 50Gi
