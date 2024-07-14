@@ -74,3 +74,7 @@ logs:
     fields:
       headers:
         defaultmode: keep
+
+ingressRoute:
+  dashboard:
+    enabled: true
