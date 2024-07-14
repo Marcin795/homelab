@@ -14,7 +14,8 @@ spec:
         - -c
         - |
           apt-get update && \
-          apt-get install -y zfsutils-linux ; sleep 3600 && \
+          apt-get install -y zfsutils-linux curl git zsh && \
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
           tail -f /dev/null
       volumeMounts:
         - name: device-dir
