@@ -11,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/disk/a/data/observability/prometheus2
+    path: /var/disk/a/data/observability/prometheus
     type: DirectoryOrCreate
 ---
 apiVersion: v1
