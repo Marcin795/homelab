@@ -47,11 +47,16 @@ prometheus:
         hostPath:
           path: /var/persistence/prometheus
           type: DirectoryOrCreate
+      - name: prometheus-os-pv
+        persistentVolumeClaim:
+          claimName: prometheus-os-pv
     volumeMounts:
       - mountPath: /zfs
         name: prometheus-zfs
       - mountPath: /os
         name: prometheus-os
+      - mountPath: /os-pv
+        name: prometheus-os-pv
     storageSpec:
       volumeClaimTemplate:
         spec:

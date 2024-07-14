@@ -13,3 +13,35 @@ spec:
   hostPath:
     path: /var/disk/a/data/observability/prometheus
     type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: prometheus-os-pv
+  namespace: observability
+  labels:
+    app: prometheus-os-pv
+spec:
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /var/persistence/prometheus
+    type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prometheus-os-pv
+  labels:
+    app: prometheus-os-pv
+spec:
+  accessModes:
+    - ReadWriteOnce
+  selector:
+    matchLabels:
+      app: prometheus-os-pv
+  resources:
+    requests:
+      storage: 50Gi
