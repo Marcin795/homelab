@@ -38,13 +38,21 @@ grafana:
 
 prometheus:
   prometheusSpec:
-    storageSpec:
-      volumeClaimTemplate:
-        spec:
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              storage: 50Gi
-          selector:
-            matchLabels:
-              app: prometheus
+    volumes:
+      - name: prometheus
+        hostPath:
+          path: /var/persistence/observability/prometheus
+          type: DirectoryOrCreate
+    volumeMounts:
+      - mountPath: /prometheus
+        name: prometheus
+#    storageSpec:
+#      volumeClaimTemplate:
+#        spec:
+#          accessModes: ["ReadWriteOnce"]
+#          resources:
+#            requests:
+#              storage: 50Gi
+#          selector:
+#            matchLabels:
+#              app: prometheus
