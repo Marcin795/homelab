@@ -20,14 +20,25 @@ spec:
       volumeMounts:
         - name: device-dir
           mountPath: /dev
-        - name: var
-          mountPath: /var
+        - name: var-mnt
+          mountPath: /var/mnt
+        - name: var-disk
+          mountPath: /var/disk
+        - name: var-persistence
+          mountPath: /var/persistence
   volumes:
     - name: device-dir
       hostPath:
         path: /dev
-    - name: var
+    - name: var-mnt
       hostPath:
-        path: /var
+        path: /var/mnt
+    - name: var-disk
+      hostPath:
+        path: /var/disk
+    - name: var-persistence
+      hostPath:
+        path: /var/persistence
+        type: DirectoryOrCreate
   hostIPC: true
   hostPID: true
