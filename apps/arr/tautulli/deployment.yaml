@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: tautulli
-          image: lscr.io/linuxserver/tautulli:2.14.3
+          image: linuxserver/tautulli:v2.14.3-ls144
           ports:
             - name: tautulli
               containerPort: 8181
