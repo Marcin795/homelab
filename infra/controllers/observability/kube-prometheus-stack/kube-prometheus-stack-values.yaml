@@ -38,21 +38,21 @@ grafana:
 
 prometheus:
   prometheusSpec:
-    volumes:
-      - name: prometheus
-        hostPath:
-          path: /var/persistence/observability/prometheus/prometheus-db
-          type: DirectoryOrCreate
-    volumeMounts:
-      - mountPath: /prometheus/prometheus-db
-        name: prometheus
-#    storageSpec:
-#      volumeClaimTemplate:
-#        spec:
-#          accessModes: ["ReadWriteOnce"]
-#          resources:
-#            requests:
-#              storage: 50Gi
-#          selector:
-#            matchLabels:
-#              app: prometheus
+#    volumes:
+#      - name: prometheus
+#        hostPath:
+#          path: /var/persistence/observability/prometheus/prometheus-db
+#          type: DirectoryOrCreate
+#    volumeMounts:
+#      - mountPath: /prometheus/prometheus-db
+#        name: prometheus
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
+          selector:
+            matchLabels:
+              app: prometheus
