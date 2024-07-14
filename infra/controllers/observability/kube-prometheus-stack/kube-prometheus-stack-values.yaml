@@ -39,7 +39,7 @@ grafana:
 prometheus:
   prometheusSpec:
     additionalArgs:
-      - --log.level=debug
+      log.level: debug
     volumes:
       - name: prometheus-zfs
         hostPath:
