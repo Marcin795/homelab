@@ -38,14 +38,20 @@ grafana:
 
 prometheus:
   prometheusSpec:
-#    volumes:
-#      - name: prometheus
-#        hostPath:
-#          path: /var/persistence/observability/prometheus/prometheus-db
-#          type: DirectoryOrCreate
-#    volumeMounts:
-#      - mountPath: /prometheus/prometheus-db
-#        name: prometheus
+    volumes:
+      - name: prometheus-zfs
+        hostPath:
+          path: /var/mnt/data/persistence/observability/prometheus
+          type: DirectoryOrCreate
+      - name: prometheus-os
+        hostPath:
+          path: /var/persistence/prometheus
+          type: DirectoryOrCreate
+    volumeMounts:
+      - mountPath: /zfs
+        name: prometheus-zfs
+      - mountPath: /os
+        name: prometheus-os
     storageSpec:
       volumeClaimTemplate:
         spec:
