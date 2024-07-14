@@ -39,25 +39,6 @@ grafana:
 prometheus:
   prometheusSpec:
     logLevel: debug
-    volumes:
-      - name: prometheus-zfs
-        hostPath:
-          path: /var/mnt/data/persistence/observability/prometheus
-          type: DirectoryOrCreate
-      - name: prometheus-os
-        hostPath:
-          path: /var/persistence/prometheus
-          type: DirectoryOrCreate
-#      - name: prometheus-os-pv
-#        persistentVolumeClaim:
-#          claimName: prometheus-os-pv
-    volumeMounts:
-      - mountPath: /zfs
-        name: prometheus-zfs
-      - mountPath: /os
-        name: prometheus-os
-#      - mountPath: /os-pv
-#        name: prometheus-os-pv
     storageSpec:
       volumeClaimTemplate:
         spec:
@@ -67,4 +48,4 @@ prometheus:
               storage: 50Gi
           selector:
             matchLabels:
-              app: prometheus-os-pv
+              app: prometheus2
