@@ -6,7 +6,7 @@ metadata:
 spec:
   containers:
     - name: zfs-setup
-      image: ubuntu:20.04
+      image: ubuntu:24.04
       securityContext:
         privileged: true
       command:
