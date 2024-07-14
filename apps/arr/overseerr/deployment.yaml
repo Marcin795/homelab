@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: overseerr
-          image: linuxserver/overseerr:1.33.2
+          image: linuxserver/overseerr:v1.33.2-ls112
           ports:
             - name: overseerr
               containerPort: 5055

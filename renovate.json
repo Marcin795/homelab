@@ -30,6 +30,11 @@
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-r(?<build>\\d+)-ls(?<revision>\\d+)"
     },
     {
+      "matchPackageNames": ["linuxserver/overseerr"],
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ls(?<build>\\d+)"
+    },
+    {
       "description": ["Talos Group"],
       "groupName": "Talos",
       "matchPackagePatterns": [
