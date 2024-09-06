@@ -5,11 +5,12 @@ metadata:
   namespace: arr
   annotations:
     external-dns.alpha.kubernetes.io/target: 192.168.1.222
-    traefik.ingress.kubernetes.io/router.entrypoints: local
+#    traefik.ingress.kubernetes.io/router.entrypoints: local
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: traefik
   rules:
-    - host: overseerr.local.boomerok.dev
+    - host: overseerr.boomerok.dev
       http:
         paths:
           - path: /
@@ -20,6 +21,6 @@ spec:
                 port:
                   name: overseerr
   tls:
-    - secretName: local-tls
+    - secretName: overseerr-tls
       hosts:
-        - overseerr.local.boomerok.dev
+        - overseerr.boomerok.dev
