@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: bazarr.local.boomerok.dev
+    - host: bazarr.boomerok.dev
       http:
         paths:
           - path: /
@@ -21,6 +21,6 @@ spec:
                 port:
                   name: bazarr
   tls:
-    - secretName: local-tls
+    - secretName: bazarr-tls
       hosts:
-        - bazarr.local.boomerok.dev
+        - bazarr.boomerok.dev
