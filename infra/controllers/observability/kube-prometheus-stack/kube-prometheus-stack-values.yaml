@@ -49,12 +49,3 @@ prometheus:
           selector:
             matchLabels:
               app: prometheus2
-    containers:
-      - name: prometheus
-        args: []
-        additionalArgs: []
-        command:
-          - echo `tail -f /dev/null`
-#          - tail
-#          - -f
-#          - /dev/null
