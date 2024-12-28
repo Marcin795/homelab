@@ -39,6 +39,14 @@ grafana:
 prometheus:
   prometheusSpec:
     logLevel: debug
+    volumes:
+      - name: prometheus-zfs
+        hostPath:
+          path: /var/mnt/data/persistence/observability/prometheus
+          type: DirectoryOrCreate
+    volumeMounts:
+      - mountPath: /prometheus-zfs
+        name: prometheus-zfs
     storageSpec:
       volumeClaimTemplate:
         spec:
