@@ -51,8 +51,8 @@ prometheus:
               app: prometheus2
     containers:
       - name: prometheus
+        args: []
         command:
           - tail
           - -f
           - /dev/null
-        args: []
