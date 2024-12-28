@@ -40,25 +40,25 @@ prometheus:
   prometheusSpec:
     logLevel: debug
     volumes:
-      - name: prometheus-os
-        hostPath:
-          path: /var/persistence/observability/prometheus
-          type: DirectoryOrCreate
+#      - name: prometheus-os
+#        hostPath:
+#          path: /var/persistence/observability/prometheus
+#          type: DirectoryOrCreate
       - name: prometheus-xfs
         hostPath:
           path: /var/disk/a/data/observability/prometheus2
           type: DirectoryOrCreate
-#      - name: prometheus-zfs
-#        hostPath:
-#          path: /var/mnt/data/persistence/observability/prometheus
-#          type: DirectoryOrCreate
+      - name: prometheus-zfs
+        hostPath:
+          path: /var/mnt/data/persistence/observability/prometheus
+          type: DirectoryOrCreate
     volumeMounts:
-      - mountPath: /prometheus-os
-        name: prometheus-os
+#      - mountPath: /prometheus-os
+#        name: prometheus-os
       - mountPath: /prometheus-xfs
         name: prometheus-xfs
-#      - mountPath: /prometheus-zfs
-#        name: prometheus-zfs
+      - mountPath: /prometheus-zfs
+        name: prometheus-zfs
     storageSpec:
       volumeClaimTemplate:
         spec:
@@ -68,4 +68,4 @@ prometheus:
               storage: 50Gi
           selector:
             matchLabels:
-              app: prometheus-zfs
+              app: prometheus-os
