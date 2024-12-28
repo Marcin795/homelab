@@ -39,7 +39,6 @@ grafana:
 prometheus:
   prometheusSpec:
     logLevel: debug
-    ignoreAdditionalArgs: true
     storageSpec:
       volumeClaimTemplate:
         spec:
@@ -50,11 +49,3 @@ prometheus:
           selector:
             matchLabels:
               app: prometheus2
-    containers:
-      - name: prometheus
-        args: []
-        additionalArgs: []
-        command:
-          - tail
-          - -f
-          - /dev/null
