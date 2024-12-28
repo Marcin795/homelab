@@ -52,6 +52,7 @@ prometheus:
     containers:
       - name: prometheus
         args: []
+        additionalArgs: []
         command:
           - tail
           - -f
