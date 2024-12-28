@@ -8,7 +8,7 @@ env:
 image:
   # renovate: datasource=docker depName=ghcr.io/linuxserver/qbittorrent versioning=semver
   repository: ghcr.io/linuxserver/qbittorrent
-  tag: 4.6.5-r0-ls341
+  tag: 4.6.7-r0-ls353
 
 service:
   main:
