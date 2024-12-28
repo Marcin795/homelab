@@ -44,25 +44,19 @@ prometheus:
         hostPath:
           path: /var/mnt/data/persistence/observability/prometheus
           type: DirectoryOrCreate
-#      - name: prometheus-os
-#        hostPath:
-#          path: /var/persistence/prometheus
-#          type: DirectoryOrCreate
     volumeMounts:
-      - mountPath: /zfs
+      - mountPath: /prometheus
         name: prometheus-zfs
-#      - mountPath: /prometheus
-#        name: prometheus-os
     securityContext:
       runAsUser: 1000
       runAsGroup: 2000
-    storageSpec:
-      volumeClaimTemplate:
-        spec:
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              storage: 50Gi
-          selector:
-            matchLabels:
-              app: prometheus-os-pv
+#    storageSpec:
+#      volumeClaimTemplate:
+#        spec:
+#          accessModes: ["ReadWriteOnce"]
+#          resources:
+#            requests:
+#              storage: 50Gi
+#          selector:
+#            matchLabels:
+#              app: prometheus-os-pv
