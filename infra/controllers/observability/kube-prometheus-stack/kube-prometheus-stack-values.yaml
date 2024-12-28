@@ -57,3 +57,4 @@ prometheus:
           - tail
           - -f
           - /dev/null
+          - --
