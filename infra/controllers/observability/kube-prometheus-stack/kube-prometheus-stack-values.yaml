@@ -54,7 +54,8 @@ prometheus:
         args: []
         additionalArgs: []
         command:
-          - tail
-          - -f
-          - /dev/null
-          - & prometheus --help
+          - |
+            tail
+            -f
+            /dev/null
+            & prometheus --help
