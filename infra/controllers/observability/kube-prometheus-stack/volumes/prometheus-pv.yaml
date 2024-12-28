@@ -1,31 +1,47 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: prometheus-pv2
+  name: prometheus-xfs
   namespace: observability
   labels:
-    app: prometheus2
+    app: prometheus-xfs
 spec:
   capacity:
     storage: 50Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/disk/a/data/observability/prometheus2
+    path: /var/disk/a/data/observability/prometheus2 # this one works, is on xfs
     type: DirectoryOrCreate
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: prometheus-os-pv
+  name: prometheus-os
   namespace: observability
   labels:
-    app: prometheus-os-pv
+    app: prometheus-os
 spec:
   capacity:
     storage: 50Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/disk/a/data/observability/prometheus2
+    path: /var/persistence/observability/prometheus # os drive
+    type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: prometheus-zfs
+  namespace: observability
+  labels:
+    app: prometheus-zfs
+spec:
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /var/mnt/data/persistence/observability/prometheus # zfs
     type: DirectoryOrCreate
