@@ -62,4 +62,4 @@ prometheus:
               storage: 50Gi
           selector:
             matchLabels:
-              app: prometheus-xfs
+              app: prometheus-zfs
