@@ -38,10 +38,6 @@ grafana:
 
 prometheus:
   prometheusSpec:
-#    containers:
-#      - name: prometheus
-#        args:
-#          - '--storage.agent.path=/prometheus-os2'
     logLevel: debug
     volumes:
       - name: prometheus-os
