@@ -12,7 +12,8 @@ spec:
     - ReadWriteMany
   hostPath:
 #    path: /var/persistence/observability/prometheus # os drive
-    path: /var/mnt/data/persistence/observability/prometheus # os drive
+#    path: /var/mnt/data/persistence/observability/prometheus # zfs
+    path: /var/disk/a/data/observability/prometheus # xfs
     type: DirectoryOrCreate
 ---
 #apiVersion: v1
