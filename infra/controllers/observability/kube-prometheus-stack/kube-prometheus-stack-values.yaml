@@ -41,9 +41,9 @@ prometheus:
     containers:
       - name: prometheus
         args:
-          - '--storage.agent.path=/prometheus-os'
+          - '--storage.agent.path=/prometheus-os2'
     additionalArgs:
-      - --storage.tsdb.path2=/prometheus-os
+      - --storage.tsdb.path2=/prometheus-os2
     logLevel: debug
     volumes:
       - name: prometheus-os
@@ -61,7 +61,7 @@ prometheus:
 #          path: /var/mnt/data/persistence/observability/prometheus
 #          type: DirectoryOrCreate
     volumeMounts:
-      - mountPath: /prometheus-os
+      - mountPath: /prometheus-os2
         name: prometheus-os
 #      - mountPath: /prometheus-xfs
 #        name: prometheus-xfs
