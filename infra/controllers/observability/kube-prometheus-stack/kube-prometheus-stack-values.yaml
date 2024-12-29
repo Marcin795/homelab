@@ -43,7 +43,7 @@ prometheus:
 #        args:
 #          - '--storage.agent.path=/prometheus-os2'
     additionalArgs:
-      - name: '--storage.tsdb.path2='
+      - name: '--storage.tsdb.path2'
         value: '/prometheus-os2'
     logLevel: debug
     volumes:
