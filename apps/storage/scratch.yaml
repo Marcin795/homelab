@@ -26,15 +26,15 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: zfs
-            - mountPath: /prometheus
-              name: prometheus
+#            - mountPath: /prometheus
+#              name: prometheus
 #          securityContext:
 #            runAsUser: 1000
 #            runAsGroup: 2000
       volumes:
-        - name: prometheus
-          persistentVolumeClaim:
-            claimName: prometheus-kube-prometheus-stack-prometheus-db-prometheus-kube-prometheus-stack-prometheus-0
+#        - name: prometheus
+#          persistentVolumeClaim:
+#            claimName: prometheus-kube-prometheus-stack-prometheus-db-prometheus-kube-prometheus-stack-prometheus-0
         - name: zfs
           hostPath:
             path: /var/mnt/data
