@@ -9,7 +9,7 @@ spec:
   capacity:
     storage: 10Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   hostPath:
     path: /var/persistence/observability/prometheus # os drive
     type: DirectoryOrCreate
