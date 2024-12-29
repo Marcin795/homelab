@@ -57,7 +57,7 @@ prometheus:
         name: prometheus-os
       - mountPath: /prometheus-xfs
         name: prometheus-xfs
-      - mountPath: /prometheus-zfs
+      - mountPath: /prometheus-zfs2
         name: prometheus-zfs
     storageSpec: null
 #      volumeClaimTemplate:
