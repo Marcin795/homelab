@@ -42,9 +42,6 @@ prometheus:
 #      - name: prometheus
 #        args:
 #          - '--storage.agent.path=/prometheus-os2'
-    additionalArgs:
-      - name: 'storage.tsdb.path'
-        value: '/prometheus-os'
     logLevel: debug
     volumes:
       - name: prometheus-os
@@ -68,7 +65,7 @@ prometheus:
 #        name: prometheus-xfs
 #      - mountPath: /prometheus-zfs2
 #        name: prometheus-zfs
-#    storageSpec:
+    storageSpec: null
 #      volumeClaimTemplate:
 #        spec:
 #          accessModes: ["ReadWriteOnce"]
