@@ -26,10 +26,15 @@ spec:
           mountPath: /var/disk
         - name: var-persistence
           mountPath: /var/persistence
+        - name: run
+          mountPath: /opt/run
   volumes:
     - name: device-dir
       hostPath:
         path: /dev
+    - name: run
+      hostPath:
+        path: /run
     - name: var-mnt
       hostPath:
         path: /var/mnt
