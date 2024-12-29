@@ -22,7 +22,6 @@ metadata:
   labels:
     app: prometheus-os-pvc
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   selector:
