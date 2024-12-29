@@ -59,13 +59,13 @@ prometheus:
         name: prometheus-xfs
       - mountPath: /prometheus-zfs
         name: prometheus-zfs
-    storageSpec:
-      volumeClaimTemplate:
-        spec:
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              storage: 50Gi
-          selector:
-            matchLabels:
-              app: prometheus-os
+#    storageSpec:
+#      volumeClaimTemplate:
+#        spec:
+#          accessModes: ["ReadWriteOnce"]
+#          resources:
+#            requests:
+#              storage: 50Gi
+#          selector:
+#            matchLabels:
+#              app: prometheus-os
