@@ -11,7 +11,8 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: /var/persistence/observability/prometheus # os drive
+#    path: /var/persistence/observability/prometheus # os drive
+    path: /var/mnt/data/persistence/observability/prometheus # os drive
     type: DirectoryOrCreate
 ---
 #apiVersion: v1
