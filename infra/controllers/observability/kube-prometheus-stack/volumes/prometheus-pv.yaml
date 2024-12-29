@@ -1,22 +1,6 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: prometheus-xfs
-  namespace: observability
-  labels:
-    app: prometheus-xfs
-spec:
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: /var/disk/a/data/observability/prometheus2 # this one works, is on xfs
-    type: DirectoryOrCreate
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
   name: prometheus-os
   namespace: observability
   labels:
@@ -31,17 +15,19 @@ spec:
     type: DirectoryOrCreate
 ---
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 metadata:
-  name: prometheus-zfs
+  name: prometheus-os-pvc
   namespace: observability
   labels:
-    app: prometheus-zfs
+    app: prometheus-os-pvc
 spec:
-  capacity:
-    storage: 10Gi
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
-  hostPath:
-    path: /var/mnt/data/persistence/observability/prometheus # zfs
-    type: DirectoryOrCreate
+  selector:
+    matchLabels:
+      app: prometheus-os
+  resources:
+    requests:
+      storage: 10Gi

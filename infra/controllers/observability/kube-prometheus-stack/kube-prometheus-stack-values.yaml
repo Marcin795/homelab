@@ -39,8 +39,10 @@ grafana:
 prometheus:
   prometheusSpec:
     logLevel: debug
-#    volumes:
-#      - name: prometheus-os
+    volumes:
+      - name: prometheus-os
+        persistentVolumeClaim:
+          claimName: prometheus-os-pvc
 #        hostPath:
 #          path: /var/persistence/observability/prometheus/prometheus-db
 #          type: DirectoryOrCreate
@@ -52,20 +54,20 @@ prometheus:
 #        hostPath:
 #          path: /var/mnt/data/persistence/observability/prometheus
 #          type: DirectoryOrCreate
-#    volumeMounts:
-#      - mountPath: /prometheus/prometheus-db
-#        name: prometheus-os
+    volumeMounts:
+      - mountPath: /prometheus-os
+        name: prometheus-os
 #      - mountPath: /prometheus-xfs
 #        name: prometheus-xfs
 #      - mountPath: /prometheus-zfs2
 #        name: prometheus-zfs
-    storageSpec:
-      volumeClaimTemplate:
-        spec:
-          accessModes: ["ReadWriteMany"]
-          resources:
-            requests:
-              storage: 10Gi
-          selector:
-            matchLabels:
-              app: prometheus-os
+#    storageSpec:
+#      volumeClaimTemplate:
+#        spec:
+#          accessModes: ["ReadWriteOnce"]
+#          resources:
+#            requests:
+#              storage: 10Gi
+#          selector:
+#            matchLabels:
+#              app: prometheus-os
