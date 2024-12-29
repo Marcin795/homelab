@@ -39,7 +39,7 @@ grafana:
 prometheus:
   prometheusSpec:
     additionalArgs:
-      - --storage.tsdb.path=/prometheus-os
+      - --storage.tsdb.path2=/prometheus-os
     logLevel: debug
     volumes:
       - name: prometheus-os
