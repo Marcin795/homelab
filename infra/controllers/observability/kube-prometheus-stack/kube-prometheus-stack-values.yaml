@@ -59,7 +59,7 @@ prometheus:
         name: prometheus-xfs
       - mountPath: /prometheus-zfs
         name: prometheus-zfs
-#    storageSpec:
+    storageSpec: null
 #      volumeClaimTemplate:
 #        spec:
 #          accessModes: ["ReadWriteOnce"]
