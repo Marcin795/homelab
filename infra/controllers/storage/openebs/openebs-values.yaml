@@ -17,4 +17,5 @@ localpv-provisioner:
     basePath: /var/openebs/local
     reclaimPolicy: Retain
 zfs-localpv:
-  encrKeysDir: /var/zfs-keys
+  zfsNode:
+    encrKeysDir: /var/zfs-keys
