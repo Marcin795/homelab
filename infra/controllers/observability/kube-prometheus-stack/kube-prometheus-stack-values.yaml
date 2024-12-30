@@ -64,7 +64,7 @@ prometheus:
     volumeMounts:
       - mountPath: /prometheus-os
         name: prometheus-kube-prometheus-stack-prometheus-db
-        subPath: prometheus-db
+#        subPath: prometheus-db
       - mountPath: /prometheus-xfs
         name: prometheus-xfs
       - mountPath: /prometheus-zfs
