@@ -47,12 +47,9 @@ prometheus:
 #        type: RuntimeDefault
     logLevel: debug
     volumes:
-#      - name: prometheus-os-pvc
-#        persistentVolumeClaim:
-#          claimName: prometheus-kube-prometheus-stack-prometheus-db-prometheus-kube-prometheus-stack-prometheus-0
-#        hostPath:
-#          path: /var/persistence/observability/prometheus/prometheus-db
-#          type: DirectoryOrCreate
+      - name: prometheus-hostpath-pvc
+        persistentVolumeClaim:
+          claimName: prometheus-hostpath-pvc
       - name: prometheus-xfs
         hostPath:
           path: /var/disk/a/data/observability/prometheus2
@@ -62,6 +59,8 @@ prometheus:
           path: /var/mnt/data/persistence/observability/prometheus
           type: DirectoryOrCreate
     volumeMounts:
+      - mountPath: /prometheus-hostpath
+        name: prometheus-hostpath-pvc
       - mountPath: /prometheus-os
         name: prometheus-kube-prometheus-stack-prometheus-db
 #        subPath: prometheus-db
