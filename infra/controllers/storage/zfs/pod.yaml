@@ -28,7 +28,12 @@ spec:
           mountPath: /var/persistence
         - name: run
           mountPath: /opt/run
+        - name: host-var
+          mountPath: /opt/var
   volumes:
+    - name: host-var
+      hostPath:
+        path: /var
     - name: device-dir
       hostPath:
         path: /dev
