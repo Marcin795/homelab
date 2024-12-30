@@ -7,10 +7,10 @@ engines:
   replicated:
     mayastor:
       enabled: false
-openebs-crds:
-  csi:
-    volumeSnapshots:
-      enabled: false
+#openebs-crds:
+#  csi:
+#    volumeSnapshots:
+#      enabled: false
 localpv-provisioner:
   hostpathClass:
     isDefaultClass: true
