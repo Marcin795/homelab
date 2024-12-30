@@ -30,12 +30,7 @@ spec:
           mountPath: /opt/run
         - name: host-var
           mountPath: /opt/var
-        - name: openebs-pvc
-          mountPath: /opt/openebs-pvc
   volumes:
-    - name: openebs-pvc
-      persistentVolumeClaim:
-        claimName: prometheus-hostpath-pvc
     - name: host-var
       hostPath:
         path: /var
