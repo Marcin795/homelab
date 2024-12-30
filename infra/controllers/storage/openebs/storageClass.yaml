@@ -6,4 +6,5 @@ parameters:
   fstype: "zfs"
   poolname: "data"
 provisioner: zfs.csi.openebs.io
+reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
