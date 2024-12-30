@@ -51,16 +51,23 @@ nodes:
             extraArgs:
               rotate-server-certificates: true
             extraMounts:
-              - destination: /var/disk/a
+              - destination: /var/mnt/data
                 type: bind
-                source: /var/disk/a
+                source: /var/mnt/data
                 options:
                   - bind
                   - rshared
                   - rw
-              - destination: /var/disk/b
+              - destination: /var/openebs/local
                 type: bind
-                source: /var/disk/b
+                source: /var/openebs/local
+                options:
+                  - bind
+                  - rshared
+                  - rw
+              - destination: /var/disk/a
+                type: bind
+                source: /var/disk/a
                 options:
                   - bind
                   - rshared
