@@ -14,16 +14,3 @@ configMapGenerator:
       - values.yaml=openebs-values.yaml
 configurations:
   - kustomizeconfig.yaml
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: openebs
-  namespace: openebs
-spec:
-  interval: 10m0s
-  path: ./kubernetes/infra/controller/openebs
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
