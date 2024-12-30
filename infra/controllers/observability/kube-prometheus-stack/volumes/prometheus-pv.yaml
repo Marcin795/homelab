@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: prometheus-os
+  name: prometheus-zfs
   namespace: observability
   labels:
-    app: prometheus-os
+    app: prometheus-zfs
 spec:
   capacity:
     storage: 10Gi
@@ -15,18 +15,3 @@ spec:
     path: /var/mnt/data/persistence/observability/prometheus # zfs
 #    path: /var/disk/a/data/observability/prometheus # xfs
     type: Directory
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: prometheus-hostpath-pvc
-  namespace: observability
-  labels:
-    app: prometheus-os-pvc
-spec:
-  storageClassName: openebs-hostpath
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
