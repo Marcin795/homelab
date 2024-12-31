@@ -19,14 +19,8 @@ spec:
           tail -f /dev/null
       volumeMounts:
         - name: device-dir
-          mountPath: /dev
-        - name: var-mnt
-          mountPath: /var/mnt
-        - name: var-disk
-          mountPath: /var/disk
-        - name: var-persistence
-          mountPath: /var/persistence
-        - name: run
+          mountPath: /opt/dev
+        - name: host-run
           mountPath: /opt/run
         - name: host-var
           mountPath: /opt/var
@@ -37,18 +31,8 @@ spec:
     - name: device-dir
       hostPath:
         path: /dev
-    - name: run
+    - name: host-run
       hostPath:
         path: /run
-    - name: var-mnt
-      hostPath:
-        path: /var/mnt
-    - name: var-disk
-      hostPath:
-        path: /var/disk
-    - name: var-persistence
-      hostPath:
-        path: /var/persistence
-        type: DirectoryOrCreate
   hostIPC: true
   hostPID: true
