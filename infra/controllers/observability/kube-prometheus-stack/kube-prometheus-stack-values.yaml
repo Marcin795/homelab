@@ -38,41 +38,10 @@ grafana:
 
 prometheus:
   prometheusSpec:
-#    securityContext:
-#      runAsGroup: 0
-#      runAsNonRoot: false
-#      runAsUser: 0
-#      fsGroup: 2000
-#      seccompProfile:
-#        type: RuntimeDefault
-    logLevel: debug
-#    volumes:
-#      - name: prometheus-hostpath-pvc
-#        persistentVolumeClaim:
-#          claimName: prometheus-hostpath-pvc
-#      - name: prometheus-xfs
-#        hostPath:
-#          path: /var/disk/a/data/observability/prometheus2
-#          type: DirectoryOrCreate
-#      - name: prometheus-zfs
-#        hostPath:
-#          path: /var/mnt/data/persistence/observability/prometheus
-#          type: DirectoryOrCreate
-#    volumeMounts:
-#      - mountPath: /prometheus-hostpath
-#        name: prometheus-hostpath-pvc
-#      - mountPath: /prometheus-os
-#        name: prometheus-kube-prometheus-stack-prometheus-db
-##        subPath: prometheus-db
-#      - mountPath: /prometheus-xfs
-#        name: prometheus-xfs
-#      - mountPath: /prometheus-zfs
-#        name: prometheus-zfs
     storageSpec:
       volumeClaimTemplate:
         spec:
           storageClassName: openebs-zfspv
-#          storageClassName: ""
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
