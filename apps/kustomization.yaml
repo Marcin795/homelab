@@ -5,4 +5,5 @@ resources:
   - arr
   - homepage
   - isponsorblocktv
+  - home-assistant
   - storage/scratch.yaml
