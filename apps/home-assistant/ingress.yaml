@@ -3,12 +3,14 @@ kind: Ingress
 metadata:
   name: home-assistant-ingress
   namespace: home-assistant
+  labels:
+    app.kubernetes.io/name: home-assistant
   annotations:
     external-dns.alpha.kubernetes.io/target: 192.168.1.222
     traefik.ingress.kubernetes.io/router.entrypoints: local
 spec:
   rules:
-    - host: home-assistant.boomerok.dev
+    - host: home-assistant.local.boomerok.dev
       http:
         paths:
           - path: /
@@ -19,6 +21,6 @@ spec:
                 port:
                   name: home-assistant
   tls:
-    - secretName: home-assistant-tls
+    - secretName: local-tls
       hosts:
-        - home-assistant.boomerok.dev
+        - home-assistant.local.boomerok.dev
