@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: home-assistant-service
+  namespace: home-assistant
+  labels:
+    app.kubernetes.io/name: home-assistant
+    app: home-assistant
+spec:
+  type: NodePort
+  ports:
+    - port: 8123
+      targetPort: home-assistant
+      name: home-assistant
+  selector:
+    app.kubernetes.io/name: home-assistant
+    app: home-assistant

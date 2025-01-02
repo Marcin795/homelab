@@ -1,0 +1,3 @@
+Rule1
+    ON Mqtt#Connected DO SetOption114 1 ENDON
+    ON Mqtt#Disconnected DO SetOption114 0 ENDON
