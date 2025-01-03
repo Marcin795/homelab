@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mosquitto-service
+  namespace: mosquitto
+  labels:
+    app.kubernetes.io/name: mosquitto
+    app: mosquitto
+spec:
+  ports:
+    - port: 1883
+      targetPort: mosquitto
+      name: mosquitto
+  selector:
+    app.kubernetes.io/name: mosquitto
+    app: mosquitto

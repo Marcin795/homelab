@@ -1,0 +1,19 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mosquitto-pvc
+  namespace: mosquitto
+  labels:
+    app.kubernetes.io/name: mosquitto
+    app: mosquitto
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mosquitto
+      app: mosquitto
+  resources:
+    requests:
+      storage: 1Gi

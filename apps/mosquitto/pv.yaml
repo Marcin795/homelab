@@ -1,0 +1,17 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: mosquitto-pv
+  namespace: mosquitto
+  labels:
+    app.kubernetes.io/name: mosquitto
+    app: mosquitto
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /var/mnt/data/persistence/mosquitto
+    type: DirectoryOrCreate
