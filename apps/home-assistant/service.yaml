@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/name: home-assistant
     app: home-assistant
 spec:
-  type: NodePort
+#  type: NodePort
   ports:
     - port: 8123
       targetPort: home-assistant
