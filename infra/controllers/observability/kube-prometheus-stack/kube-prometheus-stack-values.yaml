@@ -2,6 +2,7 @@ alertmanager:
   alertmanagerSpec:
     storage:
       volumeClaimTemplate:
+        storageClassName: manual
         spec:
           accessModes: ["ReadWriteOnce"]
           resources:
