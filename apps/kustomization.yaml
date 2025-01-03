@@ -6,4 +6,5 @@ resources:
   - homepage
   - isponsorblocktv
   - home-assistant
+  - mosquitto
   - storage/scratch.yaml
