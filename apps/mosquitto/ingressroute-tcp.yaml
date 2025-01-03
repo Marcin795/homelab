@@ -9,5 +9,5 @@ spec:
   routes:
     - match: HostSNI(`*`)
       services:
-        - name: mosquitto
+        - name: mosquitto-service
           port: 1883
