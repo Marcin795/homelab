@@ -5,7 +5,7 @@ metadata:
   namespace: mosquitto
 spec:
   entryPoints:
-    - tcp
+    - mosquitto
   routes:
     - match: HostSNI(`*`)
       services:

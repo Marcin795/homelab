@@ -59,6 +59,15 @@ ports:
       # => Keep this disabled !
       default: false
       internal: true
+  mosquitto:
+    port: 1883
+    expose:
+      default: false
+      local: true
+    exposedPort: 1883
+    protocol: TCP
+    tls:
+      enabled: false
 
 providers:
   kubernetesCRD:
