@@ -20,7 +20,7 @@
     disk:
       - /data
 - unifi_console:
-    url: https://192.168.1.1
+    url: https://192.168.8.1
     username: {{HOMEPAGE_VAR_UNIFI_USER}}
     password: {{HOMEPAGE_VAR_UNIFI_PASSWORD}}
 - datetime:

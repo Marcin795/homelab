@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: homepage
   annotations:
-    external-dns.alpha.kubernetes.io/target: 192.168.1.222
+    external-dns.alpha.kubernetes.io/target: 192.168.8.222
     traefik.ingress.kubernetes.io/router.entrypoints: local
 spec:
   rules:

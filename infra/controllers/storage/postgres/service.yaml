@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/name: postgres
     app: postgres
   annotations:
-    io.cilium/lb-ipam-ips: 192.168.1.205
+    io.cilium/lb-ipam-ips: 192.168.8.205
 spec:
   type: LoadBalancer
   ports:

@@ -14,7 +14,7 @@ service:
   main:
     type: LoadBalancer
     annotations:
-      io.cilium/lb-ipam-ips: 192.168.1.243
+      io.cilium/lb-ipam-ips: 192.168.8.243
     ports:
       http:
         port: 8080
@@ -24,7 +24,7 @@ service:
     nameOverride: torrent
     type: LoadBalancer
     annotations:
-      io.cilium/lb-ipam-ips: 192.168.1.244
+      io.cilium/lb-ipam-ips: 192.168.8.244
     ports:
       bittorrent:
         enabled: true
@@ -36,7 +36,7 @@ ingress:
   main:
     enabled: true
     annotations:
-      external-dns.alpha.kubernetes.io/target: 192.168.1.222
+      external-dns.alpha.kubernetes.io/target: 192.168.8.222
       traefik.ingress.kubernetes.io/router.entrypoints: local
     hosts:
       - host: torrent.local.boomerok.dev

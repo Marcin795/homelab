@@ -26,7 +26,7 @@ hubble:
     enabled: true
     service:
       annotations:
-        io.cilium/lb-ipam-ips: 192.168.1.212
+        io.cilium/lb-ipam-ips: 192.168.8.212
       type: LoadBalancer
 
 kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256

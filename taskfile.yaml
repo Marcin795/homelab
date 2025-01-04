@@ -31,7 +31,7 @@ tasks:
   apply-config:
     desc: "Apply Talos config"
     cmds:
-      - talosctl apply -n 192.168.1.4 -f clusterconfig/perpetulab-cluster-homeserver.yaml -i
+      - talosctl apply -n 192.168.8.4 -f clusterconfig/perpetulab-cluster-homeserver.yaml -i
       - talosctl bootstrap
       - talosctl kubeconfig
     silent: true

@@ -5,15 +5,15 @@ image:
 
 service:
   spec:
-    loadBalancerIP: "192.168.1.200"
+    loadBalancerIP: "192.168.8.200"
   additionalServices:
     local:
       type: LoadBalancer
       spec:
-        loadBalancerIP: 192.168.1.222
+        loadBalancerIP: 192.168.8.222
     internal:
       spec:
-        loadBalancerIP: "192.168.1.201"
+        loadBalancerIP: "192.168.8.201"
       type: LoadBalancer
       labels:
         traefik-service-label: internal

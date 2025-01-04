@@ -77,7 +77,7 @@ talhelper genconfig --no-gitignore
 
 Apply config:
 ```shell
-talosctl apply -n 192.168.1.4 -f clusterconfig/perpetulab-cluster-homeserver.yaml -i
+talosctl apply -n 192.168.8.4 -f clusterconfig/perpetulab-cluster-homeserver.yaml -i
 ```
 
 Bootstrap kubernetes:
