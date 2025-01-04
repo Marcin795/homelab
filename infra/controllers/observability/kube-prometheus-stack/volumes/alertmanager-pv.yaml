@@ -7,7 +7,6 @@ metadata:
     app.kubernetes.io/name: alertmanager
     app: alertmanager
 spec:
-#  storageClassName: manual
   capacity:
     storage: 1Gi
   accessModes:
