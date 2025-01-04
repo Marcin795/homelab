@@ -8,8 +8,11 @@ alertmanager:
           resources:
             requests:
               storage: 1Gi
+          volumeName: alertmanager-pv
+          volumeMode: Filesystem
           selector:
             matchLabels:
+              app.kubernetes.io/name: alertmanager
               app: alertmanager
 
 grafana:
