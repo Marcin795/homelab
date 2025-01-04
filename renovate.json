@@ -5,54 +5,83 @@
   ],
   "rangeStrategy": "pin",
   "flux": {
-    "fileMatch": ["(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"]
+    "fileMatch": [
+      "(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"
+    ]
   },
   "helm-values": {
-    "fileMatch": ["(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"]
+    "fileMatch": [
+      "(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"
+    ]
   },
   "helmfile": {
-    "fileMatch": ["(^|/)helmfile\\.ya?ml(?:\\.j2)?$"]
+    "fileMatch": [
+      "(^|/)helmfile\\.ya?ml(?:\\.j2)?$"
+    ]
   },
   "kubernetes": {
-    "fileMatch": ["(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"]
+    "fileMatch": [
+      "(^|/)(kubernetes|apps|infra)/.+\\.ya?ml(?:\\.j2)?$"
+    ]
   },
   "kustomize": {
-    "fileMatch": ["(^|/)kustomization\\.ya?ml(?:\\.j2)?$"]
+    "fileMatch": [
+      "(^|/)kustomization\\.ya?ml(?:\\.j2)?$"
+    ]
   },
   "packageRules": [
     {
-      "matchPackageNames": ["plexinc/pms-docker"],
+      "matchPackageNames": [
+        "plexinc/pms-docker"
+      ],
       "versioning": "loose"
     },
     {
-      "matchPackageNames": ["ghcr.io/linuxserver/qbittorrent"],
-      "matchDatasources": ["docker"],
+      "matchPackageNames": [
+        "ghcr.io/linuxserver/qbittorrent"
+      ],
+      "matchDatasources": [
+        "docker"
+      ],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-r(?<build>\\d+)-ls(?<revision>\\d+)"
     },
     {
-      "matchPackageNames": ["linuxserver/overseerr", "linuxserver/tautulli"],
-      "matchDatasources": ["docker"],
+      "matchPackageNames": [
+        "linuxserver/overseerr",
+        "linuxserver/tautulli"
+      ],
+      "matchDatasources": [
+        "docker"
+      ],
       "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ls(?<build>\\d+)"
     },
     {
-      "description": ["Talos Group"],
-      "groupName": "Talos",
-      "matchPackagePatterns": [
-        "siderolabs/talosctl",
-        "siderolabs/installer"
+      "description": [
+        "Talos Group"
       ],
-      "matchDatasources": ["docker"],
+      "groupName": "Talos",
+      "matchDatasources": [
+        "docker"
+      ],
       "group": {
         "commitMessageTopic": "{{{groupName}}} group"
       },
-      "separateMinorPatch": true
+      "separateMinorPatch": true,
+      "matchPackageNames": [
+        "/siderolabs/talosctl/",
+        "/siderolabs/installer/"
+      ]
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "description": ["Process custom dependencies"],
-      "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"],
+      "description": [
+        "Process custom dependencies"
+      ],
+      "fileMatch": [
+        "(^|/)kubernetes/.+\\.ya?ml(?:\\.j2)?$"
+      ],
       "matchStrings": [
         "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( repository=(?<registryUrl>\\S+))?\\n.+: (&\\S+\\s)?(?<currentValue>\\S+)"
       ],
