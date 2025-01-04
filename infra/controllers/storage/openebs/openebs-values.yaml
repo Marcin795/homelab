@@ -17,5 +17,11 @@ localpv-provisioner:
     basePath: /var/openebs/local
     reclaimPolicy: Retain
 zfs-localpv:
+  zfsController:
+    updateStrategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxSurge: 0
+        maxUnavailable: 1
   zfsNode:
     encrKeysDir: /var/zfs-keys
