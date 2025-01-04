@@ -18,7 +18,7 @@ spec:
       containers:
         - name: scratch
 #          image: alpine
-          image: quay.io/prometheus/prometheus:v3.0.1
+          image: quay.io/prometheus/prometheus:v3.1.0
           command:
             - tail
             - -f
