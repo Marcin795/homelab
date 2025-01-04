@@ -77,11 +77,11 @@
 
 - Infrastructure:
     - Unifi:
-        href: http://192.168.8.1/network
+        href: http://192.168.1.1/network
         icon: unifi
         widget:
             type: unifi
-            url: https://192.168.8.1
+            url: https://192.168.1.1
             username: {{HOMEPAGE_VAR_UNIFI_USER}}
             password: {{HOMEPAGE_VAR_UNIFI_PASSWORD}}
     - Traefik:
