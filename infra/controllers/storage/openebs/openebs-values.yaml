@@ -19,9 +19,9 @@ localpv-provisioner:
 zfs-localpv:
   zfsController:
     updateStrategy:
-      type: RollingUpdate
-      rollingUpdate:
-        maxSurge: 0
-        maxUnavailable: 1
+      type: Recreate
+#      rollingUpdate:
+#        maxSurge: 0
+#        maxUnavailable: 1
   zfsNode:
     encrKeysDir: /var/zfs-keys
