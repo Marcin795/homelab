@@ -1,0 +1,74 @@
+clusterName: perpetulab-cluster
+
+# renovate: datasource=docker depName=ghcr.io/siderolabs/installer
+talosVersion: v1.9.1
+# renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
+kubernetesVersion: v1.32.0
+
+endpoint: https://192.168.1.4:6443
+allowSchedulingOnMasters: true
+additionalMachineCertSans:
+  - boomerok.dev
+additionalApiServerCertSans:
+  - boomerok.dev
+cniConfig:
+  name: none
+
+patches:
+  - |-
+    cluster:
+      proxy:
+        disabled: true
+
+nodes:
+  - hostname: homeserver
+    ipAddress: 192.168.1.4
+    schematic:
+      customization:
+        systemExtensions:
+          officialExtensions:
+            - siderolabs/i915
+            - siderolabs/intel-ucode
+            - siderolabs/realtek-firmware
+            - siderolabs/zfs
+    kernelModules:
+      - name: zfs
+    installDisk: /dev/disk/by-id/ata-KINGSTON_SHSS37A480G_50026B72590CF842
+    controlPlane: true
+    nameservers:
+      - 1.1.1.1
+      - 8.8.8.8
+    machineDisks:
+      - device: /dev/disk/by-id/ata-CT2000MX500SSD1_2405E895C800
+        partitions:
+          - mountpoint: /var/disk/a
+    patches:
+      - |-
+        machine:
+          kubelet:
+            extraConfig:
+              serverTLSBootstrap: true            
+            extraArgs:
+              rotate-server-certificates: true
+            extraMounts:
+              - destination: /var/mnt/data
+                type: bind
+                source: /var/mnt/data
+                options:
+                  - bind
+                  - rshared
+                  - rw
+              - destination: /var/openebs/local
+                type: bind
+                source: /var/openebs/local
+                options:
+                  - bind
+                  - rshared
+                  - rw
+              - destination: /var/disk/a
+                type: bind
+                source: /var/disk/a
+                options:
+                  - bind
+                  - rshared
+                  - rw
