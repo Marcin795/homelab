@@ -1,16 +1,20 @@
 clusterName: perpetulab-cluster
 
 # renovate: datasource=docker depName=ghcr.io/siderolabs/installer
-talosVersion: v1.9.1
+talosVersion: v1.9.3
 # renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
 kubernetesVersion: v1.32.0
 
-endpoint: https://192.168.1.4:6443
+endpoint: https://192.168.8.4:6443
 allowSchedulingOnMasters: true
 additionalMachineCertSans:
   - boomerok.dev
+  - 100.104.23.110
+  - 192.168.8.4
 additionalApiServerCertSans:
   - boomerok.dev
+  - 100.104.23.110
+  - 192.168.8.4
 cniConfig:
   name: none
 
@@ -22,7 +26,7 @@ patches:
 
 nodes:
   - hostname: homeserver
-    ipAddress: 192.168.1.4
+    ipAddress: 192.168.8.4
     schematic:
       customization:
         systemExtensions:
@@ -30,6 +34,7 @@ nodes:
             - siderolabs/i915
             - siderolabs/intel-ucode
             - siderolabs/realtek-firmware
+            - siderolabs/tailscale
             - siderolabs/zfs
     kernelModules:
       - name: zfs
