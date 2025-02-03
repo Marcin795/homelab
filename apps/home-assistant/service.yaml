@@ -14,3 +14,23 @@ spec:
   selector:
     app.kubernetes.io/name: home-assistant
     app: home-assistant
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: home-assistant-local-lb
+  namespace: home-assistant
+  labels:
+    app.kubernetes.io/name: home-assistant
+    app: home-assistant
+  annotations:
+    io.cilium/lb-ipam-ips: 192.168.8.240
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8123
+      targetPort: home-assistant
+      name: home-assistant
+  selector:
+    app.kubernetes.io/name: home-assistant
+    app: home-assistant
