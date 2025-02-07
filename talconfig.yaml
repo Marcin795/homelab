@@ -63,6 +63,13 @@ nodes:
                   - bind
                   - rshared
                   - rw
+              - destination: /var/storage
+                type: bind
+                source: /var/storage
+                options:
+                  - bind
+                  - rshared
+                  - rw
               - destination: /var/openebs/local
                 type: bind
                 source: /var/openebs/local
