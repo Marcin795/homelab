@@ -40,5 +40,5 @@ spec:
             type: DirectoryOrCreate
         - name: media
           hostPath:
-            path: /var/mnt/data/media
+            path: /var/storage/media
             type: DirectoryOrCreate

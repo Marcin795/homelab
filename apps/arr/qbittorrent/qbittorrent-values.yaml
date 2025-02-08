@@ -57,7 +57,7 @@ persistence:
   downloads:
     enabled: true
     type: hostPath
-    hostPath: /var/mnt/data/media/downloads
+    hostPath: /var/storage/media/downloads
     mountPath: /downloads
   vuetorrent:
     enabled: true
