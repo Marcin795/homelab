@@ -28,6 +28,7 @@ spec:
             - mountPath: /config
               name: config
           securityContext:
+            privileged: true
             capabilities:
               add:
                 - NET_ADMIN
