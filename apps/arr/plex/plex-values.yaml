@@ -17,7 +17,7 @@ extraVolumeMounts:
 extraVolumes:
   - name: video
     hostPath:
-      path: /var/mnt/data/media/video
+      path: /var/storage/media/video
       type: DirectoryOrCreate
 
 ingress:
