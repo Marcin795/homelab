@@ -21,7 +21,7 @@ spec:
           ports:
             - name: qbittorrent-web
               containerPort: 8080
-            - name: qbittorrent-torrent
+            - name: torrent
               containerPort: 18863
           env:
             - name: TZ
