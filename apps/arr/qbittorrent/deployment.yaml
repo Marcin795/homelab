@@ -50,7 +50,10 @@ spec:
           lifecycle:
             postStart:
               exec:
-                command: [ "/bin/sh", "-c", "(ip rule del table 51820; ip -6 rule del table 51820) || true" ]
+                command: [ "/bin/sh", "-c", "
+                  sed -i 's|__API_KEY__|${GSP_GTN_API_KEY}|g' /gluetun/auth/config.toml;
+                  (ip rule del table 51820; ip -6 rule del table 51820) || true
+                " ]
           securityContext:
             capabilities:
               add:
@@ -73,7 +76,16 @@ spec:
           envFrom:
             - secretRef:
                 name: wireguard-secret
+            - secretRef:
+                name: gluetun-apikey
+          volumeMounts:
+            - name: gluetun-auth
+              mountPath: /gluetun/auth/config.toml
+              subPath: config.toml
       volumes:
+        - name: gluetun-auth
+          configMap:
+            name: gluetun-auth
         - name: config
           hostPath:
             path: /var/mnt/data/persistence/arr/qbittorrent/config

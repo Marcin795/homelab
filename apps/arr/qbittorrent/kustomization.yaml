@@ -8,13 +8,19 @@ secretGenerator:
   - name: wireguard-secret
     namespace: arr
     envs:
-      - wireguard.env
+      - config/wireguard.env
+    options:
+      disableNameSuffixHash: true
+  - name: gluetun-apikey
+    namespace: arr
+    envs:
+      - config/gluetun.env
     options:
       disableNameSuffixHash: true
 configMapGenerator:
-  - name: qbittorrent-values
+  - name: gluetun-auth
     namespace: arr
     files:
-      - values.yaml=qbittorrent-values.yaml
+      - config.toml=config/gluetun-auth.toml
 configurations:
   - kustomizeconfig.yaml
