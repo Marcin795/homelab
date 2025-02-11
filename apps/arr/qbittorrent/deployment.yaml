@@ -35,7 +35,10 @@ spec:
             - name: TORRENTING_PORT
               value: '18863'
             - name: DOCKER_MODS
-              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest
+              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest|ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
+          envFrom:
+            - secretRef:
+                name: gluetun-apikey
           volumeMounts:
             - mountPath: /config
               name: config
