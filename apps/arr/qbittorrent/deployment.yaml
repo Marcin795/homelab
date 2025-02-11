@@ -58,6 +58,10 @@ spec:
               value: 'on'
             - name: VPN_PORT_FORWARDING
               value: 'on'
+            - name: FIREWALL_DEBUG
+              value: "on"
+            - name: FIREWALL_INPUT_PORTS
+              value: "8080"
           envFrom:
             - secretRef:
                 name: wireguard-secret
