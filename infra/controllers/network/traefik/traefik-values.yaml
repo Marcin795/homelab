@@ -31,9 +31,11 @@ ports:
     middlewares:
       - traefik-authentik-middleware@kubernetescrd
   web:
-    redirectTo:
-      port: websecure
-      scheme: https
+    redirections:
+      entryPoint:
+        to: websecure
+        scheme: https
+        permanent: true
   websecure:
     asDefault: true
     forwardedHeaders:
