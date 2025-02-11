@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: geoip-updater
-          image: ghcr.io/maxmind/geoipupdate:v7.0.1
+          image: ghcr.io/maxmind/geoipupdate:v7.1.0
           env:
             - name: GEOIPUPDATE_EDITION_IDS
               value: 'GeoLite2-City GeoLite2-Country'
