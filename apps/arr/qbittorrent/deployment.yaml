@@ -4,6 +4,8 @@ metadata:
   name: qbittorrent
   namespace: arr
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app.kubernetes.io/name: qbittorrent
@@ -41,8 +43,14 @@ spec:
               name: downloads
             - mountPath: /vuetorrent
               name: vuetorrent
+      initContainers:
         - name: gluetun
           image: qmcgaw/gluetun:v3.40.0
+          restartPolicy: Always
+          lifecycle:
+            postStart:
+              exec:
+                command: [ "/bin/sh", "-c", "(ip rule del table 51820; ip -6 rule del table 51820) || true" ]
           securityContext:
             capabilities:
               add:
