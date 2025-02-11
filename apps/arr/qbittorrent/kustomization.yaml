@@ -4,8 +4,13 @@ resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
-#  - repository.yaml
-#  - release.yaml
+secretGenerator:
+  - name: wireguard-secret
+    namespace: arr
+    envs:
+      - wireguard.env
+    options:
+      disableNameSuffixHash: true
 configMapGenerator:
   - name: qbittorrent-values
     namespace: arr

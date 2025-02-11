@@ -41,6 +41,20 @@ spec:
               name: downloads
             - mountPath: /vuetorrent
               name: vuetorrent
+        - name: gluetun
+          image: qmcgaw/gluetun:v3.35.0
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          env:
+            - name: VPN_SERVICE_PROVIDER
+              value: protonvpn
+            - name: VPN_TYPE
+              value: wireguard
+          envFrom:
+            - secretRef:
+                name: wireguard-secret
       volumes:
         - name: config
           hostPath:
