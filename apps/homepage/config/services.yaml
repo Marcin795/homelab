@@ -85,11 +85,11 @@
             username: {{HOMEPAGE_VAR_UNIFI_USER}}
             password: {{HOMEPAGE_VAR_UNIFI_PASSWORD}}
     - Traefik:
-        href: http://192.168.8.201:9000/dashboard/
+        href: http://192.168.8.201:8080/dashboard/
         icon: traefik-proxy
         widget:
             type: traefik
-            url: http://traefik-internal.traefik:9000
+            url: http://traefik-internal.traefik:8080
     - Grafana:
         href: https://authentik.boomerok.dev
         icon: grafana
