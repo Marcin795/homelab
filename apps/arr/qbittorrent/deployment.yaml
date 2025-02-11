@@ -51,7 +51,7 @@ spec:
             postStart:
               exec:
                 command: [ "/bin/sh", "-c", "
-                  sed -i 's|__API_KEY__|${GSP_GTN_API_KEY}|g' /gluetun/auth/config.toml;
+                  sed -i 's|__API_KEY__|'\"$GSP_GTN_API_KEY\"'|g' /gluetun/auth/config.toml;
                   (ip rule del table 51820; ip -6 rule del table 51820) || true
                 " ]
           securityContext:
