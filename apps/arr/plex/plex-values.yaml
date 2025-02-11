@@ -1,7 +1,7 @@
 image:
   # renovate: datasource=docker depName=plexinc/pms-docker versioning=loose
   repository: plexinc/pms-docker
-  tag: 1.40.4.8679-424562606
+  tag: 1.41.3.9314-a0bfb8370
 
 pms:
   configExistingClaim: plex-config
