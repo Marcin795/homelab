@@ -21,6 +21,6 @@ configMapGenerator:
   - name: gluetun-auth
     namespace: arr
     files:
-      - config.toml=config/gluetun-auth.toml
+      - config-template.toml=config/gluetun-auth.toml
 configurations:
   - kustomizeconfig.yaml

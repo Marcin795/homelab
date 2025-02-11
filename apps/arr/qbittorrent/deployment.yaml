@@ -50,10 +50,13 @@ spec:
           lifecycle:
             postStart:
               exec:
-                command: [ "/bin/sh", "-c", "
-                  sed -i 's|__API_KEY__|'\"$GSP_GTN_API_KEY\"'|g' /gluetun/auth/config.toml;
-                  (ip rule del table 51820; ip -6 rule del table 51820) || true
-                " ]
+                command:
+                  - /bin/sh
+                  - -c
+                  - |
+                    cp /gluetun/auth/config-template.toml /gluetun/auth/config.toml;
+                    sed -i "s|__API_KEY__|${GSP_GTN_API_KEY}|g" /gluetun/auth/config.toml;
+                    (ip rule del table 51820; ip -6 rule del table 51820) || true
           securityContext:
             capabilities:
               add:
@@ -80,8 +83,8 @@ spec:
                 name: gluetun-apikey
           volumeMounts:
             - name: gluetun-auth
-              mountPath: /gluetun/auth/config.toml
-              subPath: config.toml
+              mountPath: /gluetun/auth/config-template.toml
+              subPath: config-template.toml
       volumes:
         - name: gluetun-auth
           configMap:
