@@ -1,0 +1,103 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qbittorrent
+  namespace: arr
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: qbittorrent
+      app: qbittorrent
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: qbittorrent
+        app: qbittorrent
+    spec:
+      containers:
+        - name: qbittorrent
+          image: ghcr.io/linuxserver/qbittorrent:5.0.3-r0-ls379
+          ports:
+            - name: qbittorrent-web
+              containerPort: 8080
+          #            - name: torrent
+          #              containerPort: 18863
+          env:
+            - name: TZ
+              value: Europe/Warsaw
+            - name: PUID
+              value: '1000'
+            - name: PGID
+              value: '1000'
+            #            - name: TORRENTING_PORT
+            #              value: '18863'
+            - name: DOCKER_MODS
+              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest|ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
+          envFrom:
+            - secretRef:
+                name: gluetun-apikey
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /downloads
+              name: downloads
+            - mountPath: /vuetorrent
+              name: vuetorrent
+      initContainers:
+        - name: gluetun
+          image: qmcgaw/gluetun:v3.40.0
+          restartPolicy: Always
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - |
+                    cp /gluetun/auth/config-template.toml /gluetun/auth/config.toml;
+                    sed -i "s|__API_KEY__|${GSP_GTN_API_KEY}|g" /gluetun/auth/config.toml;
+                    (ip rule del table 51820; ip -6 rule del table 51820) || true
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          env:
+            ###################### REQUIRED ######################
+            - name: VPN_SERVICE_PROVIDER
+              value: protonvpn
+            - name: VPN_TYPE
+              value: wireguard
+            - name: VPN_PORT_FORWARDING
+              value: 'on'
+            #################### VERIFICATION ####################
+            - name: FIREWALL_INPUT_PORTS
+              value: "8080"
+
+          envFrom:
+            - secretRef:
+                name: wireguard-secret
+            - secretRef:
+                name: gluetun-apikey
+          volumeMounts:
+            - name: gluetun-auth
+              mountPath: /gluetun/auth/config-template.toml
+              subPath: config-template.toml
+      volumes:
+        - name: gluetun-auth
+          configMap:
+            name: gluetun-auth
+#        - name: config
+#          hostPath:
+#            path: /var/mnt/data/persistence/arr/qbittorrent/config
+#            type: DirectoryOrCreate
+#        - name: downloads
+#          hostPath:
+#            path: /var/storage/media/downloads
+#            type: DirectoryOrCreate
+#        - name: vuetorrent
+#          hostPath:
+#            path: /var/mnt/data/persistence/arr/qbittorrent/vuetorrent
+#            type: DirectoryOrCreate
