@@ -79,6 +79,8 @@ spec:
               value: 185.245.85.130
             - name: SERVER_COUNTRIES
               value: Slovakia
+            - name: DNS_ADDRESS
+              value: 10.2.0.1
             ###################### ILLEGAL #######################
 #            - name: WIREGUARD_ENDPOINT_PORT
 #              value: "51820"
