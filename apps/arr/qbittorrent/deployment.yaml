@@ -81,10 +81,12 @@ spec:
               value: "on"
             - name: FIREWALL_INPUT_PORTS
               value: "8080"
+            - name: DNS_ADDRESS
+              value: 10.2.0.1
 #            - name: FIREWALL_OUTBOUND_SUBNETS
 #              value: 10.244.0.0/16
-            - name: DNS_KEEP_NAMESERVER
-              value: "on"
+#            - name: DNS_KEEP_NAMESERVER
+#              value: "on"
           envFrom:
             - secretRef:
                 name: wireguard-secret
