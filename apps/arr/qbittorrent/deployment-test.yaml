@@ -39,9 +39,9 @@ spec:
           envFrom:
             - secretRef:
                 name: gluetun-apikey
-#          volumeMounts:
-#            - mountPath: /config
-#              name: config
+          volumeMounts:
+            - mountPath: /config
+              name: config
 #            - mountPath: /downloads
 #              name: downloads
 #            - mountPath: /vuetorrent
@@ -89,10 +89,10 @@ spec:
         - name: gluetun-auth
           configMap:
             name: gluetun-auth
-#        - name: config
-#          hostPath:
-#            path: /var/mnt/data/persistence/arr/qbittorrent/config
-#            type: DirectoryOrCreate
+        - name: config
+          hostPath:
+            path: /var/mnt/data/persistence/arr/qbittorrent/config-test
+            type: DirectoryOrCreate
 #        - name: downloads
 #          hostPath:
 #            path: /var/storage/media/downloads
