@@ -72,7 +72,7 @@ spec:
             - name: SERVER_CITIES
               value: Bratislava
             - name: SERVER_COUNTRIES
-              value: Slovakia,Poland
+              value: Slovakia
             - name: PORT_FORWARD_ONLY
               value: 'on'
             - name: VPN_PORT_FORWARDING
