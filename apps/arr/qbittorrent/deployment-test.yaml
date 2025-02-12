@@ -77,8 +77,8 @@ spec:
               value: 185.245.85.130
             - name: SERVER_COUNTRIES
               value: Slovakia
-#            - name: WIREGUARD_ADDRESSES
-#              value: 10.2.0.2/32
+            - name: WIREGUARD_ADDRESSES
+              value: 10.2.0.2/32
 #            - name: DNS_KEEP_NAMESERVER
 #              value: "on"
 #            - name: DNS_ADDRESS
