@@ -69,13 +69,13 @@ spec:
               value: protonvpn
             - name: VPN_TYPE
               value: wireguard
+            - name: VPN_PORT_FORWARDING
+              value: 'on'
 #            - name: SERVER_CITIES
 #              value: Bratislava
 #            - name: SERVER_COUNTRIES
 #              value: Slovakia
 #            - name: PORT_FORWARD_ONLY
-#              value: 'on'
-#            - name: VPN_PORT_FORWARDING
 #              value: 'on'
 #            - name: FIREWALL_DEBUG
 #              value: "on"
