@@ -83,8 +83,8 @@ spec:
               value: 10.2.0.2/32
 #            - name: DNS_KEEP_NAMESERVER
 #              value: "on"
-#            - name: DNS_ADDRESS
-#              value: 10.2.0.1
+            - name: DNS_ADDRESS
+              value: 10.2.0.1
             ###################### ILLEGAL #######################
 #            - name: WIREGUARD_ENDPOINT_PORT
 #              value: "51820"
