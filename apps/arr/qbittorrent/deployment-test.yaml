@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: qbittorrent
-          image: ghcr.io/linuxserver/qbittorrent:5.0.3-r0-ls379
+          image: lscr.io/linuxserver/transmission:4.0.6-r2-ls282
           ports:
             - name: qbittorrent-web
               containerPort: 8080
@@ -30,14 +30,14 @@ spec:
               value: '1000'
             - name: PGID
               value: '1000'
-            - name: DOCKER_MODS
-              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest|ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
+#            - name: DOCKER_MODS
+#              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest|ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
           envFrom:
             - secretRef:
                 name: gluetun-apikey
-          volumeMounts:
-            - mountPath: /config
-              name: config
+#          volumeMounts:
+#            - mountPath: /config
+#              name: config
 #            - mountPath: /downloads
 #              name: downloads
 #            - mountPath: /vuetorrent
