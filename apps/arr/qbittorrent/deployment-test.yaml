@@ -39,13 +39,13 @@ spec:
           envFrom:
             - secretRef:
                 name: gluetun-apikey
-          volumeMounts:
-            - mountPath: /config
-              name: config
-            - mountPath: /downloads
-              name: downloads
-            - mountPath: /vuetorrent
-              name: vuetorrent
+#          volumeMounts:
+#            - mountPath: /config
+#              name: config
+#            - mountPath: /downloads
+#              name: downloads
+#            - mountPath: /vuetorrent
+#              name: vuetorrent
       initContainers:
         - name: gluetun
           image: qmcgaw/gluetun:v3.40.0
