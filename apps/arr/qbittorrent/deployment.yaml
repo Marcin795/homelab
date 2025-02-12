@@ -23,8 +23,8 @@ spec:
           ports:
             - name: qbittorrent-web
               containerPort: 8080
-            - name: torrent
-              containerPort: 18863
+#            - name: torrent
+#              containerPort: 18863
           env:
             - name: TZ
               value: Europe/Warsaw
@@ -32,8 +32,8 @@ spec:
               value: '1000'
             - name: PGID
               value: '1000'
-            - name: TORRENTING_PORT
-              value: '18863'
+#            - name: TORRENTING_PORT
+#              value: '18863'
             - name: DOCKER_MODS
               value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest|ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
           envFrom:
