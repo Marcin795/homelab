@@ -78,8 +78,8 @@ spec:
               value: 185.245.85.130
             - name: SERVER_COUNTRIES
               value: Slovakia
-            - name: VPN_PORT_FORWARDING_PROVIDER
-              value: protonvpn
+#            - name: VPN_PORT_FORWARDING_PROVIDER
+#              value: protonvpn
             - name: WIREGUARD_ADDRESSES
               value: 10.2.0.2/32
             - name: DNS_KEEP_NAMESERVER
