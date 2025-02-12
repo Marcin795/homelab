@@ -82,8 +82,8 @@ spec:
 #              value: protonvpn
             - name: WIREGUARD_ADDRESSES
               value: 10.2.0.2/32
-            - name: DNS_KEEP_NAMESERVER
-              value: "on"
+#            - name: DNS_KEEP_NAMESERVER
+#              value: "on"
             - name: FIREWALL_OUTBOUND_SUBNETS
               value: 10.244.0.0/16
 #            - name: DNS_ADDRESS
