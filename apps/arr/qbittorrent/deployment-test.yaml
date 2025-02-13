@@ -83,10 +83,10 @@ spec:
             #################### VERIFICATION ####################
             - name: DOT
               value: "off"
-            - name: DNS_ADDRESS
-              value: 10.2.0.1
-            - name: VPN_PORT_FORWARDING_PROVIDER
-              value: protonvpn
+#            - name: DNS_ADDRESS
+#              value: 10.2.0.1
+#            - name: VPN_PORT_FORWARDING_PROVIDER
+#              value: protonvpn
 #            - name: DNS_KEEP_NAMESERVER -- this shit kills forwarding probs
 #              value: "on"
             ###################### ILLEGAL #######################
