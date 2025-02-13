@@ -87,12 +87,12 @@ spec:
               value: 10.244.0.0/16,10.96.0.0/12
             - name: FIREWALL_DEBUG
               value: 'on'
-            - name: SERVER_COUNTRIES
-              value: Slovakia
-            - name: WIREGUARD_ENDPOINT_IP
-              value: 185.245.85.130
-            - name: WIREGUARD_ADDRESSES
-              value: 10.2.0.2/32
+#            - name: SERVER_COUNTRIES
+#              value: Slovakia
+#            - name: WIREGUARD_ENDPOINT_IP
+#              value: 185.245.85.130
+#            - name: WIREGUARD_ADDRESSES
+#              value: 10.2.0.2/32
           envFrom:
             - secretRef:
                 name: wireguard-secret
