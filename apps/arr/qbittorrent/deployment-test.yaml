@@ -87,8 +87,8 @@ spec:
 #              value: 10.2.0.1
 #            - name: VPN_PORT_FORWARDING_PROVIDER
 #              value: protonvpn
-#            - name: DNS_KEEP_NAMESERVER -- this shit kills forwarding probs
-#              value: "on"
+            - name: DNS_KEEP_NAMESERVER -- this shit kills forwarding probs
+              value: "on"
             ###################### ILLEGAL #######################
 #            - name: WIREGUARD_ENDPOINT_PORT
 #              value: "51820"
