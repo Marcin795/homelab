@@ -73,10 +73,10 @@ spec:
               value: "8080"
             - name: FIREWALL_DEBUG
               value: "on"
-            - name: WIREGUARD_ENDPOINT_IP
-              value: 185.245.85.130
             - name: SERVER_COUNTRIES
               value: Slovakia
+            - name: WIREGUARD_ENDPOINT_IP
+              value: 185.245.85.130
             - name: WIREGUARD_ADDRESSES
               value: 10.2.0.2/32
             - name: FIREWALL_OUTBOUND_SUBNETS
@@ -86,8 +86,8 @@ spec:
               value: "off"
             - name: DNS_ADDRESS
               value: 10.2.0.1
-#            - name: VPN_PORT_FORWARDING_PROVIDER
-#              value: protonvpn
+            - name: VPN_PORT_FORWARDING_PROVIDER
+              value: protonvpn
 #            - name: DNS_KEEP_NAMESERVER -- this shit kills forwarding probs
 #              value: "on"
             ###################### ILLEGAL #######################
