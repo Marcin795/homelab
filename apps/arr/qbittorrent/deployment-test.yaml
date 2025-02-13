@@ -19,11 +19,10 @@ spec:
     spec:
       containers:
         - name: qbittorrent
-          image: lscr.io/linuxserver/transmission:4.0.6-r2-ls282
+          image: ghcr.io/linuxserver/qbittorrent:5.0.3-r0-ls379
           ports:
             - name: qbittorrent-web
-#              containerPort: 8080
-              containerPort: 9091
+              containerPort: 8080
           env:
             - name: TZ
               value: Europe/Warsaw
@@ -31,16 +30,16 @@ spec:
               value: '1000'
             - name: PGID
               value: '1000'
-#            - name: DOCKER_MODS
-#              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest|ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
+            - name: DOCKER_MODS
+              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest|ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
           envFrom:
             - secretRef:
                 name: gluetun-apikey
-#          volumeMounts:
-#            - mountPath: /config
-#              name: config
-#            - mountPath: /downloads
-#              name: downloads
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /downloads
+              name: downloads
 #            - mountPath: /vuetorrent
 #              name: vuetorrent
       initContainers:
@@ -110,10 +109,10 @@ spec:
           hostPath:
             path: /var/mnt/data/persistence/arr/qbittorrent/config-test
             type: DirectoryOrCreate
-#        - name: downloads
-#          hostPath:
-#            path: /var/storage/media/downloads
-#            type: DirectoryOrCreate
+        - name: downloads
+          hostPath:
+            path: /var/storage/media/downloads-test
+            type: DirectoryOrCreate
 #        - name: vuetorrent
 #          hostPath:
 #            path: /var/mnt/data/persistence/arr/qbittorrent/vuetorrent
