@@ -79,6 +79,8 @@ spec:
               value: wireguard
             - name: VPN_PORT_FORWARDING
               value: 'on'
+            - name: PORT_FORWARD_ONLY
+              value: 'on'
             - name: VPN_PORT_FORWARDING_PROVIDER
               value: protonvpn
             - name: FIREWALL_INPUT_PORTS
@@ -87,8 +89,8 @@ spec:
               value: 10.244.0.0/16,10.96.0.0/12
             - name: FIREWALL_DEBUG
               value: 'on'
-#            - name: SERVER_COUNTRIES
-#              value: Slovakia
+            - name: SERVER_COUNTRIES
+              value: Poland
             - name: WIREGUARD_ENDPOINT_IP
               value: 146.70.161.162
             - name: WIREGUARD_ADDRESSES
