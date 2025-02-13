@@ -43,6 +43,13 @@ spec:
 #            - mountPath: /vuetorrent
 #              name: vuetorrent
       initContainers:
+        - name: dnsdist
+          image: docker.io/powerdns/dnsdist-19:1.9.8
+          restartPolicy: Always
+          volumeMounts:
+            - name: dnsdist
+              mountPath: /etc/dnsdist/dnsdist.conf
+              subPath: dnsdist.conf
         - name: gluetun
           image: qmcgaw/gluetun:v3.40.0
           restartPolicy: Always
@@ -62,36 +69,30 @@ spec:
                 - NET_ADMIN
           env:
             ###################### REQUIRED ######################
+            - name: DOT
+              value: "off"
+            - name: DNS_ADDRESS
+              value: 127.0.0.2
             - name: VPN_SERVICE_PROVIDER
               value: protonvpn
             - name: VPN_TYPE
               value: wireguard
             - name: VPN_PORT_FORWARDING
               value: 'on'
+            - name: VPN_PORT_FORWARDING_PROVIDER
+              value: protonvpn
             - name: FIREWALL_INPUT_PORTS
-              value: "8080"
+              value: '8080'
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: 10.244.0.0/16,10.96.0.0/12
             - name: FIREWALL_DEBUG
-              value: "on"
+              value: 'on'
             - name: SERVER_COUNTRIES
               value: Slovakia
             - name: WIREGUARD_ENDPOINT_IP
               value: 185.245.85.130
             - name: WIREGUARD_ADDRESSES
               value: 10.2.0.2/32
-            - name: FIREWALL_OUTBOUND_SUBNETS
-              value: 10.244.0.0/16,10.96.0.0/12
-            #################### VERIFICATION ####################
-            - name: DOT
-              value: "off"
-#            - name: DNS_ADDRESS
-#              value: 10.2.0.1
-#            - name: VPN_PORT_FORWARDING_PROVIDER
-#              value: protonvpn
-            - name: DNS_KEEP_NAMESERVER -- this shit kills forwarding probs
-              value: "on"
-            ###################### ILLEGAL #######################
-#            - name: WIREGUARD_ENDPOINT_PORT
-#              value: "51820"
           envFrom:
             - secretRef:
                 name: wireguard-secret
@@ -105,6 +106,9 @@ spec:
         - name: gluetun-auth
           configMap:
             name: gluetun-auth
+        - name: dnsdist
+          configMap:
+            name: dnsdist
         - name: config
           hostPath:
             path: /var/mnt/data/persistence/arr/qbittorrent/config-test

@@ -22,5 +22,9 @@ configMapGenerator:
     namespace: arr
     files:
       - config-template.toml=config/gluetun-auth.toml
+  - name: dnsdist
+    namespace: arr
+    files:
+      - dnsdist.conf=config/dnsdist.conf
 configurations:
   - kustomizeconfig.yaml
