@@ -29,8 +29,8 @@ spec:
   ports:
     - port: 18863
       protocol: TCP
-      targetPort: qbittorrent-torrent
-      name: qbittorrent-torrent
+      targetPort: torrent
+      name: torrent
   selector:
     app.kubernetes.io/name: qbittorrent
     app: qbittorrent
