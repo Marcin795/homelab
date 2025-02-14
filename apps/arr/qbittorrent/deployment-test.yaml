@@ -18,30 +18,8 @@ spec:
         app: qbittorrent
     spec:
       containers:
-        - name: qbittorrent
-          image: ghcr.io/linuxserver/qbittorrent:5.0.3-r0-ls379
-          ports:
-            - name: qbittorrent-web
-              containerPort: 8080
-          env:
-            - name: TZ
-              value: Europe/Warsaw
-            - name: PUID
-              value: '1000'
-            - name: PGID
-              value: '1000'
-            - name: DOCKER_MODS
-              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest|ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
-          envFrom:
-            - secretRef:
-                name: gluetun-apikey
-          volumeMounts:
-            - mountPath: /config
-              name: config
-            - mountPath: /downloads
-              name: downloads
-#            - mountPath: /vuetorrent
-#              name: vuetorrent
+        - name: python
+          image: python
       initContainers:
         - name: dnsdist
           image: docker.io/powerdns/dnsdist-19:1.9.8
@@ -119,7 +97,3 @@ spec:
           hostPath:
             path: /var/storage/media/downloads-test
             type: DirectoryOrCreate
-#        - name: vuetorrent
-#          hostPath:
-#            path: /var/mnt/data/persistence/arr/qbittorrent/vuetorrent
-#            type: DirectoryOrCreate
