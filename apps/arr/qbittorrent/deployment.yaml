@@ -23,8 +23,8 @@ spec:
           ports:
             - name: qbittorrent-web
               containerPort: 8080
-#            - name: torrent
-#              containerPort: 18863
+            - name: torrent
+              containerPort: 18863
           env:
             - name: TZ
               value: Europe/Warsaw
@@ -32,13 +32,10 @@ spec:
               value: '1000'
             - name: PGID
               value: '1000'
-#            - name: TORRENTING_PORT
-#              value: '18863'
+            - name: TORRENTING_PORT
+              value: '18863'
             - name: DOCKER_MODS
-              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest|ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
-          envFrom:
-            - secretRef:
-                name: gluetun-apikey
+              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest
           volumeMounts:
             - mountPath: /config
               name: config
@@ -46,66 +43,7 @@ spec:
               name: downloads
             - mountPath: /vuetorrent
               name: vuetorrent
-      initContainers:
-        - name: gluetun
-          image: qmcgaw/gluetun:v3.40.0
-          restartPolicy: Always
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - /bin/sh
-                  - -c
-                  - |
-                    cp /gluetun/auth/config-template.toml /gluetun/auth/config.toml;
-                    sed -i "s|__API_KEY__|${GSP_GTN_API_KEY}|g" /gluetun/auth/config.toml;
-                    (ip rule del table 51820; ip -6 rule del table 51820) || true
-          securityContext:
-            capabilities:
-              add:
-                - NET_ADMIN
-          env:
-###################### REQUIRED ######################
-            - name: VPN_SERVICE_PROVIDER
-              value: protonvpn
-            - name: VPN_TYPE
-              value: wireguard
-            - name: VPN_PORT_FORWARDING
-              value: 'on'
-#################### VERIFICATION ####################
-            - name: FIREWALL_INPUT_PORTS
-              value: "8080"
-#            - name: SERVER_CITIES
-#              value: Bratislava
-#            - name: SERVER_COUNTRIES
-#              value: Slovakia
-#            - name: PORT_FORWARD_ONLY
-#              value: 'on'
-#            - name: FIREWALL_DEBUG
-#              value: "on"
-#            - name: WIREGUARD_ENDPOINT_IP
-#              value: 185.245.85.130
-#            - name: WIREGUARD_ADDRESSES
-#              value: 10.2.0.2/32
-#            - name: DNS_ADDRESS
-#              value: 10.2.0.1
-#            - name: FIREWALL_OUTBOUND_SUBNETS
-#              value: 10.244.0.0/16
-#            - name: DNS_KEEP_NAMESERVER
-#              value: "on"
-          envFrom:
-            - secretRef:
-                name: wireguard-secret
-            - secretRef:
-                name: gluetun-apikey
-          volumeMounts:
-            - name: gluetun-auth
-              mountPath: /gluetun/auth/config-template.toml
-              subPath: config-template.toml
       volumes:
-        - name: gluetun-auth
-          configMap:
-            name: gluetun-auth
         - name: config
           hostPath:
             path: /var/mnt/data/persistence/arr/qbittorrent/config
