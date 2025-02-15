@@ -17,12 +17,6 @@ spec:
         app.kubernetes.io/name: qbittorrent-test
         app: qbittorrent-test
     spec:
-#      securityContext:
-#        sysctls:
-#          - name: net.core.rmem_max
-#            value: "4194304"
-#          - name: net.core.wmem_max
-#            value: "1048576"
       containers:
         - name: python
           image: python
@@ -35,6 +29,17 @@ spec:
               sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
               tail -f /dev/null
       initContainers:
+        - name: gluetun-updater
+          image: qmcgaw/gluetun:v3.40.0
+          command:
+            - /bin/sh
+            - -c
+            - |
+              /gluetun update -enduser -providers protonvpn
+              cp /gluetun/servers.json /gluetun/updated_servers/servers.json
+          volumeMounts:
+            - name: gluetun-servers
+              mountPath: /gluetun/updated_servers
         - name: dnsdist
           image: docker.io/powerdns/dnsdist-19:1.9.8
           restartPolicy: Always
@@ -96,7 +101,12 @@ spec:
             - name: gluetun-auth
               mountPath: /gluetun/auth/config-template.toml
               subPath: config-template.toml
+            - name: gluetun-servers
+              mountPath: /gluetun/servers.json
+              subPath: servers.json
       volumes:
+        - name: gluetun-servers
+          emptyDir: { }
         - name: gluetun-auth
           configMap:
             name: gluetun-auth
