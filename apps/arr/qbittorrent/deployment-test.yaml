@@ -35,7 +35,7 @@ spec:
             - /bin/sh
             - -c
             - |
-              /gluetun update -enduser -providers protonvpn
+              /gluetun-entrypoint update -enduser -providers protonvpn
               cp /gluetun/servers.json /gluetun/updated_servers/servers.json
           volumeMounts:
             - name: gluetun-servers
