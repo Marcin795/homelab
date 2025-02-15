@@ -26,11 +26,12 @@ spec:
           command:
             - /bin/bash
             - -c
-            - |
-              apt-get update && \
-              apt-get install -y nano zsh transmission transmission-daemon && \
-              sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
-              transmission-daemon --foreground --log-debug -a '*' --auth --username user --password pass
+            - tail -f /dev/null
+#            - |
+#              apt-get update && \
+#              apt-get install -y nano zsh transmission transmission-daemon && \
+#              sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+#              transmission-daemon --foreground --log-debug -a '*' --auth --username user --password pass
       initContainers:
         - name: wireguard
           image: ghcr.io/linuxserver/wireguard:latest
