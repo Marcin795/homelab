@@ -21,9 +21,13 @@ spec:
         - name: python
           image: python
           command:
-            - tail
-            - -f
-            - /dev/null
+            - /bin/bash
+            - -c
+            - |
+              apt-get update && \
+              apt-get install -y nano zsh && \
+              sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+              tail -f /dev/null
       initContainers:
         - name: dnsdist
           image: docker.io/powerdns/dnsdist-19:1.9.8
