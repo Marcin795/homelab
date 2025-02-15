@@ -48,7 +48,6 @@ spec:
             capabilities:
               add:
                 - NET_ADMIN
-                - SYS_MODULE
           env:
             - name: PUID
               value: "1000"
@@ -56,6 +55,9 @@ spec:
               value: "1000"
             - name: TZ
               value: "Etc/UTC"
+          envFrom:
+            - secretRef:
+                name: wireguard-secret
           volumeMounts:
             - name: wg-conf
               mountPath: /config/wg0-template.conf
