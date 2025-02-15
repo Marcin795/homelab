@@ -17,12 +17,12 @@ spec:
         app.kubernetes.io/name: qbittorrent-test
         app: qbittorrent-test
     spec:
-      securityContext:
-        sysctls:
-          - name: net.core.rmem_max
-            value: "4194304"
-          - name: net.core.wmem_max
-            value: "1048576"
+#      securityContext:
+#        sysctls:
+#          - name: net.core.rmem_max
+#            value: "4194304"
+#          - name: net.core.wmem_max
+#            value: "1048576"
       containers:
         - name: python
           image: python
