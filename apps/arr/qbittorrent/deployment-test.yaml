@@ -54,7 +54,9 @@ spec:
                   - |
                     cp /gluetun/auth/config-template.toml /gluetun/auth/config.toml;
                     sed -i "s|__API_KEY__|${GSP_GTN_API_KEY}|g" /gluetun/auth/config.toml;
-                    (ip rule del table 51820; ip -6 rule del table 51820) || true
+                    (ip rule del table 51820; ip -6 rule del table 51820) || true;
+                    ./gluetun-entrypoint update -enduser -providers protonvpn;
+                    exec "$@"
           securityContext:
             capabilities:
               add:
@@ -96,16 +98,10 @@ spec:
             - name: gluetun-auth
               mountPath: /gluetun/auth/config-template.toml
               subPath: config-template.toml
-            - name: gluetun-servers
-              mountPath: /gluetun/servers.json
-              subPath: servers.json
       volumes:
         - name: gluetun-auth
           configMap:
             name: gluetun-auth
-        - name: gluetun-servers
-          configMap:
-            name: gluetun-servers
         - name: dnsdist
           configMap:
             name: dnsdist
