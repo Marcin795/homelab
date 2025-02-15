@@ -26,17 +26,34 @@ spec:
           command:
             - /bin/bash
             - -c
-            - tail -f /dev/null
-#            - |
-#              apt-get update && \
-#              apt-get install -y nano zsh transmission transmission-daemon && \
-#              sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
-#              transmission-daemon --foreground --log-debug -a '*' --auth --username user --password pass
+#            - tail -f /dev/null
+            - |
+              apt-get update && \
+              apt-get install -y nano zsh transmission transmission-daemon && \
+              sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+              transmission-daemon --foreground --log-debug -a '*' --auth --username user --password pass
       initContainers:
-        - name: wireguard
-          image: ghcr.io/linuxserver/wireguard:latest
+        - name: gluetun-updater
+          image: qmcgaw/gluetun:v3.39.0
+          command:
+            - /bin/sh
+            - -c
+            - |
+              /gluetun-entrypoint update -enduser -providers protonvpn
+              cp /gluetun/servers.json /gluetun/updated_servers/servers.json
+          volumeMounts:
+            - name: gluetun-servers
+              mountPath: /gluetun/updated_servers
+        - name: dnsdist
+          image: docker.io/powerdns/dnsdist-19:1.9.8
           restartPolicy: Always
-#          command: ['tail', '-f', '/dev/null']
+          volumeMounts:
+            - name: dnsdist
+              mountPath: /etc/dnsdist/dnsdist.conf
+              subPath: dnsdist.conf
+        - name: gluetun
+          image: qmcgaw/gluetun:v3.40.0
+          restartPolicy: Always
           lifecycle:
             postStart:
               exec:
@@ -44,106 +61,54 @@ spec:
                   - /bin/sh
                   - -c
                   - |
-                    mkdir /config/wg_confs;
-                    cp /config/wg0-template.conf /config/wg_confs/wg0.conf;
-                    sed -i "s|__PRIVATE_KEY__|${WIREGUARD_PRIVATE_KEY}|g" /config/wg_confs/wg0.conf;
+                    cp /gluetun/auth/config-template.toml /gluetun/auth/config.toml;
+                    sed -i "s|__API_KEY__|${GSP_GTN_API_KEY}|g" /gluetun/auth/config.toml;
+                    (ip rule del table 51820; ip -6 rule del table 51820) || true;
           securityContext:
             capabilities:
               add:
                 - NET_ADMIN
           env:
-            - name: PUID
-              value: "1000"
-            - name: PGID
-              value: "1000"
-            - name: TZ
-              value: "Etc/UTC"
+            ###################### REQUIRED ######################
+            - name: DOT
+              value: "off"
+            - name: DNS_ADDRESS
+              value: 127.0.0.2
+            - name: VPN_SERVICE_PROVIDER
+              value: protonvpn
+            - name: VPN_TYPE
+              value: wireguard
+            - name: VPN_PORT_FORWARDING
+              value: 'on'
+            - name: PORT_FORWARD_ONLY
+              value: 'on'
+            - name: VPN_PORT_FORWARDING_PROVIDER
+              value: protonvpn
+            - name: FIREWALL_INPUT_PORTS
+              value: '9091'
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: 10.244.0.0/16,10.96.0.0/12
+            - name: FIREWALL_DEBUG
+              value: 'on'
+            - name: SERVER_COUNTRIES
+              value: Slovakia
+            - name: WIREGUARD_ENDPOINT_IP
+              value: 138.199.34.193
+            - name: WIREGUARD_ADDRESSES
+              value: 10.2.0.2/32
           envFrom:
             - secretRef:
                 name: wireguard-secret
+            - secretRef:
+                name: gluetun-apikey
           volumeMounts:
-            - name: wg-conf
-              mountPath: /config/wg0-template.conf
-              subPath: wg0-template.conf
-#        - name: gluetun-updater
-#          image: qmcgaw/gluetun:v3.39.0
-#          command:
-#            - /bin/sh
-#            - -c
-#            - |
-#              /gluetun-entrypoint update -enduser -providers protonvpn
-#              cp /gluetun/servers.json /gluetun/updated_servers/servers.json
-#          volumeMounts:
-#            - name: gluetun-servers
-#              mountPath: /gluetun/updated_servers
-#        - name: dnsdist
-#          image: docker.io/powerdns/dnsdist-19:1.9.8
-#          restartPolicy: Always
-#          volumeMounts:
-#            - name: dnsdist
-#              mountPath: /etc/dnsdist/dnsdist.conf
-#              subPath: dnsdist.conf
-#        - name: gluetun
-#          image: qmcgaw/gluetun:v3.40.0
-#          restartPolicy: Always
-#          lifecycle:
-#            postStart:
-#              exec:
-#                command:
-#                  - /bin/sh
-#                  - -c
-#                  - |
-#                    cp /gluetun/auth/config-template.toml /gluetun/auth/config.toml;
-#                    sed -i "s|__API_KEY__|${GSP_GTN_API_KEY}|g" /gluetun/auth/config.toml;
-#                    (ip rule del table 51820; ip -6 rule del table 51820) || true;
-#          securityContext:
-#            capabilities:
-#              add:
-#                - NET_ADMIN
-#          env:
-#            ###################### REQUIRED ######################
-#            - name: DOT
-#              value: "off"
-#            - name: DNS_ADDRESS
-#              value: 127.0.0.2
-#            - name: VPN_SERVICE_PROVIDER
-#              value: protonvpn
-#            - name: VPN_TYPE
-#              value: wireguard
-#            - name: VPN_PORT_FORWARDING
-#              value: 'on'
-#            - name: PORT_FORWARD_ONLY
-#              value: 'on'
-#            - name: VPN_PORT_FORWARDING_PROVIDER
-#              value: protonvpn
-#            - name: FIREWALL_INPUT_PORTS
-#              value: '9091'
-#            - name: FIREWALL_OUTBOUND_SUBNETS
-#              value: 10.244.0.0/16,10.96.0.0/12
-#            - name: FIREWALL_DEBUG
-#              value: 'on'
-#            - name: SERVER_COUNTRIES
-#              value: Slovakia
-#            - name: WIREGUARD_ENDPOINT_IP
-#              value: 138.199.34.193
-#            - name: WIREGUARD_ADDRESSES
-#              value: 10.2.0.2/32
-#          envFrom:
-#            - secretRef:
-#                name: wireguard-secret
-#            - secretRef:
-#                name: gluetun-apikey
-#          volumeMounts:
-#            - name: gluetun-auth
-#              mountPath: /gluetun/auth/config-template.toml
-#              subPath: config-template.toml
-#            - name: gluetun-servers
-#              mountPath: /gluetun/servers.json
-#              subPath: servers.json
+            - name: gluetun-auth
+              mountPath: /gluetun/auth/config-template.toml
+              subPath: config-template.toml
+            - name: gluetun-servers
+              mountPath: /gluetun/servers.json
+              subPath: servers.json
       volumes:
-        - name: wg-conf
-          configMap:
-            name: wg-conf
         - name: gluetun-servers
           emptyDir: { }
         - name: gluetun-auth
