@@ -42,8 +42,8 @@ spec:
                   - /bin/sh
                   - -c
                   - |
-                    cp /config/wg0-template.conf /config/wg0.conf;
-                    sed -i "s|__PRIVATE_KEY__|${WIREGUARD_PRIVATE_KEY}|g" /gluetun/auth/wg0.conf;
+                    cp /config/wg0-template.conf /config/wg_confs/wg0.conf;
+                    sed -i "s|__PRIVATE_KEY__|${WIREGUARD_PRIVATE_KEY}|g" /config/wg_confs/wg0.conf;
           securityContext:
             capabilities:
               add:
