@@ -1,25 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: qbittorrent-test
+  name: vpn-test
   namespace: arr
 spec:
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app.kubernetes.io/name: qbittorrent-test
-      app: qbittorrent-test
+      app.kubernetes.io/name: vpn-test
+      app: vpn-test
   replicas: 1
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: qbittorrent-test
-        app: qbittorrent-test
+        app.kubernetes.io/name: vpn-test
+        app: vpn-test
     spec:
       containers:
         - name: python
           image: python
+          ports:
+            - containerPort: 9091
+              name: transmission
           command:
             - /bin/bash
             - -c
@@ -27,10 +30,10 @@ spec:
               apt-get update && \
               apt-get install -y nano zsh transmission transmission-daemon && \
               sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
-              tail -f /dev/null
+              transmission-daemon --foreground --log-error
       initContainers:
         - name: gluetun-updater
-          image: qmcgaw/gluetun:v3.40.0
+          image: qmcgaw/gluetun:v3.39.0
           command:
             - /bin/sh
             - -c
@@ -121,3 +124,46 @@ spec:
           hostPath:
             path: /var/storage/media/downloads-test
             type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vpn-test-service
+  namespace: arr
+  labels:
+    app.kubernetes.io/name: vpn-test
+    app: vpn-test
+spec:
+  ports:
+    - port: 9091
+      targetPort: transmission
+      name: transmission
+  selector:
+    app.kubernetes.io/name: vpn-test
+    app: vpn-test
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vpn-test-ingress
+  namespace: arr
+  annotations:
+    external-dns.alpha.kubernetes.io/target: 192.168.8.222
+    traefik.ingress.kubernetes.io/router.entrypoints: local
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: test.local.boomerok.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vpn-test-service
+                port:
+                  name: transmission
+  tls:
+    - secretName: local-tls
+      hosts:
+        - test.local.boomerok.dev
