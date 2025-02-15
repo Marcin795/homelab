@@ -24,6 +24,10 @@ spec:
         - name: dnsdist
           image: docker.io/powerdns/dnsdist-19:1.9.8
           restartPolicy: Always
+          command:
+            - tail
+            - -f
+            - /dev/null
           volumeMounts:
             - name: dnsdist
               mountPath: /etc/dnsdist/dnsdist.conf
