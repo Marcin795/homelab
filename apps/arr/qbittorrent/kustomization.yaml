@@ -22,7 +22,7 @@ configMapGenerator:
   - name: wg-conf
     namespace: arr
     files:
-      - wg0.conf=config/wg0.conf
+      - wg0-template.conf=config/wg0.conf
   - name: gluetun-auth
     namespace: arr
     files:
