@@ -63,7 +63,7 @@ spec:
                 - NET_ADMIN
           env:
             - name: UPDATER_PERIOD
-              value: 24h
+              value: 1m
             ###################### REQUIRED ######################
             - name: DOT
               value: "off"
