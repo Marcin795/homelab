@@ -35,17 +35,17 @@ spec:
         - name: wireguard
           image: ghcr.io/linuxserver/wireguard:latest
           restartPolicy: Always
-          command: ['tail', '-f', '/dev/null']
+#          command: ['tail', '-f', '/dev/null']
           lifecycle:
             postStart:
               exec:
                 command:
                   - /bin/sh
                   - -c
-                  - whoami > /whoami
-#                  - |
-#                    cp /config/wg0-template.conf /config/wg_confs/wg0.conf;
-#                    sed -i "s|__PRIVATE_KEY__|${WIREGUARD_PRIVATE_KEY}|g" /config/wg_confs/wg0.conf;
+                  - |
+                    mkdir /config/wg_confs;
+                    cp /config/wg0-template.conf /config/wg_confs/wg0.conf;
+                    sed -i "s|__PRIVATE_KEY__|${WIREGUARD_PRIVATE_KEY}|g" /config/wg_confs/wg0.conf;
           securityContext:
             capabilities:
               add:
