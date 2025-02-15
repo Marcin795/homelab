@@ -20,14 +20,14 @@ spec:
       containers:
         - name: python
           image: python
-      initContainers:
-        - name: dnsdist
-          image: docker.io/powerdns/dnsdist-19:1.9.8
-          restartPolicy: Always
           command:
             - tail
             - -f
             - /dev/null
+      initContainers:
+        - name: dnsdist
+          image: docker.io/powerdns/dnsdist-19:1.9.8
+          restartPolicy: Always
           volumeMounts:
             - name: dnsdist
               mountPath: /etc/dnsdist/dnsdist.conf
