@@ -99,7 +99,7 @@ spec:
             - name: WIREGUARD_ADDRESSES
               value: 10.2.0.2/32
             - name: WIREGUARD_MTU
-              value: '1280'
+              value: '1420'
           envFrom:
             - secretRef:
                 name: wireguard-secret
