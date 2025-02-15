@@ -69,6 +69,8 @@ spec:
               add:
                 - NET_ADMIN
           env:
+            - name: LOG_LEVEL
+              value: debug
             ###################### REQUIRED ######################
             - name: DOT
               value: "off"
