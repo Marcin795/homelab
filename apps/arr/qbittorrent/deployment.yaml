@@ -23,19 +23,18 @@ spec:
           ports:
             - name: qbittorrent-web
               containerPort: 8080
-            - name: torrent
-              containerPort: 18863
           env:
-            - name: TZ
-              value: Europe/Warsaw
             - name: PUID
               value: '1000'
             - name: PGID
               value: '1000'
-            - name: TORRENTING_PORT
-              value: '18863'
+            - name: TZ
+              value: Europe/Warsaw
             - name: DOCKER_MODS
-              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest
+              value: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest|ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
+          envFrom:
+            - secretRef:
+                name: gluetun-apikey
           volumeMounts:
             - mountPath: /config
               name: config
@@ -43,6 +42,93 @@ spec:
               name: downloads
             - mountPath: /vuetorrent
               name: vuetorrent
+      initContainers:
+        - name: gluetun-updater
+          image: qmcgaw/gluetun:v3.40.0
+          command:
+            - /bin/sh
+            - -c
+            - |
+              /gluetun-entrypoint update -enduser -providers protonvpn
+              cp /gluetun/servers.json /gluetun/updated_servers/servers.json
+          volumeMounts:
+            - name: gluetun-servers
+              mountPath: /gluetun/updated_servers
+        - name: dnsdist
+          image: docker.io/powerdns/dnsdist-19:1.9.8
+          restartPolicy: Always
+          volumeMounts:
+            - name: dnsdist
+              mountPath: /etc/dnsdist/dnsdist.conf
+              subPath: dnsdist.conf
+        - name: gluetun
+          image: qmcgaw/gluetun:v3.40
+          restartPolicy: Always
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - |
+                    cp /gluetun/auth/config-template.toml /gluetun/auth/config.toml;
+                    sed -i "s|__API_KEY__|${GSP_GTN_API_KEY}|g" /gluetun/auth/config.toml;
+                    (ip rule del table 51820; ip -6 rule del table 51820) || true;
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          env:
+            ######################## DEBUG #######################
+            - name: LOG_LEVEL
+              value: debug
+            - name: FIREWALL_DEBUG
+              value: 'on'
+            ##################### CONNECTION #####################
+            - name: VPN_TYPE
+              value: wireguard
+            - name: SERVER_COUNTRIES
+              value: Slovakia
+            - name: VPN_SERVICE_PROVIDER
+              value: protonvpn
+            - name: WIREGUARD_ADDRESSES
+              value: 10.2.0.2/32
+            - name: WIREGUARD_ENDPOINT_IP
+              value: 138.199.34.193
+            ##################### FORWARDING #####################
+            - name: PORT_FORWARD_ONLY
+              value: 'on'
+            - name: VPN_PORT_FORWARDING
+              value: 'on'
+            - name: VPN_PORT_FORWARDING_PROVIDER
+              value: protonvpn
+            ###################### FIREWALL ######################
+            - name: FIREWALL_INPUT_PORTS
+              value: '8080'
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: 10.244.0.0/16,10.96.0.0/12
+            ######################### DNS ########################
+            - name: DOT
+              value: "off"
+            - name: DNS_ADDRESS
+              value: 127.0.0.2
+            ######################### ??? ########################
+            - name: WIREGUARD_MTU
+              value: '1320'
+            - name: HEALTH_VPN_DURATION_INITIAL
+              value: "300s"
+          envFrom:
+            - secretRef:
+                name: wireguard-secret
+            - secretRef:
+                name: gluetun-apikey
+          volumeMounts:
+            - name: gluetun-auth
+              mountPath: /gluetun/auth/config-template.toml
+              subPath: config-template.toml
+            - name: gluetun-servers
+              mountPath: /gluetun/servers.json
+              subPath: servers.json
       volumes:
         - name: config
           hostPath:
@@ -56,3 +142,11 @@ spec:
           hostPath:
             path: /var/mnt/data/persistence/arr/qbittorrent/vuetorrent
             type: DirectoryOrCreate
+        - name: gluetun-servers
+          emptyDir: { }
+        - name: gluetun-auth
+          configMap:
+            name: gluetun-auth
+        - name: dnsdist
+          configMap:
+            name: dnsdist
