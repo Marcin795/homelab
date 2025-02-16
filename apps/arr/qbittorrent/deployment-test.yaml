@@ -34,7 +34,7 @@ spec:
               transmission-daemon --foreground --log-debug -a '*' --auth --username user --password pass
       initContainers:
         - name: gluetun-updater
-          image: qmcgaw/gluetun:v3.32.0
+          image: qmcgaw/gluetun:v3.40.0
           command:
             - /bin/sh
             - -c
@@ -52,7 +52,7 @@ spec:
               mountPath: /etc/dnsdist/dnsdist.conf
               subPath: dnsdist.conf
         - name: gluetun
-          image: qmcgaw/gluetun:v3.40.0
+          image: qmcgaw/gluetun:v3.32.0
           restartPolicy: Always
           lifecycle:
             postStart:
