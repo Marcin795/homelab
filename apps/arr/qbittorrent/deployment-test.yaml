@@ -26,10 +26,9 @@ spec:
           command:
             - /bin/bash
             - -c
-#            - tail -f /dev/null
             - |
               apt-get update && \
-              apt-get install -y nano zsh transmission transmission-daemon && \
+              apt-get install -y nano zsh transmission transmission-daemon tcpdump iputils-ping netcat-traditional traceroute && \
               sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
               tail -f /dev/null
 #              transmission-daemon --foreground --log-debug -a '*' --auth --username user --password pass
