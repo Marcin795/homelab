@@ -88,7 +88,7 @@ spec:
             - name: VPN_TYPE
               value: wireguard
             - name: SERVER_COUNTRIES
-              value: Slovakia
+              value: Poland
             - name: VPN_SERVICE_PROVIDER
               value: protonvpn
             - name: WIREGUARD_ADDRESSES
