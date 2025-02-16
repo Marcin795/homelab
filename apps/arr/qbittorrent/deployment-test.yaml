@@ -53,7 +53,7 @@ spec:
               mountPath: /etc/dnsdist/dnsdist.conf
               subPath: dnsdist.conf
         - name: gluetun
-          image: qmcgaw/gluetun:v3.39.1
+          image: qmcgaw/gluetun:v3.40
           restartPolicy: Always
           lifecycle:
             postStart:
