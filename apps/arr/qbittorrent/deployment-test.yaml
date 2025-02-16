@@ -101,6 +101,8 @@ spec:
               value: 10.2.0.2/32
             - name: WIREGUARD_MTU
               value: '1320'
+            - name: HEALTH_VPN_DURATION_INITIAL
+              value: "30"
           envFrom:
             - secretRef:
                 name: wireguard-secret
