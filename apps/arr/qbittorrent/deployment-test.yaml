@@ -31,7 +31,8 @@ spec:
               apt-get update && \
               apt-get install -y nano zsh transmission transmission-daemon && \
               sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
-              transmission-daemon --foreground --log-debug -a '*' --auth --username user --password pass
+              tail -f /dev/null
+#              transmission-daemon --foreground --log-debug -a '*' --auth --username user --password pass
       initContainers:
         - name: gluetun-updater
           image: qmcgaw/gluetun:v3.40.0
