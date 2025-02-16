@@ -113,8 +113,8 @@ spec:
             - name: DNS_ADDRESS
               value: 127.0.0.2
             ######################### ??? ########################
-            - name: WIREGUARD_MTU
-              value: '1320'
+#            - name: WIREGUARD_MTU
+#              value: '1320'
             - name: HEALTH_VPN_DURATION_INITIAL
               value: "300s"
           envFrom:
