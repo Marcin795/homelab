@@ -171,7 +171,7 @@ metadata:
     app: vpn-test
 spec:
   ports:
-    - port: 9091
+    - port: 8080
       targetPort: qbittorrent-web
       name: transmission
   selector:
