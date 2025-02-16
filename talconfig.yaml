@@ -50,6 +50,9 @@ nodes:
     patches:
       - |-
         machine:
+          sysctls:
+            net.core.rmem_max: "8388608"
+            net.core.wmem_max: "8388608"
           kubelet:
             extraConfig:
               serverTLSBootstrap: true            
