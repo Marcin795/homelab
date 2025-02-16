@@ -98,8 +98,8 @@ spec:
               value: 138.199.34.193
             - name: WIREGUARD_ADDRESSES
               value: 10.2.0.2/32
-#            - name: WIREGUARD_MTU
-#              value: '1420'
+            - name: WIREGUARD_MTU
+              value: '1320'
           envFrom:
             - secretRef:
                 name: wireguard-secret
