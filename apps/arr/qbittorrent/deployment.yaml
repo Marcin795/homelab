@@ -94,7 +94,7 @@ spec:
             - name: WIREGUARD_ADDRESSES
               value: 10.2.0.2/32
             - name: WIREGUARD_ENDPOINT_IP
-              value: 146.70.161.162
+              value: 146.70.161.178
             ##################### FORWARDING #####################
             - name: PORT_FORWARD_ONLY
               value: 'on'
