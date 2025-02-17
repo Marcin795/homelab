@@ -8,3 +8,4 @@ resources:
   - home-assistant
   - mosquitto
   - storage/scratch.yaml
+  - nextcloud

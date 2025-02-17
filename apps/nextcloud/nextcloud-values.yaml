@@ -1,0 +1,38 @@
+ingress:
+  enabled: true
+  className: traefik
+  annotations:
+    external-dns.alpha.kubernetes.io/target: 192.168.8.222
+    traefik.ingress.kubernetes.io/router.entrypoints: local
+  tls:
+    - secretName: local-tls
+      hosts:
+        - nextcloud.local.boomerok.dev
+
+nextcloud:
+  host: nextcloud.local.boomerok.dev
+
+internalDatabase:
+  enabled: false
+
+externalDatabase:
+  enabled: true
+  type: postgresql
+  host: postgres-service.postgres.svc.cluster.local
+  existingSecret:
+    enabled: true
+    secretName: nextcloud-secrets
+
+persistence:
+  enabled: true
+  storageClass: manual
+  existingClaim: nextcloud-config
+  size: 8Gi
+  nextcloudData:
+    enabled: true
+    storageClass: manual
+    existingClaim: nextcloud-data
+    size: 500Gi
+
+metrics:
+  enabled: true

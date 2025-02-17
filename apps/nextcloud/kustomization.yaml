@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+  - repository.yaml
+  - release.yaml
+  - pvc.yaml
+  - pv.yaml
+secretGenerator:
+  - name: nextcloud-secrets
+    namespace: nextcloud
+    envs:
+      - postgres-credentials.env
+    options:
+      disableNameSuffixHash: true
+configMapGenerator:
+  - name: nextcloud-values
+    namespace: nextcloud
+    files:
+      - values.yaml=nextcloud-values.yaml
+configurations:
+  - kustomizeconfig.yaml
