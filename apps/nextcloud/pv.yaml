@@ -31,5 +31,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/mnt/data/persistence/nextcloud
+    path: /var/data/persistence/nextcloud
     type: DirectoryOrCreate

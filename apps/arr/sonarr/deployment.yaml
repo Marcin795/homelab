@@ -36,7 +36,7 @@ spec:
       volumes:
         - name: config
           hostPath:
-            path: /var/mnt/data/persistence/arr/sonarr
+            path: /var/data/persistence/arr/sonarr
             type: DirectoryOrCreate
         - name: media
           hostPath:

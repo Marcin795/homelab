@@ -15,7 +15,7 @@ global:
   volumes:
     - name: media
       hostPath:
-        path: /var/mnt/data/persistence/authentik
+        path: /var/data/persistence/authentik
         type: DirectoryOrCreate
 
 authentik:

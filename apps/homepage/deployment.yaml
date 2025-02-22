@@ -69,4 +69,4 @@ spec:
           emptyDir: {}
         - name: zfs-pool
           hostPath:
-            path: /var/mnt/data
+            path: /var/data

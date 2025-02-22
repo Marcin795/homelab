@@ -55,9 +55,9 @@ nodes:
             extraArgs:
               rotate-server-certificates: true
             extraMounts:
-              - destination: /var/mnt/data
+              - destination: /var/data
                 type: bind
-                source: /var/mnt/data
+                source: /var/data
                 options:
                   - bind
                   - rshared

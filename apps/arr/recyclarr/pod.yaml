@@ -22,7 +22,7 @@ spec:
   volumes:
     - name: config
       hostPath:
-        path: /var/mnt/data/persistence/arr/recyclarr
+        path: /var/data/persistence/arr/recyclarr
         type: DirectoryOrCreate
     - name: radarr-config
       configMap:

@@ -13,5 +13,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/mnt/data/persistence/home-assistant/config
+    path: /var/data/persistence/home-assistant/config
     type: DirectoryOrCreate

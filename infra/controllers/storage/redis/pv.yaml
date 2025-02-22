@@ -12,5 +12,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/mnt/data/persistence/redis
+    path: /var/data/persistence/redis
     type: DirectoryOrCreate

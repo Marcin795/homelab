@@ -53,11 +53,11 @@ spec:
       volumes:
         - name: config
           hostPath:
-            path: /var/mnt/data/persistence/arr/radarr
+            path: /var/data/persistence/arr/radarr
             type: DirectoryOrCreate
         - name: config-4k
           hostPath:
-            path: /var/mnt/data/persistence/arr/radarr-4k
+            path: /var/data/persistence/arr/radarr-4k
             type: DirectoryOrCreate
         - name: media
           hostPath:

@@ -154,7 +154,7 @@ spec:
             name: dnsdist
         - name: config
           hostPath:
-            path: /var/mnt/data/persistence/arr/qbittorrent/config-test
+            path: /var/data/persistence/arr/qbittorrent/config-test
             type: DirectoryOrCreate
         - name: downloads
           hostPath:

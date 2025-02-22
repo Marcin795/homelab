@@ -132,7 +132,7 @@ spec:
       volumes:
         - name: config
           hostPath:
-            path: /var/mnt/data/persistence/arr/qbittorrent/config
+            path: /var/data/persistence/arr/qbittorrent/config
             type: DirectoryOrCreate
         - name: downloads
           hostPath:
@@ -140,7 +140,7 @@ spec:
             type: DirectoryOrCreate
         - name: vuetorrent
           hostPath:
-            path: /var/mnt/data/persistence/arr/qbittorrent/vuetorrent
+            path: /var/data/persistence/arr/qbittorrent/vuetorrent
             type: DirectoryOrCreate
         - name: gluetun-servers
           emptyDir: { }

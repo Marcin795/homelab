@@ -36,5 +36,5 @@ spec:
       volumes:
         - name: postgres
           hostPath:
-            path: /var/mnt/data/persistence/postgres
+            path: /var/data/persistence/postgres
             type: DirectoryOrCreate

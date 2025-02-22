@@ -34,4 +34,4 @@ spec:
 #            claimName: prometheus-kube-prometheus-stack-prometheus-db-prometheus-kube-prometheus-stack-prometheus-0
         - name: zfs
           hostPath:
-            path: /var/mnt/data
+            path: /var/data

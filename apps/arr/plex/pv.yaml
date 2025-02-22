@@ -13,5 +13,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/mnt/data/persistence/arr/plex
+    path: /var/data/persistence/arr/plex
     type: DirectoryOrCreate

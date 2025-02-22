@@ -53,5 +53,5 @@ spec:
             secretName: geoip-secrets
         - name: downloads
           hostPath:
-            path: /var/mnt/data/persistence/observability/geoip
+            path: /var/data/persistence/observability/geoip
             type: DirectoryOrCreate

@@ -34,5 +34,5 @@ spec:
       volumes:
         - name: config
           hostPath:
-            path: /var/mnt/data/persistence/arr/prowlarr
+            path: /var/data/persistence/arr/prowlarr
             type: DirectoryOrCreate

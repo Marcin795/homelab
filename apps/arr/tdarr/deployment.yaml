@@ -52,11 +52,11 @@ spec:
       volumes:
         - name: config
           hostPath:
-            path: /var/mnt/data/persistence/arr/tdarr/config
+            path: /var/data/persistence/arr/tdarr/config
             type: DirectoryOrCreate
         - name: server
           hostPath:
-            path: /var/mnt/data/persistence/arr/tdarr/server
+            path: /var/data/persistence/arr/tdarr/server
             type: DirectoryOrCreate
         - name: media
           hostPath:
