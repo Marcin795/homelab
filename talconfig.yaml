@@ -43,10 +43,6 @@ nodes:
     nameservers:
       - 1.1.1.1
       - 8.8.8.8
-    machineDisks:
-      - device: /dev/disk/by-id/ata-CT2000MX500SSD1_2405E895C800
-        partitions:
-          - mountpoint: /var/disk/a
     patches:
       - |-
         machine:
@@ -76,13 +72,6 @@ nodes:
               - destination: /var/openebs/local
                 type: bind
                 source: /var/openebs/local
-                options:
-                  - bind
-                  - rshared
-                  - rw
-              - destination: /var/disk/a
-                type: bind
-                source: /var/disk/a
                 options:
                   - bind
                   - rshared
