@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingest-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingest-ui
+  template:
+    metadata:
+      labels:
+        app: ingest-ui
+    spec:
+      containers:
+        - name: python-container
+          image: python:3.10-slim
+          workingDir: /scripts
+          volumeMounts:
+            - mountPath: /scripts
+              subPath: ui.py
+              name: python-scripts
+          command: ["python", "ui.py"]
+      volumes:
+        - name: python-scripts
+          hostPath:
+            path: /var/data/persistence/python-scripts
+            type: Directory
