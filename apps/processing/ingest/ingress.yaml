@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingest-ui
+  namespace: processing
+  annotations:
+    external-dns.alpha.kubernetes.io/target: 192.168.8.222
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: ingest.boomerok.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ingest-service
+                port:
+                  name: ingest-ui
+  tls:
+    - secretName: ingest-ui-tls
+      hosts:
+        - ingest.boomerok.dev
