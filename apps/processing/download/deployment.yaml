@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: downloader
+  namespace: processing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: downloader
+  template:
+    metadata:
+      labels:
+        app: downloader
+    spec:
+      containers:
+        - name: downloader
+          image: ghcr.io/marcin795/download:latest
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /videos
+              name: videos
+      volumes:
+        - name: videos
+          hostPath:
+            path: /var/storage/processing/videos
+            type: DirectoryOrCreate
