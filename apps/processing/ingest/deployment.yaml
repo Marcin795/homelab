@@ -16,12 +16,11 @@ spec:
       containers:
         - name: python-container
           image: python:3.10-slim
-          workingDir: /scripts
           volumeMounts:
             - mountPath: /scripts
-              subPath: ui.py
+#              subPath: ui.py
               name: python-scripts
-          command: ["python", "ui.py"]
+          command: ["python", "/scripts/ui.py"]
       volumes:
         - name: python-scripts
           hostPath:
