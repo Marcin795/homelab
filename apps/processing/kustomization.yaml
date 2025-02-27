@@ -5,3 +5,10 @@ resources:
   - rabbit
   - ingest
   - download
+secretGenerator:
+  - name: rabbit-secret
+    namespace: processing
+    envs:
+      - rabbit.env
+    options:
+      disableNameSuffixHash: true

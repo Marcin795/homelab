@@ -19,3 +19,6 @@ spec:
         - name: ingest-ui
           image: ghcr.io/marcin795/ingest:latest
           imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: rabbit-secret

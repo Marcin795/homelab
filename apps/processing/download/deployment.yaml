@@ -19,6 +19,9 @@ spec:
         - name: downloader
           image: ghcr.io/marcin795/download:latest
           imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: rabbit-secret
           volumeMounts:
             - mountPath: /videos
               name: videos
