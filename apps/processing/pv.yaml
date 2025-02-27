@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: rabbit-data
+  namespace: processing
+  labels:
+    app.kubernetes.io/name: rabbit
+    app: rabbit
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /var/data/persistence/rabbit
+    type: DirectoryOrCreate
