@@ -2,8 +2,8 @@ auth:
   existingPasswordSecret: rabbit-secret
   updatePassword: true
 
-image:
-  debug: true
+#image:
+#  debug: true
 
 persistence:
   storageClass: "-"
