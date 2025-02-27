@@ -21,7 +21,7 @@ spec:
           imagePullPolicy: Always
           envFrom:
             - secretRef:
-                name: rabbit-secret
+                name: rabbit-credentials
           volumeMounts:
             - mountPath: /videos
               name: videos

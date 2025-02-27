@@ -21,4 +21,4 @@ spec:
           imagePullPolicy: Always
           envFrom:
             - secretRef:
-                name: rabbit-secret
+                name: rabbit-credentials

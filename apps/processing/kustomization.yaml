@@ -6,7 +6,7 @@ resources:
   - ingest
   - download
 secretGenerator:
-  - name: rabbit-secret
+  - name: rabbit-credentials
     namespace: processing
     envs:
       - rabbit.env
