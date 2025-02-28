@@ -17,7 +17,7 @@ spec:
         - name: ghcr-secret
       containers:
         - name: downloader
-          image: ghcr.io/marcin795/download:latest
+          image: ghcr.io/marcin795/processing-download:latest
           imagePullPolicy: Always
           envFrom:
             - secretRef:
