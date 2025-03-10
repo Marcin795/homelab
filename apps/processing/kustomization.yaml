@@ -5,10 +5,17 @@ resources:
   - rabbit
   - ingest
   - download
+  - database
 secretGenerator:
   - name: rabbit-credentials
     namespace: processing
     envs:
       - rabbit.env
+    options:
+      disableNameSuffixHash: true
+  - name: postgres-credentials
+    namespace: processing
+    envs:
+      - postgres.env
     options:
       disableNameSuffixHash: true

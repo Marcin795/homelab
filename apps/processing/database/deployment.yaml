@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+  namespace: processing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: database
+          image: ghcr.io/marcin795/processing-database:latest
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: rabbit-credentials
+            - secretRef:
+                name: postgres-credentials
