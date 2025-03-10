@@ -1,7 +1,7 @@
 apiVersion: "cilium.io/v2alpha1"
 kind: CiliumLoadBalancerIPPool
 metadata:
-  name: "internal-pool"
+  name: "tailscale-pool"
 spec:
   blocks:
     - start: "100.104.23.110"
