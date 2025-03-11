@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ingest-service
+  name: frontend-service
   namespace: processing
   labels:
-    app.kubernetes.io/name: ingest-ui
-    app: ingest-ui
+    app.kubernetes.io/name: frontend
+    app: frontend
 spec:
   ports:
     - port: 8000
-      targetPort: ingest-ui
-      name: ingest-ui
+      targetPort: frontend
+      name: frontend
   selector:
-    app.kubernetes.io/name: ingest-ui
-    app: ingest-ui
+    app.kubernetes.io/name: frontend
+    app: frontend

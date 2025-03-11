@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingest-ui
+  name: frontend
   namespace: processing
   annotations:
     external-dns.alpha.kubernetes.io/target: 192.168.8.222
@@ -9,17 +9,17 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: ingest.boomerok.dev
+    - host: processing-frontend.boomerok.dev
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: ingest-service
+                name: frontend-service
                 port:
-                  name: ingest-ui
+                  name: frontend
   tls:
-    - secretName: ingest-ui-tls
+    - secretName: frontend-tls
       hosts:
-        - ingest.boomerok.dev
+        - processing-frontend.boomerok.dev
