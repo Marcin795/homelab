@@ -38,8 +38,6 @@ ports:
         permanent: true
   websecure:
     asDefault: true
-    middlewares:
-      - traefik-authentik-middleware@kubernetescrd
     forwardedHeaders:
       trustedIPs:
         - 173.245.48.0/20
