@@ -23,10 +23,10 @@ spec:
             - secretRef:
                 name: rabbit-credentials
           volumeMounts:
-            - mountPath: /videos
-              name: videos
+            - mountPath: /data
+              name: data
       volumes:
-        - name: videos
+        - name: data
           hostPath:
-            path: /var/storage/processing/videos
+            path: /var/storage/processing/data
             type: DirectoryOrCreate
