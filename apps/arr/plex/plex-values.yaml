@@ -28,6 +28,7 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   port: 32400
-  annotations: {}
+  annotations:
+    io.cilium/lb-ipam-ips: 100.104.23.110
