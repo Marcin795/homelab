@@ -6,7 +6,7 @@ resources:
   - ingest
   - download
   - database
-  - audio_extractor
+  - audio-extractor
 secretGenerator:
   - name: rabbit-credentials
     namespace: processing
