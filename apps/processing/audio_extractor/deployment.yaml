@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: audio_extractor
+  namespace: processing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: audio_extractor
+  template:
+    metadata:
+      labels:
+        app: audio_extractor
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: audio_extractor
+          image: ghcr.io/marcin795/processing-audio_extractor:latest
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: rabbit-credentials
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      volumes:
+        - name: data
+          hostPath:
+            path: /var/storage/processing/data
+            type: DirectoryOrCreate
