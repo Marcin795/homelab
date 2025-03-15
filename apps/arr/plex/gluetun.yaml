@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gluetun
+  namespace: arr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: gluetun
+      app: gluetun
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: gluetun
+        app: gluetun
+    spec:
+      containers:
+        - name: gluetun
+          image: qmcgaw/gluetun:v3.40
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          env:
+            ######################## DEBUG #######################
+            - name: LOG_LEVEL
+              value: debug
+            - name: FIREWALL_DEBUG
+              value: 'on'
+            ##################### CONNECTION #####################
+            - name: VPN_TYPE
+              value: wireguard
+            - name: SERVER_COUNTRIES
+              value: Poland
+            - name: VPN_SERVICE_PROVIDER
+              value: protonvpn
+            - name: WIREGUARD_ADDRESSES
+              value: 10.2.0.2/32
+            - name: WIREGUARD_ENDPOINT_IP
+              value: 146.70.161.178
+            ##################### FORWARDING #####################
+            - name: PORT_FORWARD_ONLY
+              value: 'on'
+            - name: VPN_PORT_FORWARDING
+              value: 'on'
+            - name: VPN_PORT_FORWARDING_PROVIDER
+              value: protonvpn
+            ###################### FIREWALL ######################
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: 10.244.0.0/16,10.96.0.0/12
+            ######################### DNS ########################
+            - name: DOT
+              value: "off"
+#            - name: DNS_ADDRESS
+#              value: 127.0.0.2
+            ######################### ??? ########################
+            #            - name: WIREGUARD_MTU
+            #              value: '1320'
+            - name: HEALTH_VPN_DURATION_INITIAL
+              value: "300s"
+          envFrom:
+            - secretRef:
+                name: wireguard-secret
