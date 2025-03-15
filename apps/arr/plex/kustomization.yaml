@@ -5,8 +5,6 @@ resources:
   - pvc.yaml
   - repository.yaml
   - release.yaml
-  - gluetun.yaml
-  - wireguard.yaml
 configMapGenerator:
   - name: plex-values
     namespace: arr

@@ -14,7 +14,7 @@ spec:
         - -c
         - |
           apt-get update && \
-          apt-get install -y zfsutils-linux curl git zsh smartmontools screen && \
+          apt-get install -y zfsutils-linux curl git zsh smartmontools screen nano && \
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
           tail -f /dev/null
       volumeMounts:
