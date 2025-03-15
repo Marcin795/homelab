@@ -23,9 +23,22 @@ spec:
             capabilities:
               add:
                 - NET_ADMIN
-                - SYS_MODULE
           env:
             - name: PUID
               value: "1000"
             - name: PGID
               value: "1000"
+          volumeMounts:
+            - name: wireguard-config
+              mountPath: /config
+            - name: modules
+              mountPath: /lib/modules
+      volumes:
+        - name: wireguard-config
+          hostPath:
+            path: /var/data/persistence/wireguard/config
+            type: DirectoryOrCreate
+        - name: modules
+          hostPath:
+            path: /var/data/persistence/wireguard/modules
+            type: DirectoryOrCreate
