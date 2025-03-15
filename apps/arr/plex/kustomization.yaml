@@ -5,6 +5,7 @@ resources:
   - pvc.yaml
   - repository.yaml
   - release.yaml
+  - gluetun.yaml
 configMapGenerator:
   - name: plex-values
     namespace: arr
