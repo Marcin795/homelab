@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transcriber
+  namespace: processing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transcriber
+  template:
+    metadata:
+      labels:
+        app: transcriber
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: transcriber
+          image: ghcr.io/marcin795/processing-transcriber:latest
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: rabbit-credentials
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      volumes:
+        - name: data
+          hostPath:
+            path: /var/storage/processing/data
+            type: DirectoryOrCreate
