@@ -21,3 +21,9 @@ secretGenerator:
       - postgres.env
     options:
       disableNameSuffixHash: true
+  - name: huggingface-token
+    namespace: processing
+    envs:
+      - huggingface.env
+    options:
+      disableNameSuffixHash: true
