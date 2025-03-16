@@ -8,6 +8,7 @@ resources:
   - database
   - audio-extractor
   - transcriber
+  - diarizer
 secretGenerator:
   - name: rabbit-credentials
     namespace: processing
