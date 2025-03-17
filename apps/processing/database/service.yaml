@@ -4,7 +4,6 @@ metadata:
   name: database-service
   namespace: processing
   labels:
-    app.kubernetes.io/name: database
     app: database
 spec:
   ports:
@@ -12,5 +11,4 @@ spec:
       targetPort: database
       name: database
   selector:
-    app.kubernetes.io/name: database
     app: database
