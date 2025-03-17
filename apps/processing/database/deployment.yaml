@@ -18,6 +18,9 @@ spec:
       containers:
         - name: database
           image: ghcr.io/marcin795/processing-database:latest
+          ports:
+            - containerPort: 8000
+              name: database
           imagePullPolicy: Always
           envFrom:
             - secretRef:

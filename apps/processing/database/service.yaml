@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: database-service
+  namespace: processing
+  labels:
+    app.kubernetes.io/name: database
+    app: database
+spec:
+  ports:
+    - port: 8000
+      targetPort: database
+      name: database
+  selector:
+    app.kubernetes.io/name: database
+    app: database
