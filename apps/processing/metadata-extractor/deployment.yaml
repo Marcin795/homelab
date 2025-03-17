@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metadata-extractor
+  namespace: processing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: metadata-extractor
+  template:
+    metadata:
+      labels:
+        app: metadata-extractor
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: metadata-extractor
+          image: ghcr.io/marcin795/processing-metadata_extractor:latest
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: rabbit-credentials
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      volumes:
+        - name: data
+          hostPath:
+            path: /var/storage/processing/data
+            type: DirectoryOrCreate
