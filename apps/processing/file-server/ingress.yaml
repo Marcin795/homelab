@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: file-server
+  namespace: processing
+  annotations:
+    external-dns.alpha.kubernetes.io/target: 192.168.8.222
+    traefik.ingress.kubernetes.io/router.entrypoints: local
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: file-server.local.boomerok.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: file-server-service
+                port:
+                  name: file-server
+  tls:
+    - secretName: local-tls
+      hosts:
+        - processing-file-server.local.boomerok.dev

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: file-server
+  namespace: processing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: file-server
+      app: file-server
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: file-server
+        app: file-server
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: file-server
+          image: ghcr.io/marcin795/processing-file_server:latest
+          ports:
+            - containerPort: 8000
+              name: file-server
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: huggingface-token
