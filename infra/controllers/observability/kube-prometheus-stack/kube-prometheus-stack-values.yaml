@@ -8,6 +8,7 @@ alertmanager:
             requests:
               storage: 1Gi
           volumeName: alertmanager-pv
+          storageClassName: manual
           volumeMode: Filesystem
           selector:
             matchLabels:
