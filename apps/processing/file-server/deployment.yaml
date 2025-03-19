@@ -27,3 +27,11 @@ spec:
           envFrom:
             - secretRef:
                 name: huggingface-token
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      volumes:
+        - name: data
+          hostPath:
+            path: /var/storage/processing/data
+            type: DirectoryOrCreate
