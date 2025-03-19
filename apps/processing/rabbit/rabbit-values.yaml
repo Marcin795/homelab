@@ -22,9 +22,9 @@ ingress:
   ingressClassName: traefik
 
 service:
-  headless:
-    annotations:
-      io.cilium/lb-ipam-ips: 192.168.8.233
+  type: LoadBalancer
+  annotations:
+    io.cilium/lb-ipam-ips: 192.168.8.233
 
 metrics:
   enabled: false
