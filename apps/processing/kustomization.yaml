@@ -6,7 +6,7 @@ resources:
   - ingest
   - download
   - database
-  - transcriber
+#  - transcriber
   - metadata-extractor
   - file-server
 secretGenerator:
