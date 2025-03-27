@@ -15,6 +15,7 @@ spec:
         app.kubernetes.io/name: home-assistant
         app: home-assistant
     spec:
+      hostNetwork: true
       containers:
         - name: home-assistant
           image: ghcr.io/home-assistant/home-assistant:stable
