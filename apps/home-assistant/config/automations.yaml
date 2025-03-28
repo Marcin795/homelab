@@ -1,5 +1,5 @@
 - id: '1743092048082'
-  alias: New automation
+  alias: Salon lighting
   description: ''
   triggers:
     - domain: tasmota
@@ -62,10 +62,3 @@
         entity_id: input_select.salon_scene_state
         option: off
       action: input_select.select_option
-- id: '1743121502322'
-  alias: New automation
-  description: ''
-  triggers: []
-  conditions: []
-  actions: []
-  mode: single
