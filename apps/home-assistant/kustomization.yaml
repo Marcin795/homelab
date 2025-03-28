@@ -12,3 +12,7 @@ configMapGenerator:
     namespace: home-assistant
     files:
       - configuration.yaml=config/configuration.yaml
+  - name: automations-yaml
+    namespace: home-assistant
+    files:
+      - automations.yaml=config/automations.yaml

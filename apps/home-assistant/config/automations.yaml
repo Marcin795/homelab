@@ -1,0 +1,71 @@
+- id: '1743092048082'
+  alias: New automation
+  description: ''
+  triggers:
+    - domain: tasmota
+      device_id: e5d5a16f74f32fd470272bbf4a7066d5
+      type: button_short_press
+      subtype: switch_1
+      discovery_id: 80646F912409_switch_1_TOGGLE
+      trigger: device
+  conditions: []
+  actions:
+    - action: light.toggle
+      metadata: {}
+      data: {}
+      target:
+        area_id: living_room
+  mode: single
+- id: '1743121464100'
+  alias: Track Salon White Scene
+  description: ''
+  triggers:
+    - event_type: call_service
+      event_data:
+        domain: scene
+        service: turn_on
+        service_data:
+          entity_id: scene.salon_white_light
+      trigger: event
+  actions:
+    - data:
+        entity_id: input_select.salon_scene_state
+        option: white
+      action: input_select.select_option
+- alias: Track Salon Pink Scene
+  description: ''
+  triggers:
+    - event_type: call_service
+      event_data:
+        domain: scene
+        service: turn_on
+        service_data:
+          entity_id: scene.salon_pink_light
+      trigger: event
+  actions:
+    - data:
+        entity_id: input_select.salon_scene_state
+        option: pink
+      action: input_select.select_option
+- alias: Track Salon Off Scene
+  description: ''
+  triggers:
+    - event_type: call_service
+      event_data:
+        domain: scene
+        service: turn_on
+        service_data:
+          entity_id: scene.salon_light_off
+      trigger: event
+  actions:
+    - data:
+        entity_id: input_select.salon_scene_state
+        option: off
+      action: input_select.select_option
+- id: '1743121502322'
+  alias: New automation
+  description: ''
+  triggers: []
+  conditions: []
+  actions: []
+  mode: single
