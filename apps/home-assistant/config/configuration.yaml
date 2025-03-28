@@ -21,3 +21,15 @@ input_select:
       - "white"
       - "pink"
     initial: "off"
+
+template:
+  - binary_sensor:
+      - name: "Salon White Active"
+        state: >
+          {{ is_state('input_select.salon_scene_state', 'white') }}
+        icon: mdi:lightbulb-on
+
+      - name: "Salon Pink Active"
+        state: >
+          {{ is_state('input_select.salon_scene_state', 'pink') }}
+        icon: mdi:lightbulb-on-outline
