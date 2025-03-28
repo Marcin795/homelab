@@ -28,6 +28,9 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
+            - mountPath: /config/configuration.yaml
+              subPath: configuration.yaml
+              name: configuration.yaml
           securityContext:
             privileged: true
             capabilities:
@@ -39,3 +42,6 @@ spec:
         - name: config
           persistentVolumeClaim:
             claimName: home-assistant-config
+        - name: configuration.yaml
+          configMap:
+            name: configuration.yaml
