@@ -9,6 +9,8 @@ spec:
       app.kubernetes.io/name: home-assistant
       app: home-assistant
   replicas: 1
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
