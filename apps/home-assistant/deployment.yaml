@@ -33,9 +33,9 @@ spec:
             - mountPath: /config/configuration.yaml
               subPath: configuration.yaml
               name: configuration-yaml
-            - mountPath: /config/automations.yaml
-              subPath: automations.yaml
-              name: automations-yaml
+#            - mountPath: /config/automations.yaml
+#              subPath: automations.yaml
+#              name: automations-yaml
           securityContext:
             privileged: true
             capabilities:
