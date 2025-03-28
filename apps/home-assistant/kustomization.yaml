@@ -8,7 +8,7 @@ resources:
   - pv.yaml
   - pvc.yaml
 configMapGenerator:
-  - name: configuration.yaml
+  - name: configuration-yaml
     namespace: home-assistant
     files:
       - configuration.yaml=config/configuration.yaml
