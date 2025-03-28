@@ -42,6 +42,6 @@ spec:
         - name: config
           persistentVolumeClaim:
             claimName: home-assistant-config
-        - name: configuration.yaml
+        - name: configuration-yaml
           configMap:
             name: configuration-yaml
