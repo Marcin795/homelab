@@ -2,7 +2,7 @@
 image:
     tag: 3.4.7
 persistence:
-    storageClass: manual
+    storageClass: ""
 app:
     leanSessionSecure: "false"
     defaultTimezone: Europe/Warsaw
@@ -42,8 +42,8 @@ sops:
             eHhud1R0RkEvSFZmSlFZUmQvd1pXK1UK/A7pqvjTjD4w6VOE3IfFszCy7RWHwoPd
             6KY+ava3yr+9+u9dKdnAjGbqQnfjNcBfUl2zYe5wcbJ0zfCbUvLotg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-03-29T22:05:36Z"
-    mac: ENC[AES256_GCM,data:hQ9X85dicZSkHYhiVZtvGoIt5i9z4vDD2/rv6WRBBjyNKIU4yhUbHFBi9a+gSRX5dOmmknvdYzavLExD7Cdq37HfxVoHALd4Qzw0YvRfomeMOVHuaNZnxmRQU0pd6m7DSdqNDSWk5uCVV3GweuQUYvSxxUXxUZ0REMd0h3eJh68=,iv:NjuOHDlh0DiGbIgS8lfAiG+8Oy29I8FvQSp81+mzjYE=,tag:K0jV0pzKtNqwllD8XBb97g==,type:str]
+    lastmodified: "2025-03-29T23:45:08Z"
+    mac: ENC[AES256_GCM,data:0DZwlDCG++UoYmieh6B+n1C8DvHcI5PgpwvSLDU+O8C3xYzaBpHeVoFUOGaag8XOX7YcMHYQ1Rrm+u8unb9+pIyz15kSxDsUZQKIf+68HwddW1y343MFeLdsw6Lpj0IC/jR0aM3vCc+H47hUKWiPWpnF7QB+7WVFCnd0pP/dTqg=,iv:mSnPoXh+/UfT0oAHOPRgTfSzKjhRPu578wD4azENGOs=,tag:dBgL4Ekhnrr4Kq97wiAseQ==,type:str]
     pgp: []
     encrypted_regex: (^(id|crt|key|screen_id)$|token|secret|[Pp]assword|api[-_.]?key)
     version: 3.9.4
