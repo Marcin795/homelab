@@ -12,10 +12,9 @@ mariadb:
     auth:
         rootPassword: ENC[AES256_GCM,data:uC5sWRKhWqT23fQSFt7KxdNVxJho,iv:/g/NgEKolrxNdlwq8CsuTyswpSn9i8sgGhoK6FZvDPk=,tag:Ppj5Zp3VQ4ecTAVKHbRprA==,type:str]
         password: ENC[AES256_GCM,data:yVNsLuncfR75pdhtTsWOcPEJU/4o,iv:HL7EBMX1f1ADyiGXC10+ozxcHRicNxCYbonIsaWjUGQ=,tag:7De/a/iUvU74M6QhAn7ijw==,type:str]
-    global:
-        defaultStorageClass: manual
     primary:
         persistence:
+            storageClass: manual
             selector:
                 matchLabels:
                     app.kubernetes.io/name: leantime
@@ -51,8 +50,8 @@ sops:
             eHhud1R0RkEvSFZmSlFZUmQvd1pXK1UK/A7pqvjTjD4w6VOE3IfFszCy7RWHwoPd
             6KY+ava3yr+9+u9dKdnAjGbqQnfjNcBfUl2zYe5wcbJ0zfCbUvLotg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-03-29T21:43:14Z"
-    mac: ENC[AES256_GCM,data:qL1CyqFxqZRt3+RDdr0oaGYUfOiVqkCMYdmj2Sw+LgsJoBQLJchC5h8sNDXjSc6n6/iuYHdhWOyb0Bz3Nni26Ox2PNg8eaOSfOrGkCvLVG3JblCl6YxtSmcVnNAz823Gm4KHeiXkIlKsApfhm6+mGz/oGpNodgpBtg0TGQYyLsM=,iv:7SxQloAiaW1CLtTFEYRfAgbRWHkHKaOV5PZR3VNXDOk=,tag:Ft5WZxi8VjabC2yrfHrs2w==,type:str]
+    lastmodified: "2025-03-29T22:02:49Z"
+    mac: ENC[AES256_GCM,data:zYdtLbj8Sn0rhL6o7DYbxn8vDpoIBmrMgyPfmqjinWWFyiVwjxU/0RzQ3OdxXHt9XkukusUM5hUncaSfpC3ilVGNdHzedLrG+YR3+Zju4FZqZewYY779Yrh2pARcCsqpWTkGkY2UFTceSxQ5zQNZ2S7qbdaKQBE1KexmNxaqH6c=,iv:oqjrxt++9YvNDZR/8Aor/aBvYZdWkkxRqitfILawYwk=,tag:DT1iav8Y91XbbCGV5h6Qbg==,type:str]
     pgp: []
     encrypted_regex: (^(id|crt|key|screen_id)$|token|secret|[Pp]assword|api[-_.]?key)
     version: 3.9.4
