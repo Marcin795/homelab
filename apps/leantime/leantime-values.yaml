@@ -2,6 +2,9 @@
 image:
   tag: "3.4.7"
 
+persistence:
+  storageClass: "manual"
+
 app:
   leanSessionSecure: "false"
   defaultTimezone: "Europe/Warsaw"
