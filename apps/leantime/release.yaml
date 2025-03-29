@@ -7,10 +7,9 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: leantime
-      version: 0.1.0
+      chart: ./helm
       sourceRef:
-        kind: HelmRepository
+        kind: GitRepository
         name: leantime
         namespace: leantime
   install:
