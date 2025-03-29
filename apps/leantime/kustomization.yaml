@@ -4,6 +4,7 @@ resources:
   - namespace.yaml
   - repository.yaml
   - release.yaml
+  - pv.yaml
 #secretGenerator:
 #  - name: leantime-secrets
 #    namespace: leantime
