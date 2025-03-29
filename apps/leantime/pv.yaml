@@ -1,11 +1,13 @@
+#file: noinspection SpellCheckingInspection
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: leantime-config
+  name: leantime-publicuserfiles
   namespace: leantime
   labels:
     app.kubernetes.io/name: leantime
     app: leantime
+    sub: publicuserfiles
 spec:
   storageClassName: manual
   capacity:
@@ -13,5 +15,52 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /var/data/persistence/leantime/config
+    path: /var/data/persistence/leantime/publicuserfiles
     type: DirectoryOrCreate
+  claimRef:
+    namespace: leantime
+    name: leantime-publicuserfiles
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: leantime-userfiles
+  namespace: leantime
+  labels:
+    app.kubernetes.io/name: leantime
+    app: leantime
+    sub: userfiles
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /var/data/persistence/leantime/userfiles
+    type: DirectoryOrCreate
+  claimRef:
+    namespace: leantime
+    name: leantime-userfiles
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: data-leantime-mariadb-0
+  namespace: leantime
+  labels:
+    app.kubernetes.io/name: leantime
+    app: leantime
+    sub: maria
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /var/data/persistence/leantime/mariadb
+    type: DirectoryOrCreate
+  claimRef:
+    namespace: leantime
+    name: data-leantime-mariadb-0
