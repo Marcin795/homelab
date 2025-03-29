@@ -53,7 +53,7 @@ metadata:
     app: leantime
     sub: maria
 spec:
-  storageClassName: manual
+  storageClassName: "-"
   capacity:
     storage: 8Gi
   accessModes:
