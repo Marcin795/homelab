@@ -1,0 +1,17 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: leantime-config
+  namespace: leantime
+  labels:
+    app.kubernetes.io/name: leantime
+    app: leantime
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /var/data/persistence/leantime/config
+    type: DirectoryOrCreate

@@ -1,0 +1,30 @@
+#file: noinspection SpellCheckingInspection
+image:
+  tag: "3.4.7"
+
+app:
+  leanSessionSecure: "false"
+  defaultTimezone: "Europe/Warsaw"
+  session:
+    password: "3bdbhem7xxs4nqk79m6g"
+
+mariadb:
+  auth:
+    rootPassword: "dhct8cjb4ftv9n9899dv"
+    password: "h1dzs3y82w6bnfezrzhr"
+
+ingress:
+  enabled: true
+  className: traefik
+  annotations:
+    external-dns.alpha.kubernetes.io/target: 192.168.8.222
+    traefik.ingress.kubernetes.io/router.entrypoints: local
+  hosts:
+    - host: leantime.local.boomerok.dev
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: local-tls
+      hosts:
+        - leantime.local.boomerok.dev
