@@ -30,9 +30,9 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
-            - mountPath: /config/configuration.yaml
-              subPath: configuration.yaml
-              name: configuration-yaml
+#            - mountPath: /config/configuration.yaml
+#              subPath: configuration.yaml
+#              name: configuration-yaml
 #            - mountPath: /config/automations.yaml
 #              subPath: automations.yaml
 #              name: automations-yaml
