@@ -10,8 +10,7 @@ app:
         password: ENC[AES256_GCM,data:6N7SvfrZHUB03WM1Sm9hf0clCUiP,iv:4cPHLwnDZ2CA5FlrnpPobFkym+4izjjL4qFigj9RIBo=,tag:vL6Jk0OrlmGOw2UEMC9uYw==,type:str]
 mariadb:
     auth:
-        rootPassword: ENC[AES256_GCM,data:uC5sWRKhWqT23fQSFt7KxdNVxJho,iv:/g/NgEKolrxNdlwq8CsuTyswpSn9i8sgGhoK6FZvDPk=,tag:Ppj5Zp3VQ4ecTAVKHbRprA==,type:str]
-        password: ENC[AES256_GCM,data:yVNsLuncfR75pdhtTsWOcPEJU/4o,iv:HL7EBMX1f1ADyiGXC10+ozxcHRicNxCYbonIsaWjUGQ=,tag:7De/a/iUvU74M6QhAn7ijw==,type:str]
+        existingSecret: leantime-secrets
 ingress:
     enabled: true
     className: traefik
@@ -42,8 +41,8 @@ sops:
             eHhud1R0RkEvSFZmSlFZUmQvd1pXK1UK/A7pqvjTjD4w6VOE3IfFszCy7RWHwoPd
             6KY+ava3yr+9+u9dKdnAjGbqQnfjNcBfUl2zYe5wcbJ0zfCbUvLotg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-03-29T23:45:08Z"
-    mac: ENC[AES256_GCM,data:0DZwlDCG++UoYmieh6B+n1C8DvHcI5PgpwvSLDU+O8C3xYzaBpHeVoFUOGaag8XOX7YcMHYQ1Rrm+u8unb9+pIyz15kSxDsUZQKIf+68HwddW1y343MFeLdsw6Lpj0IC/jR0aM3vCc+H47hUKWiPWpnF7QB+7WVFCnd0pP/dTqg=,iv:mSnPoXh+/UfT0oAHOPRgTfSzKjhRPu578wD4azENGOs=,tag:dBgL4Ekhnrr4Kq97wiAseQ==,type:str]
+    lastmodified: "2025-03-30T19:19:01Z"
+    mac: ENC[AES256_GCM,data:iP9EQsuxHqkMszyANjMOcGAGwU5H/bBYSfttfUxLUBu4y3ig62KtaNp2UoIl08HhrJIXPAe46xYO5l8mQesSBQeAsQvqx0lfBu9PamrsKRj1DE7SR3t6e6swFI5oZOelGR3/jiCPApFA1Ybd60Yz0h27AIloShWYcvWvkJGwwFM=,iv:E5HKgV90rhz1ZDZcdqgwqSSTwS+c3tUHC4yZ6/MlHck=,tag:8RKZ7jDEMemnScVzJrP8FA==,type:str]
     pgp: []
     encrypted_regex: (^(id|crt|key|screen_id)$|token|secret|[Pp]assword|api[-_.]?key)
     version: 3.9.4
