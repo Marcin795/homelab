@@ -5,6 +5,7 @@ resources:
   - repository.yaml
   - release.yaml
   - pv.yaml
+  - secret.yaml
 configMapGenerator:
   - name: leantime-values
     namespace: leantime
