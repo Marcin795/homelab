@@ -10,7 +10,8 @@ app:
     password: f3cm5szsqwre2c4raueqz
 mariadb:
   auth:
-    existingSecret: leantime-secrets
+    rootPassword: yjuy0dy9u75gfwwayjf87
+    password: y272a1u1hjz2n436rd5as
 ingress:
   enabled: true
   className: traefik
