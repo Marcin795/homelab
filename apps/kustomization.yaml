@@ -10,4 +10,4 @@ resources:
   - storage/scratch.yaml
   - nextcloud
   - processing
-#  - leantime
+  - leantime
